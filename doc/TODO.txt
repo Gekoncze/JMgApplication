@@ -1,0 +1,15 @@
+##### DONE ##### -------------------------------------------------------------------------------------------------------
+...
+
+##### NOW ##### --------------------------------------------------------------------------------------------------------
+must allow no implementation of an interface for abstract classes
+
+##### SOON ##### -------------------------------------------------------------------------------------------------------
+add commands
+add instructions
+make core work
+add storage
+    there are 2 options:
+    a) in local database
+    b) in local text file
+    how to handle resolution of modules?
