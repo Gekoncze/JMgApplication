@@ -1,29 +1,23 @@
 package cz.mg.application.services;
 
-import cz.mg.application.Test;
+import cz.mg.test.Test;
 import cz.mg.application.entities.statical.components.MgClass;
 import cz.mg.application.entities.statical.parts.MgInterface;
 import cz.mg.application.entities.statical.parts.MgProcedure;
 import cz.mg.application.services.runtime.MgClassTypeService;
 import cz.mg.collections.text.Text;
+import cz.mg.test.TestCase;
+import cz.mg.test.TestRunner;
 
 
-public class MgClassTypeServiceTest extends Test {
+@SuppressWarnings("unused")
+public class MgClassTypeServiceTest implements Test {
     public static void main(String[] args) {
-        beginTests();
-
-        runTest(() -> testResolveSimpleInterface());
-        runTest(() -> testResolveInheritanceInterface());
-        runTest(() -> testResolveComplexInheritanceInterface());
-        runTest(() -> testResolveMissingInterfaceProcedureError());
-        runTest(() -> testResolveMissingInterfaceProcedureAllowedForAbstract());
-
-        endTests();
+        TestRunner.run(new MgClassTypeServiceTest());
     }
 
-    private static void testResolveSimpleInterface(){
-        begin();
-
+    @TestCase(order = 1)
+    public void testResolveSimpleInterface(){
         MgClass clazz = new MgClass(new Text("TestClass"));
 
         MgInterface mgInterface = new MgInterface(new Text("interface"));
@@ -42,13 +36,10 @@ public class MgClassTypeServiceTest extends Test {
         MgClassTypeService.create(clazz);
         assertNotNull(clazz.getType());
         assertEquals(procedureTwo, clazz.getType().getProcedure(mgInterface));
-
-        end();
     }
 
-    private static void testResolveInheritanceInterface(){
-        begin();
-
+    @TestCase(order = 2)
+    public void testResolveInheritanceInterface(){
         MgClass baseClass = new MgClass(new Text("BaseClass"));
 
         MgInterface mgInterface = new MgInterface(new Text("interface"));
@@ -97,16 +88,13 @@ public class MgClassTypeServiceTest extends Test {
             procedureFive,
             procedureSix
         );
-
-        end();
     }
 
-    private static void testResolveComplexInheritanceInterface(){
-        begin();
-
+    @TestCase(order = 3)
+    public void testResolveComplexInheritanceInterface(){
         MgClass animalClass = new MgClass(new Text("AnimalClass"));
 
-        MgInterface mgInterface = new MgInterface(new Text("interface"));
+        MgInterface mgInterface = new MgInterface(new Text("animalInterface"));
         animalClass.getInterfaces().addLast(mgInterface);
 
         MgProcedure procedureOne = new MgProcedure(new Text("procedureOne"));
@@ -168,13 +156,10 @@ public class MgClassTypeServiceTest extends Test {
         assertEquals(procedureFour, catClass.getType().getProcedure(mgInterface));
         assertEquals(procedureNine, dogClass.getType().getProcedure(mgInterface));
         assertEquals(procedureTwelve, catDogClass.getType().getProcedure(mgInterface));
-
-        end();
     }
 
-    private static void testResolveMissingInterfaceProcedureError(){
-        begin();
-
+    @TestCase(order = 4)
+    public void testResolveMissingInterfaceProcedureError(){
         MgClass clazz = new MgClass(new Text("TestClass"));
 
         MgInterface mgInterface = new MgInterface(new Text("interface"));
@@ -188,15 +173,12 @@ public class MgClassTypeServiceTest extends Test {
         clazz.getProcedures().addLast(procedureTwo);
         clazz.getProcedures().addLast(procedureThree);
 
-        expectedError(() -> MgClassTypeService.create(clazz));
+        assertExceptionThrown(() -> MgClassTypeService.create(clazz));
         assertNull(clazz.getType());
-
-        end();
     }
 
-    private static void testResolveMissingInterfaceProcedureAllowedForAbstract(){
-        begin();
-
+    @TestCase(order = 5)
+    public void testResolveMissingInterfaceProcedureAllowedForAbstract(){
         MgClass clazz = new MgClass(new Text("TestClass"));
         clazz.getOptions().setAbstract(true);
 
@@ -213,7 +195,5 @@ public class MgClassTypeServiceTest extends Test {
 
         MgClassTypeService.create(clazz);
         assertNotNull(clazz.getType());
-
-        end();
     }
 }

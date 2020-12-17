@@ -1,4 +1,4 @@
-package cz.mg.application;
+package cz.mg.test;
 
 import cz.mg.application.entities.Named;
 
@@ -6,12 +6,16 @@ import java.util.Objects;
 
 
 public class TestUtils {
-    public static String getMethodName(){
-        return Thread.currentThread().getStackTrace()[3].getMethodName();
+    public static void print(String s){
+        System.out.print(s);
     }
 
-    public static String getClassName(){
-        return getSimpleName(Thread.currentThread().getStackTrace()[3].getClassName());
+    public static void println(String s){
+        System.out.println(s);
+    }
+
+    public static void println(){
+        System.out.println();
     }
 
     public static String getName(Object object){
@@ -31,11 +35,10 @@ public class TestUtils {
         return className.substring(index);
     }
 
-    public static void printStackTrace(RuntimeException e){
-        System.out.println(e.getMessage());
-        for(int i = 1; i < e.getStackTrace().length; i++){
+    public static void printStackTrace(Throwable e){
+        for(int i = 0; i < e.getStackTrace().length; i++){
             StackTraceElement element = e.getStackTrace()[i];
-            System.out.println(
+            println(
                 "    ." +
                 "(" +
                 getSimpleName(element.getClassName()) +

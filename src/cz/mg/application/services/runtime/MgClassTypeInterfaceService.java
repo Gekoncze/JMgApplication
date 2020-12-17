@@ -32,9 +32,9 @@ public class MgClassTypeInterfaceService extends MgService {
 
         if(procedure == null && !clazz.getOptions().isAbstract()){
             if(baseProcedures.isEmpty()){
-                throw new RuntimeException("Missing implementation of interface " + mgInterface.getName() + ".");
+                throw new RuntimeException("Missing implementation of interface '" + mgInterface.getName() + "'.");
             } else {
-                throw new RuntimeException("Ambiguous implementation of interface " + mgInterface.getName() + ".");
+                throw new RuntimeException("Ambiguous implementation of interface '" + mgInterface.getName() + "'.");
             }
         } else {
             return procedure;
