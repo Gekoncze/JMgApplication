@@ -5,6 +5,7 @@ import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Cache;
 import cz.mg.annotations.storage.Link;
 import cz.mg.annotations.storage.Part;
+import cz.mg.annotations.storage.Value;
 import cz.mg.application.entities.dynamical.types.MgClassType;
 import cz.mg.application.entities.statical.MgComponent;
 import cz.mg.application.entities.statical.parts.MgInterface;
@@ -15,6 +16,9 @@ import cz.mg.collections.text.Text;
 
 
 public class MgClass extends MgComponent {
+    @Mandatory @Value
+    private final Options options = new Options();
+
     @Mandatory @Link
     private final List<MgClass> baseClasses = new List<>();
 
@@ -32,6 +36,10 @@ public class MgClass extends MgComponent {
 
     public MgClass(Text name) {
         super(name);
+    }
+
+    public Options getOptions() {
+        return options;
     }
 
     public List<MgClass> getBaseClasses() {
@@ -56,5 +64,21 @@ public class MgClass extends MgComponent {
 
     public void setType(MgClassType type) {
         this.type = type;
+    }
+
+    public static class Options {
+        @Mandatory @Value
+        private boolean isAbstract = false;
+
+        public Options() {
+        }
+
+        public boolean isAbstract() {
+            return isAbstract;
+        }
+
+        public void setAbstract(boolean isAbstract) {
+            this.isAbstract = isAbstract;
+        }
     }
 }

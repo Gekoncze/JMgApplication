@@ -11,4 +11,8 @@ public class TestFailedException extends RuntimeException {
     public TestFailedException(String message, Throwable cause) {
         super(message, cause);
     }
+
+    public TestFailedException(Throwable cause) {
+        super(cause);
+    }
 }

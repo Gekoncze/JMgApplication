@@ -10,9 +10,15 @@ import cz.mg.collections.text.Text;
 
 public class MgClassTypeServiceTest extends Test {
     public static void main(String[] args) {
-        testResolveSimpleInterface();
-        testResolveInheritanceInterface();
-        testResolveComplexInheritanceInterface();
+        beginTests();
+
+        runTest(() -> testResolveSimpleInterface());
+        runTest(() -> testResolveInheritanceInterface());
+        runTest(() -> testResolveComplexInheritanceInterface());
+        runTest(() -> testResolveMissingInterfaceProcedureError());
+        runTest(() -> testResolveMissingInterfaceProcedureAllowedForAbstract());
+
+        endTests();
     }
 
     private static void testResolveSimpleInterface(){
@@ -58,8 +64,8 @@ public class MgClassTypeServiceTest extends Test {
         baseClass.getProcedures().addLast(procedureTwo);
         baseClass.getProcedures().addLast(procedureThree);
 
-        MgClass superClass = new MgClass(new Text("SuperClass"));
-        superClass.getBaseClasses().addLast(baseClass);
+        MgClass subClass = new MgClass(new Text("SuperClass"));
+        subClass.getBaseClasses().addLast(baseClass);
 
         MgProcedure procedureFour = new MgProcedure(new Text("procedureFour"));
         MgProcedure procedureFive = new MgProcedure(new Text("procedureFive"));
@@ -67,15 +73,30 @@ public class MgClassTypeServiceTest extends Test {
 
         procedureSix.setInterface(mgInterface);
 
-        superClass.getProcedures().addLast(procedureFour);
-        superClass.getProcedures().addLast(procedureFive);
-        superClass.getProcedures().addLast(procedureSix);
+        subClass.getProcedures().addLast(procedureFour);
+        subClass.getProcedures().addLast(procedureFive);
+        subClass.getProcedures().addLast(procedureSix);
 
-        MgClassTypeService.create(superClass);
+        MgClassTypeService.create(subClass);
         assertNotNull(baseClass.getType());
-        assertNotNull(superClass.getType());
+        assertNotNull(subClass.getType());
         assertEquals(procedureTwo, baseClass.getType().getProcedure(mgInterface));
-        assertEquals(procedureSix, superClass.getType().getProcedure(mgInterface));
+        assertEquals(procedureSix, subClass.getType().getProcedure(mgInterface));
+
+        assertContains(
+            subClass.getType().getTypes(),
+            baseClass.getType()
+        );
+
+        assertContains(
+            subClass.getType().getProcedures(),
+            procedureOne,
+            procedureTwo,
+            procedureThree,
+            procedureFour,
+            procedureFive,
+            procedureSix
+        );
 
         end();
     }
@@ -147,6 +168,51 @@ public class MgClassTypeServiceTest extends Test {
         assertEquals(procedureFour, catClass.getType().getProcedure(mgInterface));
         assertEquals(procedureNine, dogClass.getType().getProcedure(mgInterface));
         assertEquals(procedureTwelve, catDogClass.getType().getProcedure(mgInterface));
+
+        end();
+    }
+
+    private static void testResolveMissingInterfaceProcedureError(){
+        begin();
+
+        MgClass clazz = new MgClass(new Text("TestClass"));
+
+        MgInterface mgInterface = new MgInterface(new Text("interface"));
+        clazz.getInterfaces().addLast(mgInterface);
+
+        MgProcedure procedureOne = new MgProcedure(new Text("procedureOne"));
+        MgProcedure procedureTwo = new MgProcedure(new Text("procedureTwo"));
+        MgProcedure procedureThree = new MgProcedure(new Text("procedureThree"));
+
+        clazz.getProcedures().addLast(procedureOne);
+        clazz.getProcedures().addLast(procedureTwo);
+        clazz.getProcedures().addLast(procedureThree);
+
+        expectedError(() -> MgClassTypeService.create(clazz));
+        assertNull(clazz.getType());
+
+        end();
+    }
+
+    private static void testResolveMissingInterfaceProcedureAllowedForAbstract(){
+        begin();
+
+        MgClass clazz = new MgClass(new Text("TestClass"));
+        clazz.getOptions().setAbstract(true);
+
+        MgInterface mgInterface = new MgInterface(new Text("interface"));
+        clazz.getInterfaces().addLast(mgInterface);
+
+        MgProcedure procedureOne = new MgProcedure(new Text("procedureOne"));
+        MgProcedure procedureTwo = new MgProcedure(new Text("procedureTwo"));
+        MgProcedure procedureThree = new MgProcedure(new Text("procedureThree"));
+
+        clazz.getProcedures().addLast(procedureOne);
+        clazz.getProcedures().addLast(procedureTwo);
+        clazz.getProcedures().addLast(procedureThree);
+
+        MgClassTypeService.create(clazz);
+        assertNotNull(clazz.getType());
 
         end();
     }

@@ -30,7 +30,7 @@ public class MgClassTypeInterfaceService extends MgService {
 
         MgProcedure procedure = selfProcedure != null ? selfProcedure : baseProcedure;
 
-        if(procedure == null){
+        if(procedure == null && !clazz.getOptions().isAbstract()){
             if(baseProcedures.isEmpty()){
                 throw new RuntimeException("Missing implementation of interface " + mgInterface.getName() + ".");
             } else {

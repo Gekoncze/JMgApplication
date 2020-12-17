@@ -1,11 +1,35 @@
 package cz.mg.application;
 
-import cz.mg.application.entities.Named;
+import cz.mg.collections.Clump;
+import cz.mg.collections.list.List;
+
+import static cz.mg.application.TestUtils.*;
 
 
 public class Test {
+    private static RuntimeException EXCEPTION = null;
+
+    public static void beginTests(){
+        System.out.println("Running tests in " + getClassName());
+    }
+
+    public static void endTests(){
+        System.out.println();
+        try { Thread.sleep(25); } catch (InterruptedException e){ throw new RuntimeException(e); }
+        if(EXCEPTION != null) printStackTrace(EXCEPTION);
+    }
+
+    public static void runTest(Runnable runnable){
+        try {
+            runnable.run();
+        } catch (RuntimeException e){
+            if(EXCEPTION == null) EXCEPTION = e;
+            System.out.println("ERROR");
+        }
+    }
+
     public static void begin(){
-        System.out.print("Running " + Thread.currentThread().getStackTrace()[2].getMethodName() + " ... ");
+        System.out.print("    Running " + getMethodName() + " ... ");
     }
 
     public static void end(){
@@ -17,17 +41,39 @@ public class Test {
         throw new TestFailedException(message);
     }
 
+    public static void assertNull(Object object){
+        if(object != null){
+            error("Unexpected non-null value.");
+        }
+    }
+
     public static void assertNotNull(Object object){
         if(object == null){
             error("Unexpected null value.");
         }
     }
 
-    public static void assertEquals(Named expectation, Named reality){
+    public static void assertEquals(Object expectation, Object reality){
         if(expectation != reality){
-            String expectationName = expectation == null ? "null" : "'" + expectation.getName() + "'";
-            String realityName = reality == null ? "null" : "'" + reality.getName() + "'";
-            error("Expected " + expectationName + ", but got " + realityName + ".");
+            error("Expected " + getName(expectation) + ", but got " + getName(reality) + ".");
+        }
+    }
+
+    public static void assertContains(Clump colelction, Object... items){
+        List<Object> missing = new List<>();
+        for(Object item : items){
+            if(!Clump.contains(colelction, item)){
+                missing.addLast(item);
+            }
+        }
+        if(!missing.isEmpty()){
+            List<String> names = new List<>();
+            for(Object miss : missing){
+                names.addLast(
+                    getName(miss)
+                );
+            }
+            throw new TestFailedException("Missing " + names.toText(", ") + " in collection.");
         }
     }
 

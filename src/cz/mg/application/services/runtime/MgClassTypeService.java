@@ -27,9 +27,8 @@ public class MgClassTypeService extends MgService {
     private static Array<MgType> unionTypes(MgClass clazz){
         List<MgType> types = new List<>();
         for(MgClass base : clazz.getBaseClasses()){
-            if(base.getType() == null){
-                create(base);
-            }
+            if(base.getType() == null) create(base);
+            types.addLast(base.getType());
         }
         return new Array<>(types);
     }
