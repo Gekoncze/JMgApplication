@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="JMgTest">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../JMgTest/out/artifacts/JMgTest_jar/JMgTest.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

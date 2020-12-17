@@ -1,26 +1,27 @@
 package cz.mg.application.services;
 
-import cz.mg.test.Test;
 import cz.mg.application.entities.statical.components.MgClass;
 import cz.mg.application.entities.statical.parts.MgInterface;
 import cz.mg.application.entities.statical.parts.MgProcedure;
 import cz.mg.application.services.runtime.MgClassTypeService;
 import cz.mg.collections.text.Text;
-import cz.mg.test.TestCase;
-import cz.mg.test.TestRunner;
+import cz.mg.test.Test;
+import cz.mg.test.annotations.TestCase;
+import cz.mg.test.runner.SingleTestRunner;
 
 
 @SuppressWarnings("unused")
 public class MgClassTypeServiceTest implements Test {
     public static void main(String[] args) {
-        TestRunner.run(new MgClassTypeServiceTest());
+        SingleTestRunner testRunner = new SingleTestRunner();
+        testRunner.run(new MgClassTypeServiceTest());
     }
 
     @TestCase(order = 1)
     public void testResolveSimpleInterface(){
         MgClass clazz = new MgClass(new Text("TestClass"));
 
-        MgInterface mgInterface = new MgInterface(new Text("interface"));
+        MgInterface mgInterface = new MgInterface(new Text("testInterface"));
         clazz.getInterfaces().addLast(mgInterface);
 
         MgProcedure procedureOne = new MgProcedure(new Text("procedureOne"));
@@ -42,7 +43,7 @@ public class MgClassTypeServiceTest implements Test {
     public void testResolveInheritanceInterface(){
         MgClass baseClass = new MgClass(new Text("BaseClass"));
 
-        MgInterface mgInterface = new MgInterface(new Text("interface"));
+        MgInterface mgInterface = new MgInterface(new Text("testInterface"));
         baseClass.getInterfaces().addLast(mgInterface);
 
         MgProcedure procedureOne = new MgProcedure(new Text("procedureOne"));

@@ -10,5 +10,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="JMgCollections" level="project" />
     <orderEntry type="library" name="JMgAnnotations" level="project" />
+    <orderEntry type="library" name="JMgTest" level="project" />
   </component>
 </module>
