@@ -47,8 +47,10 @@ public class TestRunner {
         List<Method> testCases = new List<>();
         for(Method method : clazz.getDeclaredMethods()){
             if(method.isAnnotationPresent(TestCase.class)){
-                TestCase annotation = method.getAnnotation(TestCase.class);
-                testCases.add(method, annotation.order());
+                if(!method.isAnnotationPresent(Disabled.class)){
+                    TestCase annotation = method.getAnnotation(TestCase.class);
+                    testCases.add(method, annotation.order());
+                }
             }
         }
         return testCases;
