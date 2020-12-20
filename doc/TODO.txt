@@ -2,13 +2,19 @@
 ...
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
-...
+add commands and expressions
+add instructions
+add logic to create instructions from commands in procedure type service
+    add optimization for local (anonymous expression) variable count
+    add optimization for begin/end mark instruction removal
 
 ##### SOON ##### -------------------------------------------------------------------------------------------------------
-add commands
-add instructions
-make core work
-add storage
+make core and thread work
+    add scheduler(s)
+
+add test for variables in procedure type and class type
+
+add storage for statical entities
     there are 2 options:
     a) in local database
     b) in local text file
