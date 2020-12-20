@@ -1,6 +1,6 @@
 package cz.mg.application.services.statical;
 
-import cz.mg.application.entities.statical.components.MgClass;
+import cz.mg.application.entities.statical.components.definitions.MgClass;
 import cz.mg.collections.list.List;
 
 

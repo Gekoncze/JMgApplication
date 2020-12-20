@@ -3,7 +3,7 @@ package cz.mg.application.entities.statical.parts;
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Part;
 import cz.mg.annotations.storage.Value;
-import cz.mg.application.entities.Named;
+import cz.mg.application.Named;
 import cz.mg.application.entities.statical.MgPart;
 import cz.mg.collections.list.List;
 import cz.mg.collections.text.Text;

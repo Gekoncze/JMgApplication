@@ -1,4 +1,4 @@
-package cz.mg.application.entities.statical.components;
+package cz.mg.application.entities.statical.components.definitions;
 
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.requirement.Optional;
@@ -7,15 +7,14 @@ import cz.mg.annotations.storage.Link;
 import cz.mg.annotations.storage.Part;
 import cz.mg.annotations.storage.Value;
 import cz.mg.application.entities.dynamical.types.MgClassType;
-import cz.mg.application.entities.statical.MgComponent;
+import cz.mg.application.entities.statical.components.MgDefinition;
 import cz.mg.application.entities.statical.parts.MgInterface;
-import cz.mg.application.entities.statical.parts.MgProcedure;
 import cz.mg.application.entities.statical.parts.MgVariable;
 import cz.mg.collections.list.List;
 import cz.mg.collections.text.Text;
 
 
-public class MgClass extends MgComponent {
+public class MgClass extends MgDefinition {
     @Mandatory @Value
     private final Options options = new Options();
 
@@ -58,6 +57,7 @@ public class MgClass extends MgComponent {
         return interfaces;
     }
 
+    @Override
     public MgClassType getType() {
         return type;
     }

@@ -1,7 +1,7 @@
-package cz.mg.application.entities.dynamical;
+package cz.mg.application.architecture;
 
 import cz.mg.annotations.requirement.Mandatory;
-import cz.mg.annotations.storage.Link;
+import cz.mg.annotations.storage.Parent;
 import cz.mg.annotations.storage.Part;
 import cz.mg.application.MgApplication;
 import cz.mg.application.entities.dynamical.objects.MgTask;
@@ -9,7 +9,7 @@ import cz.mg.collections.list.List;
 
 
 public class MgThread {
-    @Mandatory @Link
+    @Mandatory @Parent
     private final MgApplication application;
 
     @Mandatory @Part

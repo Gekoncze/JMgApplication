@@ -2,10 +2,15 @@ package cz.mg.application.architecture;
 
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Link;
-import cz.mg.application.entities.dynamical.MgThread;
 
 
 public class MgCore {
+    private static final ThreadLocal<MgCore> INSTANCE = new ThreadLocal<>();
+
+    public static MgCore getInstance(){
+        return INSTANCE.get();
+    }
+
     @Mandatory @Link
     private MgThread thread;
 

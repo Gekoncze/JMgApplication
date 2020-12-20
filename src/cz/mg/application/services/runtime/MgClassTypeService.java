@@ -2,9 +2,9 @@ package cz.mg.application.services.runtime;
 
 import cz.mg.application.entities.dynamical.MgType;
 import cz.mg.application.entities.dynamical.types.MgClassType;
-import cz.mg.application.entities.statical.components.MgClass;
+import cz.mg.application.entities.statical.components.definitions.MgClass;
 import cz.mg.application.entities.statical.parts.MgInterface;
-import cz.mg.application.entities.statical.parts.MgProcedure;
+import cz.mg.application.entities.statical.components.definitions.MgProcedure;
 import cz.mg.application.entities.statical.parts.MgVariable;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.statical.MgClassService;

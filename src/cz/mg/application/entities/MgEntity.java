@@ -1,4 +1,6 @@
 package cz.mg.application.entities;
 
-public class MgEntity {
+public abstract class MgEntity {
+    public MgEntity() {
+    }
 }

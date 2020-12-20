@@ -1,22 +1,19 @@
-package cz.mg.application.entities.statical.parts;
+package cz.mg.application.entities.statical.components.definitions;
 
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Cache;
 import cz.mg.annotations.storage.Link;
 import cz.mg.annotations.storage.Part;
-import cz.mg.annotations.storage.Value;
-import cz.mg.application.entities.Named;
 import cz.mg.application.entities.dynamical.types.MgProcedureType;
-import cz.mg.application.entities.statical.MgPart;
+import cz.mg.application.entities.statical.components.MgDefinition;
+import cz.mg.application.entities.statical.parts.MgInterface;
+import cz.mg.application.entities.statical.parts.MgVariable;
 import cz.mg.collections.list.List;
 import cz.mg.collections.text.Text;
 
 
-public class MgProcedure extends MgPart implements Named {
-    @Mandatory @Value
-    private final Text name;
-
+public class MgProcedure extends MgDefinition {
     @Mandatory @Part
     private final List<MgVariable> input = new List<>();
 
@@ -33,12 +30,7 @@ public class MgProcedure extends MgPart implements Named {
     private MgProcedureType type;
 
     public MgProcedure(Text name) {
-        this.name = name;
-    }
-
-    @Override
-    public Text getName() {
-        return name;
+        super(name);
     }
 
     public List<MgVariable> getInput() {
@@ -61,6 +53,7 @@ public class MgProcedure extends MgPart implements Named {
         this.mgInterface = mgInterface;
     }
 
+    @Override
     public MgProcedureType getType() {
         return type;
     }
