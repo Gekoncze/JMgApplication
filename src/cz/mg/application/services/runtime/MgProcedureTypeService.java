@@ -6,8 +6,8 @@ import cz.mg.application.services.MgService;
 
 
 public class MgProcedureTypeService extends MgService {
-    public static MgProcedureType apply(MgProcedure procedure){
-        //todo;
-        throw new UnsupportedOperationException();
+    public static void create(MgProcedure procedure){
+        // todo - create instructions from commands
+        procedure.setType(new MgProcedureType(procedure));
     }
 }

@@ -2,8 +2,8 @@ package cz.mg.application.entities.dynamical.types;
 
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Link;
-import cz.mg.application.entities.dynamical.MgObject;
 import cz.mg.application.entities.dynamical.MgType;
+import cz.mg.application.entities.dynamical.objects.MgInstance;
 import cz.mg.application.entities.statical.components.MgClass;
 import cz.mg.application.entities.statical.parts.MgInterface;
 import cz.mg.application.entities.statical.parts.MgProcedure;
@@ -44,7 +44,7 @@ public class MgClassType extends MgType {
         return procedureMap.get(mgInterface);
     }
 
-    public MgObject create(){
-        return new MgObject(this, procedureMap);
+    public MgInstance create(){
+        return new MgInstance(this, procedureMap);
     }
 }

@@ -62,7 +62,6 @@ public class MgProcedure extends MgPart implements Named {
     }
 
     public MgProcedureType getType() {
-        if(type == null) type = new MgProcedureType(this);
         return type;
     }
 

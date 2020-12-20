@@ -10,7 +10,7 @@ import cz.mg.application.entities.statical.parts.MgVariable;
 import cz.mg.collections.map.Map;
 
 
-public class MgObject extends MgEntity {
+public abstract class MgObject extends MgEntity {
     @Mandatory @Link
     private final MgType type;
 

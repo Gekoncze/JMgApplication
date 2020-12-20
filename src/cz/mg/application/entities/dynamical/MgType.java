@@ -9,7 +9,7 @@ import cz.mg.application.entities.statical.parts.MgVariable;
 import cz.mg.collections.array.ReadableArray;
 
 
-public class MgType extends MgEntity {
+public abstract class MgType extends MgEntity {
     @Mandatory @Link
     private final ReadableArray<MgType> types;
 
