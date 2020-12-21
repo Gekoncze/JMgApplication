@@ -17,8 +17,7 @@ public abstract class MgAtom extends MgDefinition {
     @Mandatory @Part
     private final List<MgProcedure> procedures = new List<>();
 
-    public MgAtom(Text name) {
-        super(name);
+    public MgAtom() {
         this.type = new MgAtomicType(this);
     }
 

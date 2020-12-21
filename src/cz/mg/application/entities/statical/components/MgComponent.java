@@ -1,4 +1,4 @@
-package cz.mg.application.entities.statical;
+package cz.mg.application.entities.statical.components;
 
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Value;
@@ -9,14 +9,17 @@ import cz.mg.collections.text.Text;
 
 public abstract class MgComponent extends MgEntity implements Named {
     @Mandatory @Value
-    private final Text name;
+    private Text name = new Text();
 
-    public MgComponent(Text name) {
-        this.name = name;
+    public MgComponent() {
     }
 
     @Override
     public Text getName() {
         return name;
+    }
+
+    public void setName(Text name) {
+        this.name = name;
     }
 }

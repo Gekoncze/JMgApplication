@@ -2,7 +2,6 @@ package cz.mg.application.entities.dynamical.types;
 
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Parent;
-import cz.mg.application.entities.dynamical.MgType;
 import cz.mg.application.entities.dynamical.objects.MgAtomicObject;
 import cz.mg.application.entities.statical.components.definitions.MgAtom;
 

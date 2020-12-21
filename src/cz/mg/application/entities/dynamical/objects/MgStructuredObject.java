@@ -2,7 +2,6 @@ package cz.mg.application.entities.dynamical.objects;
 
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Shared;
-import cz.mg.application.entities.dynamical.MgObject;
 import cz.mg.application.entities.dynamical.types.MgStructuredType;
 import cz.mg.application.entities.statical.parts.MgVariable;
 import cz.mg.collections.map.Map;

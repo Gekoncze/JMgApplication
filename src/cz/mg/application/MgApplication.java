@@ -19,7 +19,7 @@ public class MgApplication extends MgEntity implements Named {
     private final MgIdentity identity;
 
     @Mandatory @Part
-    private final MgLocation root = new MgLocation(new Text());
+    private final MgLocation root = new MgLocation();
 
     @Mandatory @Part
     private final List<MgThread> threads = new List<>();

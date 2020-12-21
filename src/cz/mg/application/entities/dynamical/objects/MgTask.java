@@ -6,7 +6,7 @@ import cz.mg.annotations.storage.Link;
 import cz.mg.annotations.storage.Parent;
 import cz.mg.application.architecture.MgThread;
 import cz.mg.application.entities.dynamical.types.MgProcedureType;
-import cz.mg.application.entities.statical.parts.instructions.MgInstruction;
+import cz.mg.application.entities.dynamical.instructions.MgInstruction;
 
 
 public class MgTask extends MgStructuredObject {

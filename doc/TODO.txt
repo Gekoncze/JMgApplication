@@ -1,8 +1,8 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-...
+added commands and expressions
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
-add commands and expressions
+add id and module id to entities
 add instructions
 add logic to create instructions from commands in procedure type service
     add optimization for local (anonymous expression) variable count

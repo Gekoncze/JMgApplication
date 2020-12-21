@@ -1,13 +1,11 @@
 package cz.mg.application.entities.statical.components;
 
-import cz.mg.application.entities.dynamical.MgType;
-import cz.mg.application.entities.statical.MgComponent;
-import cz.mg.collections.text.Text;
+import cz.mg.application.entities.dynamical.types.MgType;
 
 
 public abstract class MgDefinition extends MgComponent {
-    public MgDefinition(Text name) {
-        super(name);
+    public MgDefinition() {
+        super();
     }
 
     public abstract MgType getType();

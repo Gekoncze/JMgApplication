@@ -1,4 +1,4 @@
-package cz.mg.application.entities.statical;
+package cz.mg.application.entities.statical.parts;
 
 import cz.mg.application.entities.MgEntity;
 

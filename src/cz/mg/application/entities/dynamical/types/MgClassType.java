@@ -3,9 +3,9 @@ package cz.mg.application.entities.dynamical.types;
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Link;
 import cz.mg.annotations.storage.Parent;
-import cz.mg.application.entities.dynamical.MgType;
 import cz.mg.application.entities.dynamical.objects.MgClassObject;
 import cz.mg.application.entities.statical.components.definitions.MgClass;
+import cz.mg.application.entities.statical.components.definitions.MgOperator;
 import cz.mg.application.entities.statical.parts.MgInterface;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
 import cz.mg.application.entities.statical.parts.MgVariable;
@@ -27,6 +27,9 @@ public class MgClassType extends MgStructuredType {
     private final ReadableArray<MgInterface> interfaces;
 
     @Mandatory @Link
+    private final ReadableArray<MgOperator> operators;
+
+    @Mandatory @Link
     private final Map<MgInterface, MgProcedure> procedureMap;
 
     public MgClassType(
@@ -35,6 +38,7 @@ public class MgClassType extends MgStructuredType {
         ReadableArray<MgVariable> variables,
         ReadableArray<MgProcedure> procedures,
         ReadableArray<MgInterface> interfaces,
+        ReadableArray<MgOperator> operators,
         Map<MgInterface, MgProcedure> procedureMap
     ) {
         super(variables);
@@ -42,6 +46,7 @@ public class MgClassType extends MgStructuredType {
         this.types = types;
         this.procedures = procedures;
         this.interfaces = interfaces;
+        this.operators = operators;
         this.procedureMap = procedureMap;
     }
 
@@ -59,6 +64,10 @@ public class MgClassType extends MgStructuredType {
 
     public ReadableArray<MgInterface> getInterfaces() {
         return interfaces;
+    }
+
+    public ReadableArray<MgOperator> getOperators() {
+        return operators;
     }
 
     public Map<MgInterface, MgProcedure> getProcedureMap() {

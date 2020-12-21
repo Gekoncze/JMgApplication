@@ -1,4 +1,4 @@
-package cz.mg.application.entities.statical.parts.instructions;
+package cz.mg.application.entities.dynamical.instructions;
 
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Link;

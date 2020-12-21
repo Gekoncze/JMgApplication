@@ -1,8 +1,9 @@
 package cz.mg.application.services.runtime;
 
-import cz.mg.application.entities.dynamical.MgType;
+import cz.mg.application.entities.dynamical.types.MgType;
 import cz.mg.application.entities.dynamical.types.MgClassType;
 import cz.mg.application.entities.statical.components.definitions.MgClass;
+import cz.mg.application.entities.statical.components.definitions.MgOperator;
 import cz.mg.application.entities.statical.parts.MgInterface;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
 import cz.mg.application.entities.statical.parts.MgVariable;
@@ -20,8 +21,9 @@ public class MgClassTypeService extends MgService {
         Array<MgVariable> variables = unionVariables(clazz);
         Array<MgProcedure> procedures = unionProcedures(clazz);
         Array<MgInterface> interfaces = unionInterfaces(clazz);
+        Array<MgOperator> operators = unionOperators(clazz);
         Map<MgInterface, MgProcedure> procedureMap = createProcedureMap(clazz, interfaces);
-        clazz.setType(new MgClassType(clazz, types, variables, procedures, interfaces, procedureMap));
+        clazz.setType(new MgClassType(clazz, types, variables, procedures, interfaces, operators, procedureMap));
     }
 
     private static Array<MgType> unionTypes(MgClass clazz){
@@ -75,6 +77,19 @@ public class MgClassTypeService extends MgService {
         }
         interfaces.addCollectionLast(clazz.getInterfaces());
         return new Array<>(interfaces);
+    }
+
+    private static Array<MgOperator> unionOperators(MgClass clazz){
+        List<MgOperator> operators = new List<>();
+        for(MgClass base : clazz.getBaseClasses()){
+            for(MgOperator operaotor : base.getType().getOperators()){
+                if(!operators.contains(operaotor)){
+                    operators.addLast(operaotor);
+                }
+            }
+        }
+        operators.addCollectionLast(clazz.getOperators());
+        return new Array<>(operators);
     }
 
     private static Map<MgInterface, MgProcedure> createProcedureMap(MgClass clazz, Array<MgInterface> interfaces){

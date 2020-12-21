@@ -14,9 +14,15 @@ public class MgProcedureTypeServiceTest implements Test {
         testRunner.run(new MgProcedureTypeServiceTest());
     }
 
+    private static MgProcedure createProcedure(String name){
+        MgProcedure procedure = new MgProcedure();
+        procedure.setName(new Text(name));
+        return procedure;
+    }
+
     @TestCase
     public void testCreateProcedureType(){
-        MgProcedure procedure = new MgProcedure(new Text("testProcedure"));
+        MgProcedure procedure = createProcedure("testProcedure");
         // todo
         MgProcedureTypeService.create(procedure);
         assertNotNull(procedure.getType());

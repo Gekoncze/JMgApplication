@@ -11,7 +11,6 @@ import cz.mg.application.entities.statical.components.MgDefinition;
 import cz.mg.application.entities.statical.parts.MgInterface;
 import cz.mg.application.entities.statical.parts.MgVariable;
 import cz.mg.collections.list.List;
-import cz.mg.collections.text.Text;
 
 
 public class MgClass extends MgDefinition {
@@ -30,11 +29,13 @@ public class MgClass extends MgDefinition {
     @Mandatory @Part
     private final List<MgInterface> interfaces = new List<>();
 
+    @Mandatory @Part
+    private final List<MgOperator> operators = new List<>();
+
     @Optional @Cache
     private MgClassType type;
 
-    public MgClass(Text name) {
-        super(name);
+    public MgClass() {
     }
 
     public Options getOptions() {
@@ -55,6 +56,10 @@ public class MgClass extends MgDefinition {
 
     public List<MgInterface> getInterfaces() {
         return interfaces;
+    }
+
+    public List<MgOperator> getOperators() {
+        return operators;
     }
 
     @Override

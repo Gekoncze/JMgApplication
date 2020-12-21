@@ -10,7 +10,6 @@ import cz.mg.application.entities.statical.components.MgDefinition;
 import cz.mg.application.entities.statical.parts.MgInterface;
 import cz.mg.application.entities.statical.parts.MgVariable;
 import cz.mg.collections.list.List;
-import cz.mg.collections.text.Text;
 
 
 public class MgProcedure extends MgDefinition {
@@ -29,8 +28,7 @@ public class MgProcedure extends MgDefinition {
     @Optional @Cache
     private MgProcedureType type;
 
-    public MgProcedure(Text name) {
-        super(name);
+    public MgProcedure() {
     }
 
     public List<MgVariable> getInput() {

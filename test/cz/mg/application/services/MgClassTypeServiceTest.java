@@ -17,16 +17,34 @@ public class MgClassTypeServiceTest implements Test {
         testRunner.run(new MgClassTypeServiceTest());
     }
 
+    private static MgClass createClass(String name){
+        MgClass clazz = new MgClass();
+        clazz.setName(new Text(name));
+        return clazz;
+    }
+
+    private static MgProcedure createProcedure(String name){
+        MgProcedure procedure = new MgProcedure();
+        procedure.setName(new Text(name));
+        return procedure;
+    }
+
+    private static MgInterface createInterface(String name){
+        MgInterface iinterface = new MgInterface();
+        iinterface.setName(new Text(name));
+        return iinterface;
+    }
+
     @TestCase(order = 1)
     public void testResolveSimpleInterface(){
-        MgClass clazz = new MgClass(new Text("TestClass"));
+        MgClass clazz = createClass("TestClass");
 
-        MgInterface mgInterface = new MgInterface(new Text("testInterface"));
+        MgInterface mgInterface = createInterface("testInterface");
         clazz.getInterfaces().addLast(mgInterface);
 
-        MgProcedure procedureOne = new MgProcedure(new Text("procedureOne"));
-        MgProcedure procedureTwo = new MgProcedure(new Text("procedureTwo"));
-        MgProcedure procedureThree = new MgProcedure(new Text("procedureThree"));
+        MgProcedure procedureOne = createProcedure("procedureOne");
+        MgProcedure procedureTwo = createProcedure("procedureTwo");
+        MgProcedure procedureThree = createProcedure("procedureThree");
 
         procedureTwo.setInterface(mgInterface);
 
@@ -41,14 +59,14 @@ public class MgClassTypeServiceTest implements Test {
 
     @TestCase(order = 2)
     public void testResolveInheritanceInterface(){
-        MgClass baseClass = new MgClass(new Text("BaseClass"));
+        MgClass baseClass = createClass("BaseClass");
 
-        MgInterface mgInterface = new MgInterface(new Text("testInterface"));
+        MgInterface mgInterface = createInterface("testInterface");
         baseClass.getInterfaces().addLast(mgInterface);
 
-        MgProcedure procedureOne = new MgProcedure(new Text("procedureOne"));
-        MgProcedure procedureTwo = new MgProcedure(new Text("procedureTwo"));
-        MgProcedure procedureThree = new MgProcedure(new Text("procedureThree"));
+        MgProcedure procedureOne = createProcedure("procedureOne");
+        MgProcedure procedureTwo = createProcedure("procedureTwo");
+        MgProcedure procedureThree = createProcedure("procedureThree");
 
         procedureTwo.setInterface(mgInterface);
 
@@ -56,12 +74,12 @@ public class MgClassTypeServiceTest implements Test {
         baseClass.getProcedures().addLast(procedureTwo);
         baseClass.getProcedures().addLast(procedureThree);
 
-        MgClass subClass = new MgClass(new Text("SuperClass"));
+        MgClass subClass = createClass("SuperClass");
         subClass.getBaseClasses().addLast(baseClass);
 
-        MgProcedure procedureFour = new MgProcedure(new Text("procedureFour"));
-        MgProcedure procedureFive = new MgProcedure(new Text("procedureFive"));
-        MgProcedure procedureSix = new MgProcedure(new Text("procedureSix"));
+        MgProcedure procedureFour = createProcedure("procedureFour");
+        MgProcedure procedureFive = createProcedure("procedureFive");
+        MgProcedure procedureSix = createProcedure("procedureSix");
 
         procedureSix.setInterface(mgInterface);
 
@@ -93,14 +111,14 @@ public class MgClassTypeServiceTest implements Test {
 
     @TestCase(order = 3)
     public void testResolveComplexInheritanceInterface(){
-        MgClass animalClass = new MgClass(new Text("AnimalClass"));
+        MgClass animalClass = createClass("AnimalClass");
 
-        MgInterface mgInterface = new MgInterface(new Text("animalInterface"));
+        MgInterface mgInterface = createInterface("animalInterface");
         animalClass.getInterfaces().addLast(mgInterface);
 
-        MgProcedure procedureOne = new MgProcedure(new Text("procedureOne"));
-        MgProcedure procedureTwo = new MgProcedure(new Text("procedureTwo"));
-        MgProcedure procedureThree = new MgProcedure(new Text("procedureThree"));
+        MgProcedure procedureOne = createProcedure("procedureOne");
+        MgProcedure procedureTwo = createProcedure("procedureTwo");
+        MgProcedure procedureThree = createProcedure("procedureThree");
 
         procedureTwo.setInterface(mgInterface);
 
@@ -108,12 +126,12 @@ public class MgClassTypeServiceTest implements Test {
         animalClass.getProcedures().addLast(procedureTwo);
         animalClass.getProcedures().addLast(procedureThree);
 
-        MgClass catClass = new MgClass(new Text("CatClass"));
+        MgClass catClass = createClass("CatClass");
         catClass.getBaseClasses().addLast(animalClass);
 
-        MgProcedure procedureFour = new MgProcedure(new Text("procedureFour"));
-        MgProcedure procedureFive = new MgProcedure(new Text("procedureFive"));
-        MgProcedure procedureSix = new MgProcedure(new Text("procedureSix"));
+        MgProcedure procedureFour = createProcedure("procedureFour");
+        MgProcedure procedureFive = createProcedure("procedureFive");
+        MgProcedure procedureSix = createProcedure("procedureSix");
 
         procedureFour.setInterface(mgInterface);
 
@@ -121,12 +139,12 @@ public class MgClassTypeServiceTest implements Test {
         catClass.getProcedures().addLast(procedureFive);
         catClass.getProcedures().addLast(procedureSix);
 
-        MgClass dogClass = new MgClass(new Text("DogClass"));
+        MgClass dogClass = createClass("DogClass");
         dogClass.getBaseClasses().addLast(animalClass);
 
-        MgProcedure procedureSeven = new MgProcedure(new Text("procedureSeven"));
-        MgProcedure procedureEight = new MgProcedure(new Text("procedureEight"));
-        MgProcedure procedureNine = new MgProcedure(new Text("procedureNine"));
+        MgProcedure procedureSeven = createProcedure("procedureSeven");
+        MgProcedure procedureEight = createProcedure("procedureEight");
+        MgProcedure procedureNine = createProcedure("procedureNine");
 
         procedureNine.setInterface(mgInterface);
 
@@ -134,13 +152,13 @@ public class MgClassTypeServiceTest implements Test {
         dogClass.getProcedures().addLast(procedureEight);
         dogClass.getProcedures().addLast(procedureNine);
 
-        MgClass catDogClass = new MgClass(new Text("CatDogClass"));
+        MgClass catDogClass = createClass("CatDogClass");
         catDogClass.getBaseClasses().addLast(catClass);
         catDogClass.getBaseClasses().addLast(dogClass);
 
-        MgProcedure procedureTen = new MgProcedure(new Text("procedureFour"));
-        MgProcedure procedureEleven = new MgProcedure(new Text("procedureFive"));
-        MgProcedure procedureTwelve = new MgProcedure(new Text("procedureSix"));
+        MgProcedure procedureTen = createProcedure("procedureFour");
+        MgProcedure procedureEleven = createProcedure("procedureFive");
+        MgProcedure procedureTwelve = createProcedure("procedureSix");
 
         procedureTwelve.setInterface(mgInterface);
 
@@ -161,14 +179,14 @@ public class MgClassTypeServiceTest implements Test {
 
     @TestCase(order = 4)
     public void testResolveMissingInterfaceProcedureError(){
-        MgClass clazz = new MgClass(new Text("TestClass"));
+        MgClass clazz = createClass("TestClass");
 
-        MgInterface mgInterface = new MgInterface(new Text("interface"));
+        MgInterface mgInterface = createInterface("interface");
         clazz.getInterfaces().addLast(mgInterface);
 
-        MgProcedure procedureOne = new MgProcedure(new Text("procedureOne"));
-        MgProcedure procedureTwo = new MgProcedure(new Text("procedureTwo"));
-        MgProcedure procedureThree = new MgProcedure(new Text("procedureThree"));
+        MgProcedure procedureOne = createProcedure("procedureOne");
+        MgProcedure procedureTwo = createProcedure("procedureTwo");
+        MgProcedure procedureThree = createProcedure("procedureThree");
 
         clazz.getProcedures().addLast(procedureOne);
         clazz.getProcedures().addLast(procedureTwo);
@@ -180,15 +198,15 @@ public class MgClassTypeServiceTest implements Test {
 
     @TestCase(order = 5)
     public void testResolveMissingInterfaceProcedureAllowedForAbstract(){
-        MgClass clazz = new MgClass(new Text("TestClass"));
+        MgClass clazz = createClass("TestClass");
         clazz.getOptions().setAbstract(true);
 
-        MgInterface mgInterface = new MgInterface(new Text("interface"));
+        MgInterface mgInterface = createInterface("interface");
         clazz.getInterfaces().addLast(mgInterface);
 
-        MgProcedure procedureOne = new MgProcedure(new Text("procedureOne"));
-        MgProcedure procedureTwo = new MgProcedure(new Text("procedureTwo"));
-        MgProcedure procedureThree = new MgProcedure(new Text("procedureThree"));
+        MgProcedure procedureOne = createProcedure("procedureOne");
+        MgProcedure procedureTwo = createProcedure("procedureTwo");
+        MgProcedure procedureThree = createProcedure("procedureThree");
 
         clazz.getProcedures().addLast(procedureOne);
         clazz.getProcedures().addLast(procedureTwo);

@@ -1,23 +1,30 @@
 package cz.mg.application.entities.statical.parts;
 
 import cz.mg.annotations.requirement.Mandatory;
+import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Link;
 import cz.mg.annotations.storage.Value;
 import cz.mg.application.Named;
-import cz.mg.application.entities.statical.MgPart;
 import cz.mg.application.entities.statical.components.MgDefinition;
 import cz.mg.collections.text.Text;
 
 
 public class MgVariable extends MgPart implements Named {
-    @Mandatory @Link
-    private final MgDefinition definition;
-
     @Mandatory @Value
-    private final Text name;
+    private Text name = new Text();
 
-    public MgVariable(MgDefinition definition, Text name) {
-        this.definition = definition;
+    @Optional @Link
+    private MgDefinition definition;
+
+    public MgVariable() {
+    }
+
+    @Override
+    public Text getName() {
+        return name;
+    }
+
+    public void setName(Text name) {
         this.name = name;
     }
 
@@ -25,8 +32,7 @@ public class MgVariable extends MgPart implements Named {
         return definition;
     }
 
-    @Override
-    public Text getName() {
-        return name;
+    public void setDefinition(MgDefinition definition) {
+        this.definition = definition;
     }
 }

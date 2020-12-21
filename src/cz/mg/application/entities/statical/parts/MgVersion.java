@@ -2,7 +2,6 @@ package cz.mg.application.entities.statical.parts;
 
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Value;
-import cz.mg.application.entities.statical.MgPart;
 
 
 public class MgVersion extends MgPart {

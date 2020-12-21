@@ -1,8 +1,9 @@
-package cz.mg.application.entities.dynamical;
+package cz.mg.application.entities.dynamical.objects;
 
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Link;
 import cz.mg.application.entities.MgEntity;
+import cz.mg.application.entities.dynamical.types.MgType;
 
 
 public abstract class MgObject extends MgEntity {
