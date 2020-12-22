@@ -1,13 +1,17 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-...
+added int 32 datatype
+replaced module id in entities with module to entity map in module class
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
+add float 32 datatype
+add tests to check if buildin datatype operators work correctly
 add instructions
 add logic to create instructions from commands in procedure type service
     add optimization for local (anonymous expression) variable count
     add optimization for begin/end mark instruction removal
 
 ##### SOON ##### -------------------------------------------------------------------------------------------------------
+add test to check if all buildin module ids are unique
 make core and thread work
     add scheduler(s)
 

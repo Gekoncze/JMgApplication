@@ -1,33 +1,22 @@
 package cz.mg.application.entities.statical;
 
-import cz.mg.annotations.requirement.Mandatory;
+import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Value;
 import cz.mg.application.entities.MgEntity;
 
 
 public abstract class MgStaticalEntity extends MgEntity {
-    @Mandatory @Value
-    private int moduleId;
-
-    @Mandatory @Value
-    private int id;
+    @Optional @Value
+    private Long id;
 
     public MgStaticalEntity() {
     }
 
-    public int getModuleId() {
-        return moduleId;
-    }
-
-    public void setModuleId(int moduleId) {
-        this.moduleId = moduleId;
-    }
-
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }

@@ -7,7 +7,6 @@ import cz.mg.application.entities.dynamical.objects.MgAtomicObject;
 import cz.mg.application.entities.dynamical.types.MgAtomicType;
 import cz.mg.application.entities.statical.components.MgDefinition;
 import cz.mg.collections.list.List;
-import cz.mg.collections.text.Text;
 
 
 public abstract class MgAtom extends MgDefinition {
@@ -16,6 +15,9 @@ public abstract class MgAtom extends MgDefinition {
 
     @Mandatory @Part
     private final List<MgProcedure> procedures = new List<>();
+
+    @Mandatory @Part
+    private final List<MgOperator> operators = new List<>();
 
     public MgAtom() {
         this.type = new MgAtomicType(this);
@@ -28,6 +30,10 @@ public abstract class MgAtom extends MgDefinition {
 
     public List<MgProcedure> getProcedures() {
         return procedures;
+    }
+
+    public List<MgOperator> getOperators() {
+        return operators;
     }
 
     public abstract MgAtomicObject create();
