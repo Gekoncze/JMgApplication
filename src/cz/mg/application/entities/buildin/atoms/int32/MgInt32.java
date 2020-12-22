@@ -15,6 +15,9 @@ public class MgInt32 extends MgAtom {
 
     private MgInt32() {
         setName(new Text("Int32"));
+    }
+
+    public MgInt32 init(){
         getOperators().addLast(MgInt32BinaryOperatorPlus.getInstance());
         getOperators().addLast(MgInt32BinaryOperatorMinus.getInstance());
         getOperators().addLast(MgInt32BinaryOperatorMultiply.getInstance());
@@ -22,6 +25,7 @@ public class MgInt32 extends MgAtom {
         getOperators().addLast(MgInt32BinaryOperatorModulo.getInstance());
         getOperators().addLast(MgInt32LunaryOperatorPlus.getInstance());
         getOperators().addLast(MgInt32LunaryOperatorMinus.getInstance());
+        return this;
     }
 
     @Override

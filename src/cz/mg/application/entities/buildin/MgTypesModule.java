@@ -21,6 +21,6 @@ public class MgTypesModule extends MgModule {
             new MgVersion(0, 0, 0)
         ));
         setName(new Text("types"));
-        getComponents().addLast(MgInt32.getInstance());
+        getComponents().addLast(MgInt32.getInstance().init());
     }
 }
