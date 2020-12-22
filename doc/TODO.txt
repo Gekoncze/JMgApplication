@@ -1,8 +1,7 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-...
+add float 32 datatype
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
-add float 32 datatype
 add tests to check if buildin datatype operators work correctly
 add instructions
 add logic to create instructions from commands in procedure type service
