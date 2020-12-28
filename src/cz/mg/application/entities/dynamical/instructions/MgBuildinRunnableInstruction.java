@@ -8,15 +8,15 @@ import cz.mg.application.entities.statical.components.definitions.MgBuildinRunna
 
 public class MgBuildinRunnableInstruction extends MgLinearInstruction {
     @Mandatory @Link
-    private final MgBuildinRunnable buildinRunnable;
+    private final MgBuildinRunnable runnable;
 
-    public MgBuildinRunnableInstruction(MgBuildinRunnable buildinRunnable) {
-        this.buildinRunnable = buildinRunnable;
+    public MgBuildinRunnableInstruction(MgBuildinRunnable runnable) {
+        this.runnable = runnable;
     }
 
     @Override
     public void run(MgTask task) {
-        buildinRunnable.run(task);
+        runnable.run(task);
         task.setInstruction(getNextInstruction());
     }
 }

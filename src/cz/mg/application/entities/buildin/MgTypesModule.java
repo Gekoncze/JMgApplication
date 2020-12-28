@@ -1,5 +1,6 @@
 package cz.mg.application.entities.buildin;
 
+import cz.mg.application.entities.buildin.atoms.bool8.MgBool8;
 import cz.mg.application.entities.buildin.atoms.float32.MgFloat32;
 import cz.mg.application.entities.buildin.atoms.int32.MgInt32;
 import cz.mg.application.entities.statical.components.MgModule;
@@ -25,6 +26,7 @@ public class MgTypesModule extends MgModule {
     }
 
     public MgTypesModule init(){
+        getComponents().addLast(MgBool8.getInstance().init());
         getComponents().addLast(MgInt32.getInstance().init());
         getComponents().addLast(MgFloat32.getInstance().init());
         return this;
