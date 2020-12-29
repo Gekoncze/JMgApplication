@@ -1,5 +1,6 @@
 package cz.mg.application;
 
+import cz.mg.application.architecture.MgSimpleRuntimeTest;
 import cz.mg.application.entities.dynamical.types.MgClassTypeTest;
 import cz.mg.application.entities.dynamical.types.MgProcedureTypeTest;
 import cz.mg.application.services.MgClassTypeServiceTest;
@@ -14,7 +15,8 @@ public class MgAllTests {
             new MgClassTypeTest(),
             new MgProcedureTypeTest(),
             new MgClassTypeServiceTest(),
-            new MgProcedureTypeServiceTest()
+            new MgProcedureTypeServiceTest(),
+            new MgSimpleRuntimeTest()
         );
     }
 }

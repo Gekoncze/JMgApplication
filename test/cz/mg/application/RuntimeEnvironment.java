@@ -22,12 +22,12 @@ public class RuntimeEnvironment {
             core.destroy();
         });
 
-        MgProcedureTypeService.create(procedure);
-
         command.setInstructions(new Array<>(instruction));
         procedure.getCommands().addLast(command);
+        MgProcedureTypeService.create(procedure);
         thread.getStack().addLast(procedure.getType().create());
         core.setThread(thread);
+
         core.start();
         while(core.isAlive()) JavaThread.snooze();
     }

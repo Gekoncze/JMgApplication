@@ -1,24 +1,17 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-added test for class type and procedure type create method
-changed architecture a bit
-added simple runtime environment test utility
+added test for mg core and mg thread
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
-test mg core and mg thread
-
-
-##### SOON ##### -------------------------------------------------------------------------------------------------------
 add logic to create instructions from commands in procedure type service
 add variable get/set instructions
 
 
-test rollback logic
-
+##### SOON ##### -------------------------------------------------------------------------------------------------------
+add test for rollback logic
 add test to check procedure execution
 add test for variables in procedure type and class type
 add test for checkpoint catch exception catching
-
 
 
 ##### LATER ##### -------------------------------------------------------------------------------------------------------
