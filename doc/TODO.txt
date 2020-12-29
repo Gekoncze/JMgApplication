@@ -1,8 +1,5 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-implemented basic core and thread logic
-added rollback command and instruction
-implemented catch block catching logic
-added is method to type (+ moved list of compatible types from class type to type)
+...
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
