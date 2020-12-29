@@ -1,5 +1,5 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-added test for mg core and mg thread
+
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
@@ -9,22 +9,26 @@ add variable get/set instructions
 
 ##### SOON ##### -------------------------------------------------------------------------------------------------------
 add test for rollback logic
+add test for checkpoint catch exception catching
+
 add test to check procedure execution
 add test for variables in procedure type and class type
-add test for checkpoint catch exception catching
 
 
 ##### LATER ##### -------------------------------------------------------------------------------------------------------
 add storage for statical entities
-    there are 2 options:
-    a) in local database
-    b) in local text file
-    how to handle resolution of modules?
+    I think I will use sqlite
+    the question is if we want some version control system or not ...
+        we might do something like export to DML
+            where we would export each component in a specific file and folder
+            blobs would be excluded though
+            also, free form strings might be tricky in this case
+                do we want to limit what can be written to a text object?
 
-add ui
-add optimization for local (anonymous expression) variable count
-add optimization for begin/end mark instruction removal
+add ui (choose the most suitable toolkit)
 
 
 ##### MAYBE LATER ##### ------------------------------------------------------------------------------------------------
+add optimization for local (anonymous expression) variable count
+add optimization for begin/end mark instruction removal
 add scheduler(s)
