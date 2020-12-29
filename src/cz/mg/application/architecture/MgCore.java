@@ -5,9 +5,10 @@ import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Link;
 import cz.mg.annotations.storage.Part;
 import cz.mg.annotations.storage.Value;
+import cz.mg.application.entities.dynamical.MgDynamicalEntity;
 
 
-public class MgCore implements Runnable {
+public class MgCore extends MgDynamicalEntity implements Runnable {
     private static final ThreadLocal<MgCore> INSTANCE = new ThreadLocal<>();
 
     public static MgCore getInstance(){

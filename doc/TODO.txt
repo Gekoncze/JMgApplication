@@ -3,24 +3,32 @@
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
-add instructions
+
 
 
 ##### SOON ##### -------------------------------------------------------------------------------------------------------
 add logic to create instructions from commands in procedure type service
-    add optimization for local (anonymous expression) variable count
-    add optimization for begin/end mark instruction removal
+add variable get/set instructions
+
 test mg core and mg thread
 test rollback logic
 
-add test to check if all buildin module ids are unique
-add scheduler(s)
-
+add test to check procedure execution
 add test for variables in procedure type and class type
 add test for checkpoint catch exception catching
 
+
+##### LATER ##### -------------------------------------------------------------------------------------------------------
 add storage for statical entities
     there are 2 options:
     a) in local database
     b) in local text file
     how to handle resolution of modules?
+
+add ui
+add optimization for local (anonymous expression) variable count
+add optimization for begin/end mark instruction removal
+
+
+##### MAYBE LATER ##### ------------------------------------------------------------------------------------------------
+add scheduler(s)

@@ -4,7 +4,7 @@ import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Parent;
 import cz.mg.annotations.storage.Part;
-import cz.mg.application.MgApplication;
+import cz.mg.application.entities.dynamical.MgDynamicalEntity;
 import cz.mg.application.entities.dynamical.objects.MgObject;
 import cz.mg.application.entities.dynamical.objects.MgTask;
 import cz.mg.application.entities.statical.parts.commands.MgCatchCommand;
@@ -13,7 +13,7 @@ import cz.mg.application.entities.statical.parts.commands.MgCommand;
 import cz.mg.collections.list.List;
 
 
-public class MgThread implements Runnable {
+public class MgThread extends MgDynamicalEntity implements Runnable {
     @Mandatory @Parent
     private final MgApplication application;
 
