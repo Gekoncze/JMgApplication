@@ -2,6 +2,7 @@ package cz.mg.application.entities.dynamical.instructions;
 
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Part;
+import cz.mg.application.architecture.MgThread;
 import cz.mg.application.entities.dynamical.Connection;
 import cz.mg.application.entities.dynamical.objects.MgTask;
 import cz.mg.collections.array.ReadableArray;
@@ -18,8 +19,9 @@ public class MgPopProcedureInstruction extends MgLinearInstruction {
     @Override
     public void run(MgTask task) {
         super.run(task);
-        task.getThread().getStack().removeLast();
-        MgTask parentTask = task.getThread().getStack().getLast();
+        MgThread thread = MgThread.getInstance();
+        thread.getStack().removeLast();
+        MgTask parentTask = thread.getStack().getLast();
         for(Connection parameter : parameters){
             parameter.run(parentTask, task);
         }

@@ -2,6 +2,7 @@ package cz.mg.application.entities.dynamical.instructions;
 
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Link;
+import cz.mg.application.architecture.MgThread;
 import cz.mg.application.entities.dynamical.objects.MgTask;
 import cz.mg.application.entities.statical.parts.MgVariable;
 
@@ -23,7 +24,7 @@ public class MgRollbackInstruction extends MgInstruction {
 
     @Override
     public void run(MgTask task) {
-        task.getThread().setException(
+        MgThread.getInstance().setException(
             task.getObject(variable)
         );
     }

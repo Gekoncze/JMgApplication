@@ -14,10 +14,10 @@ import cz.mg.collections.text.Text;
 
 public class MgModule extends MgStaticalEntity implements Named {
     @Mandatory @Value
-    private final Text name;
+    private Text name;
 
     @Mandatory @Value
-    private final MgIdentity identity;
+    private MgIdentity identity;
 
     @Mandatory @Part
     private final MgSequence sequence = new MgSequence();
@@ -31,9 +31,7 @@ public class MgModule extends MgStaticalEntity implements Named {
     @Mandatory @Cache
     private final List<MgModule> modules = new List<>();
 
-    public MgModule(Text name, MgIdentity identity) {
-        this.name = name;
-        this.identity = identity;
+    public MgModule() {
     }
 
     @Override
@@ -41,8 +39,16 @@ public class MgModule extends MgStaticalEntity implements Named {
         return name;
     }
 
+    public void setName(Text name) {
+        this.name = name;
+    }
+
     public MgIdentity getIdentity() {
         return identity;
+    }
+
+    public void setIdentity(MgIdentity identity) {
+        this.identity = identity;
     }
 
     public MgSequence getSequence() {

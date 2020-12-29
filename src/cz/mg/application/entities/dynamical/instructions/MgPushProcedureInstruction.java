@@ -3,6 +3,7 @@ package cz.mg.application.entities.dynamical.instructions;
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Link;
 import cz.mg.annotations.storage.Part;
+import cz.mg.application.architecture.MgThread;
 import cz.mg.application.entities.dynamical.Connection;
 import cz.mg.application.entities.dynamical.objects.MgTask;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
@@ -28,6 +29,6 @@ public class MgPushProcedureInstruction extends MgLinearInstruction {
         for(Connection parameter : parameters){
             parameter.run(task, newTask);
         }
-        task.getThread().getStack().addLast(newTask);
+        MgThread.getInstance().getStack().addLast(newTask);
     }
 }

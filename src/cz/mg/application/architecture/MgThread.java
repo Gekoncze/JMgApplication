@@ -14,8 +14,9 @@ import cz.mg.collections.list.List;
 
 
 public class MgThread extends MgDynamicalEntity implements Runnable {
-    @Mandatory @Parent
-    private final MgApplication application;
+    public static MgThread getInstance(){
+        return MgCore.getInstance().getThread();
+    }
 
     @Mandatory @Part
     private final List<MgTask> stack = new List<>();
@@ -23,12 +24,7 @@ public class MgThread extends MgDynamicalEntity implements Runnable {
     @Optional @Part
     private MgObject exception;
 
-    public MgThread(MgApplication application) {
-        this.application = application;
-    }
-
-    public MgApplication getApplication() {
-        return application;
+    public MgThread() {
     }
 
     public List<MgTask> getStack() {
@@ -46,10 +42,12 @@ public class MgThread extends MgDynamicalEntity implements Runnable {
     @Override
     public void run() {
         MgTask task = stack.getLast();
-        if(exception == null){
-            task.getInstruction().run(task);
-        } else {
-            handleException(task);
+        if(task != null){
+            if(exception == null){
+                task.getInstruction().run(task);
+            } else {
+                handleException(task);
+            }
         }
     }
 

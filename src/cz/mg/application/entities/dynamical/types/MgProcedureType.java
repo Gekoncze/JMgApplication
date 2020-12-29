@@ -2,7 +2,6 @@ package cz.mg.application.entities.dynamical.types;
 
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Parent;
-import cz.mg.application.architecture.MgCore;
 import cz.mg.application.entities.dynamical.objects.MgTask;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
 import cz.mg.application.entities.statical.parts.MgVariable;
@@ -28,6 +27,9 @@ public class MgProcedureType extends MgStructuredType {
 
     @Override
     public MgTask create(){
-        return new MgTask(this, MgCore.getInstance().getThread());
+        return new MgTask(
+            this,
+            procedure.getCommands().getFirst().getInstructions().getFirst()
+        );
     }
 }

@@ -5,6 +5,7 @@ import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Link;
 import cz.mg.annotations.storage.Part;
 import cz.mg.annotations.storage.Value;
+import cz.mg.application.architecture.utilities.JavaThread;
 import cz.mg.application.entities.dynamical.MgDynamicalEntity;
 
 
@@ -19,7 +20,7 @@ public class MgCore extends MgDynamicalEntity implements Runnable {
     private MgThread thread;
 
     @Optional @Part
-    private final Thread javaThread;
+    private final JavaThread javaThread;
 
     @Mandatory @Value
     private boolean running = false;
@@ -28,7 +29,7 @@ public class MgCore extends MgDynamicalEntity implements Runnable {
     private boolean alive = true;
 
     public MgCore() {
-        javaThread = new Thread(this);
+        javaThread = new JavaThread(this);
         javaThread.start();
     }
 
@@ -42,6 +43,10 @@ public class MgCore extends MgDynamicalEntity implements Runnable {
 
     public boolean isRunning() {
         return running;
+    }
+
+    public boolean isAlive() {
+        return alive;
     }
 
     public void start(){
@@ -58,24 +63,18 @@ public class MgCore extends MgDynamicalEntity implements Runnable {
 
     @Override
     public void run() {
+        INSTANCE.set(this);
+
         while(alive){
             if(running){
                 if(thread != null){
                     thread.run();
                 } else {
-                    snooze();
+                    JavaThread.snooze();
                 }
             } else {
-                snooze();
+                JavaThread.snooze();
             }
-        }
-    }
-
-    private void snooze(){
-        try {
-            Thread.sleep(10);
-        } catch (InterruptedException e) {
-            throw new RuntimeException();
         }
     }
 }

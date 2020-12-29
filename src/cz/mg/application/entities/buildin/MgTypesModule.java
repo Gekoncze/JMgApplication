@@ -18,13 +18,11 @@ public class MgTypesModule extends MgModule {
     }
 
     public MgTypesModule() {
-        super(
-            new Text("types"),
-            new MgIdentity(
-                new Text("cz.mg.application.buildin.types"),
-                new MgVersion(0, 0, 0)
-            )
-        );
+        setName(new Text("types"));
+        setIdentity(new MgIdentity(
+            new Text("cz.mg.application.buildin.types"),
+            new MgVersion(0, 0, 0)
+        ));
     }
 
     public MgTypesModule init(){
