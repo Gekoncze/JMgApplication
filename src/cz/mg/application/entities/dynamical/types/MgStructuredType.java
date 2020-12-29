@@ -11,7 +11,8 @@ public abstract class MgStructuredType extends MgType {
     @Mandatory @Link
     private final ReadableArray<MgVariable> variables;
 
-    public MgStructuredType(ReadableArray<MgVariable> variables) {
+    public MgStructuredType(ReadableArray<MgType> types, ReadableArray<MgVariable> variables) {
+        super(types);
         this.variables = variables;
     }
 

@@ -6,6 +6,7 @@ import cz.mg.application.architecture.MgCore;
 import cz.mg.application.entities.dynamical.objects.MgTask;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
 import cz.mg.application.entities.statical.parts.MgVariable;
+import cz.mg.collections.array.Array;
 import cz.mg.collections.array.ReadableArray;
 
 
@@ -13,8 +14,11 @@ public class MgProcedureType extends MgStructuredType {
     @Mandatory @Parent
     private final MgProcedure procedure;
 
-    public MgProcedureType(MgProcedure procedure, ReadableArray<MgVariable> variables) {
-        super(variables);
+    public MgProcedureType(
+        MgProcedure procedure,
+        ReadableArray<MgVariable> variables
+    ) {
+        super(new Array<>(), variables);
         this.procedure = procedure;
     }
 

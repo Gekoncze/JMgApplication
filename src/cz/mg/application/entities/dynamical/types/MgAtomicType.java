@@ -4,6 +4,7 @@ import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Parent;
 import cz.mg.application.entities.dynamical.objects.MgAtomicObject;
 import cz.mg.application.entities.statical.components.definitions.MgAtom;
+import cz.mg.collections.array.Array;
 
 
 public class MgAtomicType extends MgType {
@@ -11,6 +12,7 @@ public class MgAtomicType extends MgType {
     private final MgAtom atom;
 
     public MgAtomicType(MgAtom atom) {
+        super(new Array<>());
         this.atom = atom;
     }
 

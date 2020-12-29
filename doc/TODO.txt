@@ -1,18 +1,26 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-...
+implemented basic core and thread logic
+added rollback command and instruction
+implemented catch block catching logic
+added is method to type (+ moved list of compatible types from class type to type)
+
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
 add instructions
+
+
+##### SOON ##### -------------------------------------------------------------------------------------------------------
 add logic to create instructions from commands in procedure type service
     add optimization for local (anonymous expression) variable count
     add optimization for begin/end mark instruction removal
+test mg core and mg thread
+test rollback logic
 
-##### SOON ##### -------------------------------------------------------------------------------------------------------
 add test to check if all buildin module ids are unique
-make core and thread work
-    add scheduler(s)
+add scheduler(s)
 
 add test for variables in procedure type and class type
+add test for checkpoint catch exception catching
 
 add storage for statical entities
     there are 2 options:

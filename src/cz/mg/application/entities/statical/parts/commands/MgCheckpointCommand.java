@@ -1,18 +1,17 @@
 package cz.mg.application.entities.statical.parts.commands;
 
+import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Part;
+import cz.mg.collections.list.List;
 
 
 public class MgCheckpointCommand extends MgCommand {
     @Optional @Part
     private MgTryCommand tryCommand;
 
-    @Optional @Part
-    private MgCatchCommand catchCommand;
-
-    @Optional @Part
-    private MgFinallyCommand finallyCommand;
+    @Mandatory @Part
+    private final List<MgCatchCommand> catchCommands = new List<>();
 
     public MgCheckpointCommand() {
     }
@@ -25,19 +24,7 @@ public class MgCheckpointCommand extends MgCommand {
         this.tryCommand = tryCommand;
     }
 
-    public MgCatchCommand getCatchCommand() {
-        return catchCommand;
-    }
-
-    public void setCatchCommand(MgCatchCommand catchCommand) {
-        this.catchCommand = catchCommand;
-    }
-
-    public MgFinallyCommand getFinallyCommand() {
-        return finallyCommand;
-    }
-
-    public void setFinallyCommand(MgFinallyCommand finallyCommand) {
-        this.finallyCommand = finallyCommand;
+    public List<MgCatchCommand> getCatchCommands() {
+        return catchCommands;
     }
 }

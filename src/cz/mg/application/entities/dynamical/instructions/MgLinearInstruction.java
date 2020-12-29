@@ -2,6 +2,7 @@ package cz.mg.application.entities.dynamical.instructions;
 
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Link;
+import cz.mg.application.entities.dynamical.objects.MgTask;
 
 
 public abstract class MgLinearInstruction extends MgInstruction {
@@ -17,5 +18,10 @@ public abstract class MgLinearInstruction extends MgInstruction {
 
     public void setNextInstruction(MgInstruction nextInstruction) {
         this.nextInstruction = nextInstruction;
+    }
+
+    @Override
+    public void run(MgTask task) {
+        task.setInstruction(getNextInstruction());
     }
 }

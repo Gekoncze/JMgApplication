@@ -11,14 +11,12 @@ import cz.mg.application.entities.statical.components.definitions.MgProcedure;
 import cz.mg.application.entities.statical.parts.MgVariable;
 import cz.mg.collections.array.ReadableArray;
 import cz.mg.collections.map.Map;
+import cz.mg.collections.map.ReadableMap;
 
 
 public class MgClassType extends MgStructuredType {
     @Mandatory @Parent
     private final MgClass clazz;
-
-    @Mandatory @Link
-    private final ReadableArray<MgType> types;
 
     @Mandatory @Link
     private final ReadableArray<MgProcedure> procedures;
@@ -30,7 +28,7 @@ public class MgClassType extends MgStructuredType {
     private final ReadableArray<MgOperator> operators;
 
     @Mandatory @Link
-    private final Map<MgInterface, MgProcedure> procedureMap;
+    private final ReadableMap<MgInterface, MgProcedure> procedureMap;
 
     public MgClassType(
         MgClass clazz,
@@ -41,9 +39,8 @@ public class MgClassType extends MgStructuredType {
         ReadableArray<MgOperator> operators,
         Map<MgInterface, MgProcedure> procedureMap
     ) {
-        super(variables);
+        super(types, variables);
         this.clazz = clazz;
-        this.types = types;
         this.procedures = procedures;
         this.interfaces = interfaces;
         this.operators = operators;
@@ -52,10 +49,6 @@ public class MgClassType extends MgStructuredType {
 
     public MgClass getClazz() {
         return clazz;
-    }
-
-    public ReadableArray<MgType> getTypes() {
-        return types;
     }
 
     public ReadableArray<MgProcedure> getProcedures() {
@@ -70,7 +63,7 @@ public class MgClassType extends MgStructuredType {
         return operators;
     }
 
-    public Map<MgInterface, MgProcedure> getProcedureMap() {
+    public ReadableMap<MgInterface, MgProcedure> getProcedureMap() {
         return procedureMap;
     }
 
