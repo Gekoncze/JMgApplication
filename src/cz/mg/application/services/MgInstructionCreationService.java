@@ -99,12 +99,11 @@ public class MgInstructionCreationService extends MgInstructionService {
     }
 
     private static void create(MgBreakCommand command, MgStandaloneCommand nextCommand, MgCommand parent){
-        MgCommand target = (MgCommand) command.getTarget();
         command.setRuntimeCommand(new MgRuntimeCommand(
             command,
             parent,
             new Array<>(
-                new MgGotoInstruction(command, target.getRuntimeCommand().getInstructions().getLast())
+                new MgGotoInstruction(command, command.getTarget().getRuntimeCommand().getInstructions().getLast())
             ),
             new Array<>()
         ));
@@ -123,45 +122,86 @@ public class MgInstructionCreationService extends MgInstructionService {
     }
 
     private static void create(MgCheckpointCommand command, MgStandaloneCommand nextCommand, MgCommand parent){
-        //todo;
+        create(command.getTryCommand(), nextCommand, command);
+        for(MgCatchCommand catchCommand : command.getCatchCommands()){
+            create(catchCommand, nextCommand, command);
+        }
     }
 
     private static void create(MgContinueCommand command, MgStandaloneCommand nextCommand, MgCommand parent){
-        MgCommand target = (MgCommand) command.getTarget();
         command.setRuntimeCommand(new MgRuntimeCommand(
             command,
             parent,
             new Array<>(
-                new MgGotoInstruction(command, target.getRuntimeCommand().getInstructions().getFirst())
+                new MgGotoInstruction(command, command.getTarget().getRuntimeCommand().getInstructions().getFirst())
             ),
             new Array<>()
         ));
     }
 
     private static void create(MgExpressionCommand command, MgStandaloneCommand nextCommand, MgCommand parent){
-        //todo;
+//        command.setRuntimeCommand(new MgRuntimeCommand(
+//            command,
+//            parent,
+//            new Array<>(
+//                create(procedure, output, command.getExpression())
+//            ),
+//            new Array<>()
+//        )); todo
     }
 
     private static void create(MgReturnCommand command, MgStandaloneCommand nextCommand, MgCommand parent){
-        //todo;
+//        command.setRuntimeCommand(new MgRuntimeCommand(
+//            command,
+//            parent,
+//            new Array<>(
+//                new MgPopProcedureInstruction(command, parameters)
+//            ),
+//            new Array<>()
+//        )); todo
     }
 
     private static void create(MgRollbackCommand command, MgStandaloneCommand nextCommand, MgCommand parent){
-        //todo;
+//        command.setRuntimeCommand(new MgRuntimeCommand(
+//            command,
+//            parent,
+//            new Array<>(
+//                new MgRollbackInstruction(command, variable)
+//            ),
+//            new Array<>()
+//        )); todo
     }
 
     private static void create(MgSwitchCommand command, MgStandaloneCommand nextCommand, MgCommand parent){
-        //todo;
+//        command.setRuntimeCommand(new MgRuntimeCommand(
+//            command,
+//            parent,
+//            new Array<>(
+//                todo
+//            ),
+//            new Array<>(command.getCaseCommands())
+//        )); todo
     }
 
     private static void create(MgTryCommand command, MgStandaloneCommand nextCommand, MgCommand parent){
-        //todo;
+        createDummyInstructions(command, parent);
+        createSequence(command.getCommands(), nextCommand, command);
+        connectDummyInstructions(command, command.getCommands(), nextCommand);
     }
 
     private static void create(MgWhileCommand command, MgStandaloneCommand nextCommand, MgCommand parent){
-        //todo;
+//        create(procedure, output, command.getExpression());
+//        command.setRuntimeCommand(new MgRuntimeCommand(
+//            command,
+//            parent,
+//            new Array<>(
+//                todo
+//            ),
+//            new Array<>(command.getCommands())
+//        )); todo
     }
 
+    // todo - dummy instructions might not be needed for all block commands
     private static void createDummyInstructions(MgBlockCommand command, MgCommand parent){
         command.setRuntimeCommand(new MgRuntimeCommand(
             command,
