@@ -1,0 +1,8 @@
+Entity - object that mostly just stores data
+Service - object that performs a complex task on entity or entities
+Statical entity - entity created by the software developer
+Runtime entity - entity created at runtime or application startup
+Component - mostly standalone entity taking care of itself
+Part - dependent entity being babysat by a component
+Object - an instance of a type
+Type - a template for creating runtime objects

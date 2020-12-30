@@ -1,7 +1,5 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-improved instruction creation logic
-extracted some fileds from command to runtime command
-renamed dynamic entities to runtime entities
+...
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------

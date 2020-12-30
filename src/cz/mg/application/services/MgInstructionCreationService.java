@@ -2,7 +2,6 @@ package cz.mg.application.services;
 
 import cz.mg.application.entities.runtime.MgRuntimeCommand;
 import cz.mg.application.entities.runtime.instructions.MgGotoInstruction;
-import cz.mg.application.entities.runtime.instructions.MgInstruction;
 import cz.mg.application.entities.runtime.instructions.dummy.MgBeginDummyInstruction;
 import cz.mg.application.entities.runtime.instructions.dummy.MgEndDummyInstruction;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
