@@ -1,6 +1,9 @@
 package cz.mg.application.entities.statical.parts.commands;
 
-public class MgReturnCommand extends MgCommand {
+import cz.mg.application.entities.statical.parts.commands.interfaces.MgSingleLineCommand;
+
+
+public class MgReturnCommand extends MgCommand implements MgSingleLineCommand {
     public MgReturnCommand() {
     }
 }

@@ -5,10 +5,11 @@ import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Link;
 import cz.mg.annotations.storage.Part;
 import cz.mg.application.entities.statical.parts.MgVariable;
+import cz.mg.application.entities.statical.parts.commands.interfaces.MgMultiLineCommand;
 import cz.mg.collections.list.List;
 
 
-public class MgCatchCommand extends MgCommand {
+public class MgCatchCommand extends MgCommand implements MgMultiLineCommand {
     @Optional @Link
     private MgVariable variable = new MgVariable();
 
@@ -26,6 +27,7 @@ public class MgCatchCommand extends MgCommand {
         this.variable = variable;
     }
 
+    @Override
     public List<MgCommand> getCommands() {
         return commands;
     }

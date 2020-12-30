@@ -3,11 +3,12 @@ package cz.mg.application.entities.statical.parts.commands;
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Part;
+import cz.mg.application.entities.statical.parts.commands.interfaces.MgMultiLineCommand;
 import cz.mg.application.entities.statical.parts.expressions.MgExpression;
 import cz.mg.collections.list.List;
 
 
-public class MgWhileCommand extends MgCommand {
+public class MgWhileCommand extends MgCommand implements MgMultiLineCommand {
     @Optional @Part
     private MgExpression expression;
 
@@ -25,6 +26,7 @@ public class MgWhileCommand extends MgCommand {
         this.expression = expression;
     }
 
+    @Override
     public List<MgCommand> getCommands() {
         return commands;
     }

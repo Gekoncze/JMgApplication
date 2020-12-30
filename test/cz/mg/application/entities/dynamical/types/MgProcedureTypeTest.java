@@ -29,14 +29,14 @@ public class MgProcedureTypeTest implements Test {
 
         MgCommand firstCommand = new MgExpressionCommand();
         firstCommand.setInstructions(new Array<>(
-            expectedInstruction = new MgBeginDummyInstruction(),
-            new MgEndDummyInstruction()
+            expectedInstruction = new MgBeginDummyInstruction(firstCommand),
+            new MgEndDummyInstruction(firstCommand)
         ));
 
         MgCommand secondCommand = new MgExpressionCommand();
         secondCommand.setInstructions(new Array<>(
-            new MgBeginDummyInstruction(),
-            new MgEndDummyInstruction()
+            new MgBeginDummyInstruction(secondCommand),
+            new MgEndDummyInstruction(secondCommand)
         ));
 
         procedure.getCommands().addLast(firstCommand);

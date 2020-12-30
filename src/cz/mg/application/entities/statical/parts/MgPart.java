@@ -1,9 +1,9 @@
 package cz.mg.application.entities.statical.parts;
 
-import cz.mg.application.entities.MgEntity;
+import cz.mg.application.entities.statical.MgStaticalEntity;
 
 
-public abstract class MgPart extends MgEntity {
+public abstract class MgPart extends MgStaticalEntity {
     public MgPart() {
     }
 }

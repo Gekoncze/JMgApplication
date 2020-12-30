@@ -1,9 +1,10 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-
+started implementing logic to create instructions from commands
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
-add logic to create instructions from commands in procedure type service
+finish logic to create instructions from commands
+add logic to create instructions from expressions
 add variable get/set instructions
 
 
@@ -13,6 +14,13 @@ add test for checkpoint catch exception catching
 
 add test to check procedure execution
 add test for variables in procedure type and class type
+
+add test for instruction creation service
+add test for instruction optimization service
+add test for instruction validation service
+add test for procedure service
+
+
 
 
 ##### LATER ##### -------------------------------------------------------------------------------------------------------

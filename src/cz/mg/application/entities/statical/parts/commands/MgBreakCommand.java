@@ -2,20 +2,22 @@ package cz.mg.application.entities.statical.parts.commands;
 
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Link;
+import cz.mg.application.entities.statical.parts.commands.interfaces.MgBreakableCommand;
+import cz.mg.application.entities.statical.parts.commands.interfaces.MgSingleLineCommand;
 
 
-public class MgBreakCommand extends MgCommand {
+public class MgBreakCommand extends MgCommand implements MgSingleLineCommand {
     @Optional @Link
-    private MgCommand target;
+    private MgBreakableCommand target;
 
     public MgBreakCommand() {
     }
 
-    public MgCommand getTarget() {
+    public MgBreakableCommand getTarget() {
         return target;
     }
 
-    public void setTarget(MgCommand target) {
+    public void setTarget(MgBreakableCommand target) {
         this.target = target;
     }
 }

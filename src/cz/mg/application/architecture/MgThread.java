@@ -60,6 +60,7 @@ public class MgThread extends MgDynamicalEntity implements Runnable {
                     for(MgCatchCommand catchCommand : checkpointCommand.getCatchCommands()){
                         if(exception.getType().is(catchCommand.getVariable().getDefinition().getType())){
                             task.setInstruction(catchCommand.getInstructions().getFirst());
+                            task.setObject(catchCommand.getVariable(), exception);
                             exception = null;
                             return;
                         }

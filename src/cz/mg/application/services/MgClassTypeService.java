@@ -1,4 +1,4 @@
-package cz.mg.application.services.runtime;
+package cz.mg.application.services;
 
 import cz.mg.application.entities.dynamical.types.MgType;
 import cz.mg.application.entities.dynamical.types.MgClassType;
@@ -7,8 +7,6 @@ import cz.mg.application.entities.statical.components.definitions.MgOperator;
 import cz.mg.application.entities.statical.parts.MgInterface;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
 import cz.mg.application.entities.statical.parts.MgVariable;
-import cz.mg.application.services.MgService;
-import cz.mg.application.services.statical.MgClassService;
 import cz.mg.collections.array.Array;
 import cz.mg.collections.list.List;
 import cz.mg.collections.map.Map;

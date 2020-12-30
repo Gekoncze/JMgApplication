@@ -1,7 +1,6 @@
 package cz.mg.application.services;
 
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
-import cz.mg.application.services.runtime.MgProcedureTypeService;
 import cz.mg.collections.text.Text;
 import cz.mg.test.Test;
 import cz.mg.test.annotations.TestCase;

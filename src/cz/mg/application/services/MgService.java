@@ -1,4 +1,4 @@
 package cz.mg.application.services;
 
-public class MgService {
+public abstract class MgService {
 }

@@ -1,15 +1,19 @@
 package cz.mg.application.entities.dynamical.instructions;
 
+import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Link;
 import cz.mg.application.entities.buildin.atoms.bool8.MgBool8Object;
 import cz.mg.application.entities.dynamical.objects.MgTask;
 import cz.mg.application.entities.statical.parts.MgVariable;
+import cz.mg.application.entities.statical.parts.commands.MgCommand;
+
+import java.util.Objects;
 
 
-public class MgSwitchInstruction extends MgInstruction {
-    @Optional @Link
-    private MgVariable condition;
+public class MgBranchingInstruction extends MgInstruction {
+    @Mandatory @Link
+    private final MgVariable condition;
 
     @Optional @Link
     private MgInstruction trueInstruction;
@@ -17,15 +21,20 @@ public class MgSwitchInstruction extends MgInstruction {
     @Optional @Link
     private MgInstruction falseInstruction;
 
-    public MgSwitchInstruction() {
+    public MgBranchingInstruction(
+        MgCommand command,
+        MgVariable condition,
+        MgInstruction trueInstruction,
+        MgInstruction falseInstruction
+    ) {
+        super(command);
+        this.condition = condition;
+        setTrueInstruction(trueInstruction);
+        setFalseInstruction(falseInstruction);
     }
 
     public MgVariable getCondition() {
         return condition;
-    }
-
-    public void setCondition(MgVariable condition) {
-        this.condition = condition;
     }
 
     public MgInstruction getTrueInstruction() {
@@ -33,6 +42,7 @@ public class MgSwitchInstruction extends MgInstruction {
     }
 
     public void setTrueInstruction(MgInstruction trueInstruction) {
+        Objects.requireNonNull(trueInstruction);
         this.trueInstruction = trueInstruction;
     }
 
@@ -41,6 +51,7 @@ public class MgSwitchInstruction extends MgInstruction {
     }
 
     public void setFalseInstruction(MgInstruction falseInstruction) {
+        Objects.requireNonNull(falseInstruction);
         this.falseInstruction = falseInstruction;
     }
 
