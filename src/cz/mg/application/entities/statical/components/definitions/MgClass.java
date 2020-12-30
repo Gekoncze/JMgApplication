@@ -6,7 +6,7 @@ import cz.mg.annotations.storage.Cache;
 import cz.mg.annotations.storage.Link;
 import cz.mg.annotations.storage.Part;
 import cz.mg.annotations.storage.Value;
-import cz.mg.application.entities.dynamical.types.MgClassType;
+import cz.mg.application.entities.runtime.types.MgClassType;
 import cz.mg.application.entities.statical.components.MgDefinition;
 import cz.mg.application.entities.statical.parts.MgInterface;
 import cz.mg.application.entities.statical.parts.MgVariable;

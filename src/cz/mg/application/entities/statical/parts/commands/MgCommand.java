@@ -1,22 +1,16 @@
 package cz.mg.application.entities.statical.parts.commands;
 
 import cz.mg.annotations.requirement.Optional;
-import cz.mg.annotations.storage.Link;
-import cz.mg.annotations.storage.Part;
-import cz.mg.application.entities.dynamical.instructions.MgInstruction;
+import cz.mg.annotations.storage.Cache;
+import cz.mg.application.entities.runtime.MgRuntimeCommand;
 import cz.mg.application.entities.statical.parts.MgPart;
-import cz.mg.application.entities.statical.parts.commands.interfaces.MgMultiLineCommand;
-import cz.mg.application.entities.statical.parts.commands.interfaces.MgSingleLineCommand;
+import cz.mg.application.entities.statical.parts.commands.interfaces.*;
 import cz.mg.application.services.exceptions.InternalException;
-import cz.mg.collections.array.ReadableArray;
 
 
-public abstract class MgCommand extends MgPart {
-    @Optional @Link
-    private MgCommand parent;
-
-    @Optional @Part
-    private ReadableArray<MgInstruction> instructions;
+public abstract class MgCommand extends MgPart implements MgAnyCommand {
+    @Optional @Cache
+    private MgRuntimeCommand runtimeCommand;
 
     public MgCommand() {
         if(!(this instanceof MgSingleLineCommand || this instanceof MgMultiLineCommand)){
@@ -26,21 +20,23 @@ public abstract class MgCommand extends MgPart {
         if(this instanceof MgSingleLineCommand && this instanceof MgMultiLineCommand){
             throw new InternalException("Command cannot be marked as both single line and multi line.");
         }
+
+        if(!(this instanceof MgStandaloneCommand || this instanceof MgDependentCommand)){
+            throw new InternalException("Command must be marked as standalone or dependent.");
+        }
+
+        if(this instanceof MgStandaloneCommand && this instanceof MgDependentCommand){
+            throw new InternalException("Command cannot be marked as both standalone and dependent.");
+        }
     }
 
-    public MgCommand getParent() {
-        return parent;
+    @Override
+    public MgRuntimeCommand getRuntimeCommand() {
+        return runtimeCommand;
     }
 
-    public void setParent(MgCommand parent) {
-        this.parent = parent;
-    }
-
-    public ReadableArray<MgInstruction> getInstructions() {
-        return instructions;
-    }
-
-    public void setInstructions(ReadableArray<MgInstruction> instructions) {
-        this.instructions = instructions;
+    @Override
+    public void setRuntimeCommand(MgRuntimeCommand runtimeCommand) {
+        this.runtimeCommand = runtimeCommand;
     }
 }

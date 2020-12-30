@@ -6,10 +6,10 @@ import cz.mg.annotations.storage.Link;
 import cz.mg.annotations.storage.Part;
 import cz.mg.annotations.storage.Value;
 import cz.mg.application.architecture.utilities.JavaThread;
-import cz.mg.application.entities.dynamical.MgDynamicalEntity;
+import cz.mg.application.entities.runtime.MgRuntimeEntity;
 
 
-public class MgCore extends MgDynamicalEntity implements Runnable {
+public class MgCore extends MgRuntimeEntity implements Runnable {
     private static final ThreadLocal<MgCore> INSTANCE = new ThreadLocal<>();
 
     public static MgCore getInstance(){

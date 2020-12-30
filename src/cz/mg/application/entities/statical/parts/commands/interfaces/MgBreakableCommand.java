@@ -1,4 +1,4 @@
 package cz.mg.application.entities.statical.parts.commands.interfaces;
 
-public interface MgBreakableCommand {
+public interface MgBreakableCommand extends MgAnyCommand {
 }

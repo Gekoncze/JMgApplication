@@ -1,6 +1,6 @@
 package cz.mg.application.entities.buildin.atoms.int32;
 
-import cz.mg.application.entities.dynamical.objects.MgTask;
+import cz.mg.application.entities.runtime.objects.MgTask;
 import cz.mg.application.entities.statical.components.definitions.MgBuildinRunnable;
 import cz.mg.application.entities.statical.components.definitions.MgLunaryOperator;
 import cz.mg.application.entities.statical.parts.MgVariable;

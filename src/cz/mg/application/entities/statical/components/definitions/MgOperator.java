@@ -2,7 +2,7 @@ package cz.mg.application.entities.statical.components.definitions;
 
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Cache;
-import cz.mg.application.entities.dynamical.types.MgProcedureType;
+import cz.mg.application.entities.runtime.types.MgProcedureType;
 import cz.mg.application.entities.statical.components.MgDefinition;
 
 

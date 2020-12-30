@@ -5,11 +5,11 @@ import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Cache;
 import cz.mg.annotations.storage.Link;
 import cz.mg.annotations.storage.Part;
-import cz.mg.application.entities.dynamical.types.MgProcedureType;
+import cz.mg.application.entities.runtime.types.MgProcedureType;
 import cz.mg.application.entities.statical.components.MgDefinition;
 import cz.mg.application.entities.statical.parts.MgInterface;
 import cz.mg.application.entities.statical.parts.MgVariable;
-import cz.mg.application.entities.statical.parts.commands.MgCommand;
+import cz.mg.application.entities.statical.parts.commands.interfaces.MgStandaloneCommand;
 import cz.mg.collections.list.List;
 
 
@@ -27,7 +27,7 @@ public class MgProcedure extends MgDefinition {
     private MgInterface mgInterface;
 
     @Mandatory @Part
-    private final List<MgCommand> commands = new List<>();
+    private final List<MgStandaloneCommand> commands = new List<>();
 
     @Optional @Cache
     private MgProcedureType type;
@@ -55,7 +55,7 @@ public class MgProcedure extends MgDefinition {
         this.mgInterface = mgInterface;
     }
 
-    public List<MgCommand> getCommands() {
+    public List<MgStandaloneCommand> getCommands() {
         return commands;
     }
 

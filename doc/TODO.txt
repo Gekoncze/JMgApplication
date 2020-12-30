@@ -1,5 +1,7 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-started implementing logic to create instructions from commands
+improved instruction creation logic
+extracted some fileds from command to runtime command
+renamed dynamic entities to runtime entities
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
@@ -9,18 +11,16 @@ add variable get/set instructions
 
 
 ##### SOON ##### -------------------------------------------------------------------------------------------------------
-add test for rollback logic
-add test for checkpoint catch exception catching
+extend tests for procedure type and class type
 
-add test to check procedure execution
-add test for variables in procedure type and class type
-
+add test for exception handling service
 add test for instruction creation service
 add test for instruction optimization service
 add test for instruction validation service
-add test for procedure service
+add test for instruction collector service
+add test for expression instruction creation service
 
-
+add tests for simple procedure examples execution
 
 
 ##### LATER ##### -------------------------------------------------------------------------------------------------------

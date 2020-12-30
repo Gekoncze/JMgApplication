@@ -1,19 +1,19 @@
 package cz.mg.application.services;
 
-import cz.mg.application.entities.dynamical.instructions.MgBranchingInstruction;
-import cz.mg.application.entities.dynamical.instructions.MgInstruction;
-import cz.mg.application.entities.dynamical.instructions.MgLinearInstruction;
-import cz.mg.application.entities.dynamical.instructions.MgTerminatingInstruction;
+import cz.mg.application.entities.runtime.instructions.MgBranchingInstruction;
+import cz.mg.application.entities.runtime.instructions.MgInstruction;
+import cz.mg.application.entities.runtime.instructions.MgLinearInstruction;
+import cz.mg.application.entities.runtime.instructions.MgTerminatingInstruction;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
 import cz.mg.application.services.exceptions.InternalException;
 
-import static cz.mg.application.services.MgProcedureService.collectInstructions;
+import static cz.mg.application.services.MgInstructionCollectorService.collect;
 
 
 public class MgInstructionValidationService extends MgInstructionService {
     public static void validate(MgProcedure procedure) {
         check(procedure);
-        for(MgInstruction instruction : collectInstructions(procedure)){
+        for(MgInstruction instruction : collect(procedure)){
             validateNotNull(instruction);
         }
     }

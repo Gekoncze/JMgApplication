@@ -3,7 +3,8 @@ package cz.mg.application;
 import cz.mg.application.architecture.MgCore;
 import cz.mg.application.architecture.MgThread;
 import cz.mg.application.architecture.utilities.JavaThread;
-import cz.mg.application.entities.dynamical.instructions.MgBuildinRunnableInstruction;
+import cz.mg.application.entities.runtime.MgRuntimeCommand;
+import cz.mg.application.entities.runtime.instructions.MgBuildinRunnableInstruction;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
 import cz.mg.application.entities.statical.parts.commands.MgCommand;
 import cz.mg.application.entities.statical.parts.commands.MgExpressionCommand;
@@ -16,14 +17,20 @@ public class RuntimeEnvironment {
         MgCore core = new MgCore();
         MgThread thread = new MgThread();
         MgProcedure procedure = new MgProcedure();
-        MgCommand command = new MgExpressionCommand();
+        MgExpressionCommand command = new MgExpressionCommand();
 
         MgBuildinRunnableInstruction instruction = new MgBuildinRunnableInstruction(command, null, (task) -> {
             runnable.run();
             core.destroy();
         });
 
-        command.setInstructions(new Array<>(instruction));
+        command.setRuntimeCommand(new MgRuntimeCommand(
+            command,
+            null,
+            new Array<>(instruction),
+            new Array<>()
+        ));
+
         procedure.getCommands().addLast(command);
         MgProcedureTypeService.create(procedure);
         thread.getStack().addLast(procedure.getType().create());

@@ -4,9 +4,10 @@ import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Link;
 import cz.mg.application.entities.statical.parts.commands.interfaces.MgBreakableCommand;
 import cz.mg.application.entities.statical.parts.commands.interfaces.MgSingleLineCommand;
+import cz.mg.application.entities.statical.parts.commands.interfaces.MgStandaloneCommand;
 
 
-public class MgBreakCommand extends MgCommand implements MgSingleLineCommand {
+public class MgBreakCommand extends MgCommand implements MgSingleLineCommand, MgStandaloneCommand {
     @Optional @Link
     private MgBreakableCommand target;
 

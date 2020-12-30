@@ -1,6 +1,6 @@
 package cz.mg.application.entities.buildin.atoms.float32;
 
-import cz.mg.application.entities.dynamical.objects.MgTask;
+import cz.mg.application.entities.runtime.objects.MgTask;
 import cz.mg.application.entities.statical.components.definitions.MgBuildinRunnable;
 import cz.mg.application.entities.statical.components.definitions.MgRunaryOperator;
 import cz.mg.application.entities.statical.parts.MgVariable;

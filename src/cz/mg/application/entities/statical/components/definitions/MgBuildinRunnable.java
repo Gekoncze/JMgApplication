@@ -1,6 +1,6 @@
 package cz.mg.application.entities.statical.components.definitions;
 
-import cz.mg.application.entities.dynamical.objects.MgTask;
+import cz.mg.application.entities.runtime.objects.MgTask;
 
 
 public interface MgBuildinRunnable {

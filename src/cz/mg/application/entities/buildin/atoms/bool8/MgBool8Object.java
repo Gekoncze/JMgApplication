@@ -2,7 +2,7 @@ package cz.mg.application.entities.buildin.atoms.bool8;
 
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Value;
-import cz.mg.application.entities.dynamical.objects.MgAtomicObject;
+import cz.mg.application.entities.runtime.objects.MgAtomicObject;
 
 
 public class MgBool8Object extends MgAtomicObject {

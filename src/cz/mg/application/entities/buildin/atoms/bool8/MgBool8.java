@@ -1,6 +1,6 @@
 package cz.mg.application.entities.buildin.atoms.bool8;
 
-import cz.mg.application.entities.dynamical.objects.MgAtomicObject;
+import cz.mg.application.entities.runtime.objects.MgAtomicObject;
 import cz.mg.application.entities.statical.components.definitions.MgAtom;
 import cz.mg.collections.text.Text;
 

@@ -3,8 +3,8 @@ package cz.mg.application.entities.statical.components.definitions;
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Cache;
 import cz.mg.annotations.storage.Part;
-import cz.mg.application.entities.dynamical.objects.MgAtomicObject;
-import cz.mg.application.entities.dynamical.types.MgAtomicType;
+import cz.mg.application.entities.runtime.objects.MgAtomicObject;
+import cz.mg.application.entities.runtime.types.MgAtomicType;
 import cz.mg.application.entities.statical.components.MgDefinition;
 import cz.mg.collections.list.List;
 

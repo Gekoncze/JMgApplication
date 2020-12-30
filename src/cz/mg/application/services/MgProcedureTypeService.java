@@ -1,6 +1,6 @@
 package cz.mg.application.services;
 
-import cz.mg.application.entities.dynamical.types.MgProcedureType;
+import cz.mg.application.entities.runtime.types.MgProcedureType;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
 import cz.mg.application.entities.statical.parts.MgVariable;
 import cz.mg.collections.array.Array;

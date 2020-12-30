@@ -1,7 +1,7 @@
 package cz.mg.application.services;
 
-import cz.mg.application.entities.dynamical.types.MgType;
-import cz.mg.application.entities.dynamical.types.MgClassType;
+import cz.mg.application.entities.runtime.types.MgType;
+import cz.mg.application.entities.runtime.types.MgClassType;
 import cz.mg.application.entities.statical.components.definitions.MgClass;
 import cz.mg.application.entities.statical.components.definitions.MgOperator;
 import cz.mg.application.entities.statical.parts.MgInterface;
