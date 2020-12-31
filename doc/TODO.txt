@@ -1,11 +1,10 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-prepared base for logic to create instructions from expressions
+added variable get/set instructions
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
 finish logic to create instructions from commands
 finish logic to create instructions from expressions
-add variable get/set instructions
 
 
 ##### SOON ##### -------------------------------------------------------------------------------------------------------
