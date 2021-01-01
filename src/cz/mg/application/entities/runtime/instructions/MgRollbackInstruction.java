@@ -7,7 +7,6 @@ import cz.mg.application.entities.runtime.objects.MgObject;
 import cz.mg.application.entities.runtime.objects.MgTask;
 import cz.mg.application.entities.statical.parts.MgCheckpoint;
 import cz.mg.application.entities.statical.parts.MgVariable;
-import cz.mg.collections.list.List;
 
 
 public class MgRollbackInstruction extends MgTerminatingInstruction {
@@ -28,22 +27,20 @@ public class MgRollbackInstruction extends MgTerminatingInstruction {
 
     @Override
     public void run(MgTask task) {
-        handleException(
-            MgThread.getInstance().getStack(),
-            task,
-            task.getObject(variable)
-        );
+        handleException(MgThread.getInstance(), task, task.getObject(variable));
     }
 
-    public static void handleException(List<MgTask> stack, MgTask task, MgObject exception){
+    public static void handleException(MgThread thread, MgTask task, MgObject exception){
+        thread.setTask(null);
         while(task != null){
             MgCheckpoint checkpoint = findCheckpoint(task, exception);
             if(checkpoint != null){
                 task.setInstruction(task.getType().getCheckpointInstructionMap().get(checkpoint));
                 task.setObject(checkpoint.getVariable(), exception);
+                thread.setTask(task);
             } else {
-                stack.removeLast();
-                task = stack.getLast();
+                thread.getStack().removeLast();
+                task = thread.getStack().getLast();
             }
         }
         throw new RuntimeException("Uncaught exception.");

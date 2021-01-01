@@ -3,14 +3,18 @@
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
+there needs tobe 4 instructions for procedures
+    create, enter, leave, destroy
+
+dont forget to connect expression instructions at the end of its resolution
+
 finish logic to create instructions from commands
 finish logic to create instructions from expressions
 
 
 ##### SOON ##### -------------------------------------------------------------------------------------------------------
-reimplement exception handling
-    so, the problem now is that we cannot find child commands of a command
-        I think the right thing to do is to have checkpoints on procedure level
+add definition-variable validation for all commands and expressions
+    need to make sure wrong variable is not used
 
 extend tests for procedure type and class type
 

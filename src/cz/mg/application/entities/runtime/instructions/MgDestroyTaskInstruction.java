@@ -6,34 +6,30 @@ import cz.mg.annotations.storage.Part;
 import cz.mg.application.architecture.MgThread;
 import cz.mg.application.entities.runtime.Connection;
 import cz.mg.application.entities.runtime.objects.MgTask;
-import cz.mg.application.entities.statical.components.definitions.MgProcedure;
+import cz.mg.application.entities.runtime.types.MgProcedureType;
 import cz.mg.collections.array.ReadableArray;
 
 
-public class MgPushProcedureInstruction extends MgLinearInstruction {
+public class MgDestroyTaskInstruction extends MgLinearInstruction {
     @Mandatory @Link
-    private final MgProcedure procedure;
+    private final MgProcedureType procedureType;
 
     @Mandatory @Part
     private final ReadableArray<Connection> parameters;
 
-    public MgPushProcedureInstruction(
-        MgInstruction nextInstruction,
-        MgProcedure procedure,
-        ReadableArray<Connection> parameters
-    ) {
-        super(nextInstruction);
-        this.procedure = procedure;
+    public MgDestroyTaskInstruction(MgProcedureType procedureType, ReadableArray<Connection> parameters) {
+        this.procedureType = procedureType;
         this.parameters = parameters;
     }
 
     @Override
     public void run(MgTask task) {
-        super.run(task);
-        MgTask newTask = procedure.getType().create();
+        MgThread thread = MgThread.getInstance();
+        thread.getStack().removeLast();
+        MgTask parentTask = thread.getStack().getLast();
         for(Connection parameter : parameters){
-            parameter.run(task, newTask);
+            parameter.run(parentTask, task);
         }
-        MgThread.getInstance().getStack().addLast(newTask);
+        super.run(task);
     }
 }

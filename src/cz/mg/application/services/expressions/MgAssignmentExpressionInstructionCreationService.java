@@ -13,8 +13,12 @@ import cz.mg.collections.list.List;
 import java.util.Iterator;
 
 
-public class MgRuntimeAssignmentExpressionInstructionCreationService extends MgService {
-    public static List<MgVariable> create(MgAssignmentExpression expression, List<MgVariable> variables, List<MgInstruction> instructions){
+public class MgAssignmentExpressionInstructionCreationService extends MgService {
+    public static List<MgVariable> create(
+        MgAssignmentExpression expression,
+        List<MgVariable> variables,
+        List<MgInstruction> instructions
+    ){
         if(expression.getLeft() == null) throw new LogicalException(expression, "Missing left expression.");
         if(expression.getRight() == null) throw new LogicalException(expression, "Missing right expression.");
 
@@ -43,11 +47,13 @@ public class MgRuntimeAssignmentExpressionInstructionCreationService extends MgS
             if(leftExpression instanceof MgVariableExpression){
                 MgVariable variable = ((MgVariableExpression) leftExpression).getVariable();
                 instructions.addLast(new MgSetLocalToLocalInstruction(rightOutput, variable));
+                // todo - check for variable compatibility
             } else if(leftExpression instanceof MgMemberExpression){
                 MgMemberExpression memberExpression = (MgMemberExpression) leftExpression;
                 if(memberExpression.getChild() instanceof MgVariableExpression){
                     MgVariable variable = ((MgVariableExpression) memberExpression.getChild()).getVariable();
                     instructions.addLast(new MgSetLocalToMemberInstruction(rightOutput, leftOutput, variable));
+                    // todo - check for variable compatibility
                 } else {
                     throw new LogicalException(expression, "Illegal assignment expression.");
                 }
