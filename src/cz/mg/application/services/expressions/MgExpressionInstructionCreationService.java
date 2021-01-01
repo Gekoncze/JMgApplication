@@ -1,12 +1,11 @@
-package cz.mg.application.services;
+package cz.mg.application.services.expressions;
 
 import cz.mg.application.entities.runtime.instructions.MgInstruction;
 import cz.mg.application.entities.runtime.instructions.MgLinearInstruction;
 import cz.mg.application.entities.statical.parts.MgVariable;
 import cz.mg.application.entities.statical.parts.expressions.*;
+import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.InternalException;
-import cz.mg.application.services.expressions.MgAssignmentExpressionInstructionCreationService;
-import cz.mg.application.services.expressions.MgBinaryOperatorExpressionInstructionCreationService;
 import cz.mg.collections.list.List;
 
 
@@ -43,7 +42,9 @@ public class MgExpressionInstructionCreationService extends MgService {
         }
 
         if(expression instanceof MgLunaryOperatorExpression){
-            return create((MgLunaryOperatorExpression) expression, variables, instructions);
+            return MgLunaryOperatorExpressionInstructionCreationService.create(
+                (MgLunaryOperatorExpression) expression, variables, instructions
+            );
         }
 
         if(expression instanceof MgMemberExpression){
@@ -55,7 +56,9 @@ public class MgExpressionInstructionCreationService extends MgService {
         }
 
         if(expression instanceof MgRunaryOperatorExpression){
-            return create((MgRunaryOperatorExpression) expression, variables, instructions);
+            return MgRunaryOperatorExpressionInstructionCreationService.create(
+                (MgRunaryOperatorExpression) expression, variables, instructions
+            );
         }
 
         if(expression instanceof MgValueExpression){
@@ -74,22 +77,12 @@ public class MgExpressionInstructionCreationService extends MgService {
         return null;
     }
 
-    private static List<MgVariable> create(MgLunaryOperatorExpression expression, List<MgVariable> variables, List<MgInstruction> instructions){
-        //todo;
-        return null;
-    }
-
     private static List<MgVariable> create(MgMemberExpression expression, List<MgVariable> variables, List<MgInstruction> instructions){
         //todo;
         return null;
     }
 
     private static List<MgVariable> create(MgProcedureExpression expression, List<MgVariable> variables, List<MgInstruction> instructions){
-        //todo;
-        return null;
-    }
-
-    private static List<MgVariable> create(MgRunaryOperatorExpression expression, List<MgVariable> variables, List<MgInstruction> instructions){
         //todo;
         return null;
     }

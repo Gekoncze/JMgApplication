@@ -5,7 +5,6 @@ import cz.mg.application.entities.runtime.instructions.MgSetLocalToLocalInstruct
 import cz.mg.application.entities.runtime.instructions.MgSetLocalToMemberInstruction;
 import cz.mg.application.entities.statical.parts.MgVariable;
 import cz.mg.application.entities.statical.parts.expressions.*;
-import cz.mg.application.services.MgExpressionInstructionCreationService;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.LogicalException;
 import cz.mg.collections.list.List;

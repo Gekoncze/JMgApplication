@@ -29,6 +29,7 @@ public class RuntimeEnvironment {
         ));
 
         thread.getStack().addLast(procedure.getType().create());
+        thread.setTask(thread.getStack().getLast());
         core.setThread(thread);
 
         core.start();
