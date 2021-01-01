@@ -49,8 +49,16 @@ public class MgExpressionInstructionCreationService extends MgService {
             );
         }
 
-        if(expression instanceof MgMemberExpression){
-            return create((MgMemberExpression) expression, variables, instructions);
+        if(expression instanceof MgMemberProcedureExpression){
+            return MgMemberProcedureExpressionInstructionCreationService.create(
+                (MgMemberProcedureExpression) expression, variables, instructions
+            );
+        }
+
+        if(expression instanceof MgMemberVariableExpression){
+            return MgMemberVariableExpressionInstructionCreationService.create(
+                (MgMemberVariableExpression) expression, variables, instructions
+            );
         }
 
         if(expression instanceof MgProcedureExpression){
@@ -72,16 +80,6 @@ public class MgExpressionInstructionCreationService extends MgService {
         }
 
         throw new InternalException(expression, "Could not create instructions. Unsupported expression type " + expression.getClass().getSimpleName() + ".");
-    }
-
-    private static List<MgVariable> create(MgGroupExpression expression, List<MgVariable> variables, List<MgInstruction> instructions){
-        //todo;
-        return null;
-    }
-
-    private static List<MgVariable> create(MgMemberExpression expression, List<MgVariable> variables, List<MgInstruction> instructions){
-        //todo;
-        return null;
     }
 
     private static List<MgVariable> create(MgProcedureExpression expression, List<MgVariable> variables, List<MgInstruction> instructions){

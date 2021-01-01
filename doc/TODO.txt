@@ -1,8 +1,14 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-...
+prepared member instruction creation services
+split member expression in two new subclasses
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
+finish member instruction creation services
+    member procedure expression should not need any new instruction
+    we can reuse existing create task instruction
+    we just need to pass parent/self as first parameter
+
 dont forget to connect expression instructions at the end of its resolution
 
 finish logic to create instructions from commands
