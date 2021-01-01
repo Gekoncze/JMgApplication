@@ -38,7 +38,9 @@ public class MgExpressionInstructionCreationService extends MgService {
         }
 
         if(expression instanceof MgGroupExpression){
-            return create((MgGroupExpression)expression, variables, instructions);
+            return MgGroupExpressionInstructionCreationService.create(
+                (MgGroupExpression)expression, variables, instructions
+            );
         }
 
         if(expression instanceof MgLunaryOperatorExpression){
