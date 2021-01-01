@@ -7,13 +7,11 @@ import cz.mg.application.entities.runtime.instructions.MgTerminatingInstruction;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
 import cz.mg.application.services.exceptions.InternalException;
 
-import static cz.mg.application.services.MgInstructionCollectorService.collect;
-
 
 public class MgInstructionValidationService extends MgInstructionService {
     public static void validate(MgProcedure procedure) {
         check(procedure);
-        for(MgInstruction instruction : collect(procedure)){
+        for(MgInstruction instruction : procedure.getType().getInstructions()){
             validateNotNull(instruction);
         }
     }
@@ -22,10 +20,6 @@ public class MgInstructionValidationService extends MgInstructionService {
         if(instruction == null){
             throw new InternalException("Validation failed for an instruction. Unexpected null instruction.");
         } else {
-            if(instruction.getCommand() == null){
-                throw new InternalException("Validation failed for an instruction. Command is null.");
-            }
-
             if(instruction instanceof MgTerminatingInstruction){
                 return;
             }

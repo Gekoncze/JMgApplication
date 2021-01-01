@@ -1,5 +1,6 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-added variable get/set instructions
+Simplified checkpoint (exception handling) mechanism a lot
+checkpoints are now part of procedure directly, not as commands
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
@@ -8,6 +9,10 @@ finish logic to create instructions from expressions
 
 
 ##### SOON ##### -------------------------------------------------------------------------------------------------------
+reimplement exception handling
+    so, the problem now is that we cannot find child commands of a command
+        I think the right thing to do is to have checkpoints on procedure level
+
 extend tests for procedure type and class type
 
 add test for exception handling service
@@ -37,3 +42,6 @@ add ui (choose the most suitable toolkit)
 add optimization for local (anonymous expression) variable count
 add optimization for begin/end mark instruction removal
 add scheduler(s)
+tip: idea for expression variable count
+    I think we need at most the number of variables as it is max number of expression parameters + 1
+        investigate ...

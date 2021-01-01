@@ -9,7 +9,7 @@ import cz.mg.collections.array.Array;
 public class MgProcedureTypeService extends MgService {
     public static void create(MgProcedure procedure){
         // todo - create instructions from commands
-        procedure.setType(new MgProcedureType(procedure, unionVariables(procedure)));
+        //procedure.setType(new MgProcedureType(procedure, unionVariables(procedure)));
     }
 
     private static Array<MgVariable> unionVariables(MgProcedure procedure){

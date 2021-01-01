@@ -6,7 +6,6 @@ import cz.mg.annotations.storage.Link;
 import cz.mg.application.entities.buildin.atoms.bool8.MgBool8Object;
 import cz.mg.application.entities.runtime.objects.MgTask;
 import cz.mg.application.entities.statical.parts.MgVariable;
-import cz.mg.application.entities.statical.parts.commands.MgCommand;
 
 import java.util.Objects;
 
@@ -22,12 +21,10 @@ public class MgBranchingInstruction extends MgInstruction {
     private MgInstruction falseInstruction;
 
     public MgBranchingInstruction(
-        MgCommand command,
         MgVariable condition,
         MgInstruction trueInstruction,
         MgInstruction falseInstruction
     ) {
-        super(command);
         this.condition = condition;
         setTrueInstruction(trueInstruction);
         setFalseInstruction(falseInstruction);

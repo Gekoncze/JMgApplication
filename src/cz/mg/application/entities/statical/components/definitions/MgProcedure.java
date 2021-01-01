@@ -7,6 +7,7 @@ import cz.mg.annotations.storage.Link;
 import cz.mg.annotations.storage.Part;
 import cz.mg.application.entities.runtime.types.MgProcedureType;
 import cz.mg.application.entities.statical.components.MgDefinition;
+import cz.mg.application.entities.statical.parts.MgCheckpoint;
 import cz.mg.application.entities.statical.parts.MgInterface;
 import cz.mg.application.entities.statical.parts.MgVariable;
 import cz.mg.application.entities.statical.parts.commands.interfaces.MgStandaloneCommand;
@@ -28,6 +29,9 @@ public class MgProcedure extends MgDefinition {
 
     @Mandatory @Part
     private final List<MgStandaloneCommand> commands = new List<>();
+
+    @Mandatory @Part
+    private final List<MgCheckpoint> checkpoints = new List<>();
 
     @Optional @Cache
     private MgProcedureType type;
@@ -57,6 +61,10 @@ public class MgProcedure extends MgDefinition {
 
     public List<MgStandaloneCommand> getCommands() {
         return commands;
+    }
+
+    public List<MgCheckpoint> getCheckpoints() {
+        return checkpoints;
     }
 
     @Override

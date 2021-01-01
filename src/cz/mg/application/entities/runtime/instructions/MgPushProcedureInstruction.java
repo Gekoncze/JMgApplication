@@ -7,7 +7,6 @@ import cz.mg.application.architecture.MgThread;
 import cz.mg.application.entities.runtime.Connection;
 import cz.mg.application.entities.runtime.objects.MgTask;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
-import cz.mg.application.entities.statical.parts.commands.MgCommand;
 import cz.mg.collections.array.ReadableArray;
 
 
@@ -19,12 +18,11 @@ public class MgPushProcedureInstruction extends MgLinearInstruction {
     private final ReadableArray<Connection> parameters;
 
     public MgPushProcedureInstruction(
-        MgCommand command,
         MgInstruction nextInstruction,
         MgProcedure procedure,
         ReadableArray<Connection> parameters
     ) {
-        super(command, nextInstruction);
+        super(nextInstruction);
         this.procedure = procedure;
         this.parameters = parameters;
     }

@@ -19,12 +19,10 @@ public class MgSetLocalToMemberInstruction extends MgLinearInstruction {
     private final MgVariable destinationMember;
 
     public MgSetLocalToMemberInstruction(
-        MgCommand command,
         MgVariable source,
         MgVariable destination,
         MgVariable destinationMember
     ) {
-        super(command);
         this.source = source;
         this.destination = destination;
         this.destinationMember = destinationMember;
