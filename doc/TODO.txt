@@ -1,6 +1,5 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-Simplified checkpoint (exception handling) mechanism a lot
-checkpoints are now part of procedure directly, not as commands
+...
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
@@ -43,5 +42,6 @@ add optimization for local (anonymous expression) variable count
 add optimization for begin/end mark instruction removal
 add scheduler(s)
 tip: idea for expression variable count
-    I think we need at most the number of variables as it is max number of expression parameters + 1
+    I think we need at most the number of variables as it is max number of expression parameters
+        the only problem with this would be the current implementation of assignment
         investigate ...
