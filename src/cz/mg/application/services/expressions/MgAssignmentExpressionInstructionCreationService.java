@@ -47,15 +47,11 @@ public class MgAssignmentExpressionInstructionCreationService extends MgService 
                 MgVariable variable = ((MgVariableExpression) leftExpression).getVariable();
                 instructions.addLast(new MgSetLocalToLocalInstruction(rightOutput, variable));
                 // todo - check for variable compatibility
-            } else if(leftExpression instanceof MgMemberExpression){
-                MgMemberExpression memberExpression = (MgMemberExpression) leftExpression;
-                if(memberExpression.getChild() instanceof MgVariableExpression){
-                    MgVariable variable = ((MgVariableExpression) memberExpression.getChild()).getVariable();
-                    instructions.addLast(new MgSetLocalToMemberInstruction(rightOutput, leftOutput, variable));
-                    // todo - check for variable compatibility
-                } else {
-                    throw new LogicalException(expression, "Illegal assignment expression.");
-                }
+            } else if(leftExpression instanceof MgMemberVariableExpression){
+                MgMemberVariableExpression memberExpression = (MgMemberVariableExpression) leftExpression;
+                MgVariable variable = memberExpression.getVariable();
+                instructions.addLast(new MgSetLocalToMemberInstruction(rightOutput, leftOutput, variable));
+                // todo - check for variable compatibility
             } else {
                 throw new LogicalException(expression, "Illegal assignment expression.");
             }

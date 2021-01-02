@@ -1,6 +1,7 @@
 package cz.mg.application.services.expressions;
 
 import cz.mg.application.entities.runtime.instructions.MgInstruction;
+import cz.mg.application.entities.runtime.instructions.MgMemberVariableInstruction;
 import cz.mg.application.entities.statical.parts.MgVariable;
 import cz.mg.application.entities.statical.parts.expressions.MgMemberVariableExpression;
 import cz.mg.application.services.MgService;
@@ -20,6 +21,29 @@ public class MgMemberVariableExpressionInstructionCreationService extends MgServ
             expression.getParent(), variables, instructions
         );
 
-        return null; //todo;
+        if(parentOutputs.count() != 1){
+            throw new LogicalException(expression, "Parent expression must return exactly one value.");
+        }
+
+        MgVariable parentOutput = parentOutputs.getFirst();
+
+        // todo - add variable compatibility checks
+
+        MgVariable selfOutput = new MgVariable();
+        selfOutput.setDefinition(expression.getVariable().getDefinition());
+
+        instructions.addLast(
+            new MgMemberVariableInstruction(
+                parentOutput,
+                expression.getVariable(),
+                selfOutput
+            )
+        );
+
+        variables.addLast(
+            selfOutput
+        );
+
+        return new List<>(selfOutput);
     }
 }
