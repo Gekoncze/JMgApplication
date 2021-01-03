@@ -1,11 +1,9 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-added member interface call command, instruction and service
-removed unnecessary procedure type from destroy task instruction
+...
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
 dont forget to connect expression instructions at the end of its resolution
-
 
 finish logic to create instructions from commands
 finish logic to create instructions from expressions

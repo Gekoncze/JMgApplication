@@ -13,7 +13,7 @@ public class MgProcedureExpression extends MgExpression {
     private MgProcedure procedure;
 
     @Mandatory @Part
-    private final List<MgExpression> expressions = new List<>();
+    private final List<MgExpression> input = new List<>();
 
     public MgProcedureExpression() {
     }
@@ -26,7 +26,7 @@ public class MgProcedureExpression extends MgExpression {
         this.procedure = procedure;
     }
 
-    public List<MgExpression> getExpressions() {
-        return expressions;
+    public List<MgExpression> getInput() {
+        return input;
     }
 }

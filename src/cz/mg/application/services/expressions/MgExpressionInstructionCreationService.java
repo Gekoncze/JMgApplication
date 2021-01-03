@@ -68,7 +68,9 @@ public class MgExpressionInstructionCreationService extends MgService {
         }
 
         if(expression instanceof MgProcedureExpression){
-            return create((MgProcedureExpression) expression, variables, instructions);
+            return MgProcedureExpressionInstructionCreationService.create(
+                (MgProcedureExpression) expression, variables, instructions
+            );
         }
 
         if(expression instanceof MgRunaryOperatorExpression){
