@@ -49,6 +49,12 @@ public class MgExpressionInstructionCreationService extends MgService {
             );
         }
 
+        if(expression instanceof MgMemberInterfaceExpression){
+            return MgMemberInterfaceExpressionInstructionCreationService.create(
+                (MgMemberInterfaceExpression) expression, variables, instructions
+            );
+        }
+
         if(expression instanceof MgMemberProcedureExpression){
             return MgMemberProcedureExpressionInstructionCreationService.create(
                 (MgMemberProcedureExpression) expression, variables, instructions

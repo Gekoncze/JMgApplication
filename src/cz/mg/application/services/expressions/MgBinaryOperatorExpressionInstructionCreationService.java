@@ -60,7 +60,6 @@ public class MgBinaryOperatorExpressionInstructionCreationService extends MgServ
             ));
             instructions.addLast(new MgEnterTaskInstruction());
             instructions.addLast(new MgDestroyTaskInstruction(
-                operator.getType(),
                 new Array<>(
                     new Connection(operator.getResult(), selfOutput)
                 )
