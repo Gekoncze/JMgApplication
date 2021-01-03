@@ -28,4 +28,23 @@ public class MgBool8 extends MgAtom {
     public MgAtomicObject create() {
         return new MgBool8Object();
     }
+
+    @Override
+    public Text toText(MgAtomicObject atom) {
+        if(atom == null) return null;
+        MgBool8Object value = (MgBool8Object) atom;
+        return new Text(
+            value.getValue() ? "true" : "false"
+        );
+    }
+
+    @Override
+    public MgAtomicObject fromText(Text text) {
+        if(text == null) return null;
+        switch (text.toString()){
+            case "true": return new MgBool8Object(true);
+            case "false": return new MgBool8Object(false);
+            default: throw new RuntimeException("Cannot convert '" + text.toString() + "' to boolean.");
+        }
+    }
 }

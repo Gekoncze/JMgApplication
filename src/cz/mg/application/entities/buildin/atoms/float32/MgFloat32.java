@@ -31,4 +31,24 @@ public class MgFloat32 extends MgAtom {
     public MgAtomicObject create() {
         return new MgFloat32Object();
     }
+
+    @Override
+    public Text toText(MgAtomicObject atom) {
+        if(atom == null) return null;
+        return new Text(
+            Float.toString(
+                ((MgFloat32Object)atom).getValue()
+            )
+        );
+    }
+
+    @Override
+    public MgAtomicObject fromText(Text text) {
+        if(text == null) return null;
+        return new MgFloat32Object(
+            Float.parseFloat(
+                text.toString()
+            )
+        );
+    }
 }

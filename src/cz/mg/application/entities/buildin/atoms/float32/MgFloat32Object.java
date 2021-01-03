@@ -7,22 +7,22 @@ import cz.mg.application.entities.runtime.objects.MgAtomicObject;
 
 public class MgFloat32Object extends MgAtomicObject {
     @Mandatory @Value
-    private int value;
+    private float value;
 
     public MgFloat32Object() {
         super(MgFloat32.getInstance().getType());
     }
 
-    public MgFloat32Object(int value) {
+    public MgFloat32Object(float value) {
         this();
         setValue(value);
     }
 
-    public int getValue() {
+    public float getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(float value) {
         this.value = value;
     }
 }

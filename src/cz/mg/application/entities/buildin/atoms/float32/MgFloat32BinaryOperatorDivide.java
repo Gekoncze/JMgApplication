@@ -17,7 +17,7 @@ public class MgFloat32BinaryOperatorDivide extends MgFloat32BinaryOperator {
 
 
     @Override
-    protected int compute(int left, int right) {
+    protected float compute(float left, float right) {
         return left / right;
     }
 }

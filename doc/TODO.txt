@@ -1,5 +1,6 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-...
+added value expression instruction creation service
+fixed float atom object internal value type
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
@@ -39,10 +40,8 @@ add ui (choose the most suitable toolkit)
 
 
 ##### MAYBE LATER ##### ------------------------------------------------------------------------------------------------
-add optimization for local (anonymous expression) variable count
-add optimization for begin/end mark instruction removal
 add scheduler(s)
-tip: idea for expression variable count
-    I think we need at most the number of variables as it is max number of expression parameters
-        the only problem with this would be the current implementation of assignment
-        investigate ...
+add optimization for local (anonymous expression) variable count
+    tip: idea for expression variable count
+        I think we need at most the number of variables as it is max number of expression parameters
+            the only problem with this would be the current implementation of assignment

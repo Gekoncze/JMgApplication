@@ -7,6 +7,7 @@ import cz.mg.application.entities.runtime.objects.MgAtomicObject;
 import cz.mg.application.entities.runtime.types.MgAtomicType;
 import cz.mg.application.entities.statical.components.MgDefinition;
 import cz.mg.collections.list.List;
+import cz.mg.collections.text.Text;
 
 
 public abstract class MgAtom extends MgDefinition {
@@ -37,4 +38,6 @@ public abstract class MgAtom extends MgDefinition {
     }
 
     public abstract MgAtomicObject create();
+    public abstract Text toText(MgAtomicObject atom);
+    public abstract MgAtomicObject fromText(Text text);
 }

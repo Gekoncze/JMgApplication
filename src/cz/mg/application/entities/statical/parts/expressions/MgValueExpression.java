@@ -4,6 +4,7 @@ import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Link;
 import cz.mg.annotations.storage.Value;
 import cz.mg.application.entities.statical.components.definitions.MgAtom;
+import cz.mg.collections.text.Text;
 
 
 public abstract class MgValueExpression extends MgExpression {
@@ -11,17 +12,21 @@ public abstract class MgValueExpression extends MgExpression {
     private final MgAtom atom;
 
     @Optional @Value
-    private Object value;
+    private Text value;
 
     public MgValueExpression(MgAtom atom) {
         this.atom = atom;
     }
 
-    public Object getValue() {
+    public MgAtom getAtom() {
+        return atom;
+    }
+
+    public Text getValue() {
         return value;
     }
 
-    public void setValue(Object value) {
+    public void setValue(Text value) {
         this.value = value;
     }
 }

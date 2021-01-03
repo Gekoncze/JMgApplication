@@ -23,10 +23,10 @@ public abstract class MgFloat32LunaryOperator extends MgLunaryOperator implement
     @Override
     public void run(MgTask task) {
         MgFloat32Object rightObject = (MgFloat32Object) task.getObject(getRight());
-        int right = rightObject.getValue();
-        int result = compute(right);
+        float right = rightObject.getValue();
+        float result = compute(right);
         task.setObject(getResult(), new MgFloat32Object(result));
     }
 
-    protected abstract int compute(int right);
+    protected abstract float compute(float right);
 }

@@ -23,10 +23,10 @@ public abstract class MgFloat32RunaryOperator extends MgRunaryOperator implement
     @Override
     public void run(MgTask task) {
         MgFloat32Object leftObject = (MgFloat32Object) task.getObject(getLeft());
-        int left = leftObject.getValue();
-        int result = compute(left);
+        float left = leftObject.getValue();
+        float result = compute(left);
         task.setObject(getResult(), new MgFloat32Object(result));
     }
 
-    protected abstract int compute(int left);
+    protected abstract float compute(float left);
 }

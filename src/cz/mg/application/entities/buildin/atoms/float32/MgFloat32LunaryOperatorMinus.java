@@ -17,7 +17,7 @@ public class MgFloat32LunaryOperatorMinus extends MgFloat32LunaryOperator {
 
 
     @Override
-    protected int compute(int right) {
+    protected float compute(float right) {
         return -right;
     }
 }
