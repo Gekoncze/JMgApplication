@@ -86,14 +86,11 @@ public class MgExpressionInstructionCreationService extends MgService {
         }
 
         if(expression instanceof MgVariableExpression){
-            return create((MgVariableExpression) expression, variables, instructions);
+            return MgVariableExpressionInstructionCreationService.create(
+                (MgVariableExpression) expression, variables, instructions
+            );
         }
 
         throw new InternalException(expression, "Could not create instructions. Unsupported expression type " + expression.getClass().getSimpleName() + ".");
-    }
-
-    private static List<MgVariable> create(MgVariableExpression expression, List<MgVariable> variables, List<MgInstruction> instructions){
-        //todo;
-        return null;
     }
 }
