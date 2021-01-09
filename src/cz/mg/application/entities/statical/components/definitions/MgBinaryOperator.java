@@ -2,43 +2,43 @@ package cz.mg.application.entities.statical.components.definitions;
 
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Part;
-import cz.mg.application.entities.statical.parts.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 
 
 public class MgBinaryOperator extends MgOperator {
     @Optional @Part
-    private MgVariable left;
+    private MgInstanceVariable left;
 
     @Optional @Part
-    private MgVariable right;
+    private MgInstanceVariable right;
 
     @Optional @Part
-    private MgVariable result;
+    private MgInstanceVariable result;
 
     public MgBinaryOperator() {
     }
 
-    public MgVariable getLeft() {
+    public MgInstanceVariable getLeft() {
         return left;
     }
 
-    public void setLeft(MgVariable left) {
+    public void setLeft(MgInstanceVariable left) {
         this.left = left;
     }
 
-    public MgVariable getRight() {
+    public MgInstanceVariable getRight() {
         return right;
     }
 
-    public void setRight(MgVariable right) {
+    public void setRight(MgInstanceVariable right) {
         this.right = right;
     }
 
-    public MgVariable getResult() {
+    public MgInstanceVariable getResult() {
         return result;
     }
 
-    public void setResult(MgVariable result) {
+    public void setResult(MgInstanceVariable result) {
         this.result = result;
     }
 }

@@ -3,9 +3,11 @@ package cz.mg.application.entities.runtime.instructions;
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Link;
+import cz.mg.application.entities.buildin.atoms.bool8.MgBool8;
 import cz.mg.application.entities.buildin.atoms.bool8.MgBool8Object;
 import cz.mg.application.entities.runtime.objects.MgTask;
-import cz.mg.application.entities.statical.parts.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgVariable;
+import cz.mg.application.services.MgValidator;
 
 import java.util.Objects;
 
@@ -25,6 +27,7 @@ public class MgBranchingInstruction extends MgInstruction {
         MgInstruction trueInstruction,
         MgInstruction falseInstruction
     ) {
+        MgValidator.checkCompatibility(condition, MgBool8.getInstance());
         this.condition = condition;
         setTrueInstruction(trueInstruction);
         setFalseInstruction(falseInstruction);

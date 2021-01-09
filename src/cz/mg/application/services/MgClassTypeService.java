@@ -6,7 +6,7 @@ import cz.mg.application.entities.statical.components.definitions.MgClass;
 import cz.mg.application.entities.statical.components.definitions.MgOperator;
 import cz.mg.application.entities.statical.parts.MgInterface;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
-import cz.mg.application.entities.statical.parts.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgVariable;
 import cz.mg.collections.array.Array;
 import cz.mg.collections.list.List;
 import cz.mg.collections.map.Map;
@@ -47,7 +47,7 @@ public class MgClassTypeService extends MgService {
                 }
             }
         }
-        variables.addCollectionLast(clazz.getVariables());
+        variables.addCollectionLast(clazz.getInstanceVariables());
         return new Array<>(variables);
     }
 

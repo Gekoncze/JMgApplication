@@ -3,7 +3,7 @@ package cz.mg.application.entities.runtime.objects;
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Shared;
 import cz.mg.application.entities.runtime.types.MgStructuredType;
-import cz.mg.application.entities.statical.parts.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgVariable;
 import cz.mg.collections.map.Map;
 
 

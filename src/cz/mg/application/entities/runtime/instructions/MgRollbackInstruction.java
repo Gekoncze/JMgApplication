@@ -6,7 +6,7 @@ import cz.mg.application.architecture.MgThread;
 import cz.mg.application.entities.runtime.objects.MgObject;
 import cz.mg.application.entities.runtime.objects.MgTask;
 import cz.mg.application.entities.statical.parts.MgCheckpoint;
-import cz.mg.application.entities.statical.parts.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgVariable;
 
 
 public class MgRollbackInstruction extends MgTerminatingInstruction {

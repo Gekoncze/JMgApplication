@@ -6,7 +6,8 @@ import cz.mg.application.entities.runtime.instructions.MgDestroyTaskInstruction;
 import cz.mg.application.entities.runtime.instructions.MgEnterTaskInstruction;
 import cz.mg.application.entities.runtime.instructions.MgInstruction;
 import cz.mg.application.entities.statical.components.definitions.MgRunaryOperator;
-import cz.mg.application.entities.statical.parts.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgExpressionVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 import cz.mg.application.entities.statical.parts.expressions.MgRunaryOperatorExpression;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.LogicalException;
@@ -17,9 +18,9 @@ import java.util.Iterator;
 
 
 public class MgRunaryOperatorExpressionInstructionCreationService extends MgService {
-    public static List<MgVariable> create(
+    public static List<MgInstanceVariable> create(
         MgRunaryOperatorExpression expression,
-        List<MgVariable> variables,
+        List<MgInstanceVariable> variables,
         List<MgInstruction> instructions
     ){
         if(expression.getOperator() == null) throw new LogicalException(expression, "Missing operator.");
@@ -27,18 +28,17 @@ public class MgRunaryOperatorExpressionInstructionCreationService extends MgServ
 
         MgRunaryOperator operator = expression.getOperator();
 
-        List<MgVariable> leftOutputs = MgExpressionInstructionCreationService.create(
+        List<MgInstanceVariable> leftOutputs = MgExpressionInstructionCreationService.create(
             expression.getLeft(), variables, instructions
         );
 
-        List<MgVariable> selfOutputs = new List<>();
+        List<MgInstanceVariable> selfOutputs = new List<>();
 
-        Iterator<MgVariable> leftOutputIterator = leftOutputs.iterator();
+        Iterator<MgInstanceVariable> leftOutputIterator = leftOutputs.iterator();
         while(leftOutputIterator.hasNext()){
             // todo - check for variable compatibility
-            MgVariable leftSource = leftOutputIterator.next();
-            MgVariable selfOutput = new MgVariable();
-            selfOutput.setDefinition(operator.getResult().getDefinition());
+            MgInstanceVariable leftSource = leftOutputIterator.next();
+            MgInstanceVariable selfOutput = new MgExpressionVariable(operator.getResult().getDefinition());
             selfOutputs.addLast(selfOutput);
             variables.addLast(selfOutput);
             instructions.addLast(new MgCreateTaskInstruction(

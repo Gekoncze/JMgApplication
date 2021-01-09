@@ -2,7 +2,7 @@ package cz.mg.application.services.expressions;
 
 import cz.mg.application.entities.runtime.instructions.MgInstruction;
 import cz.mg.application.entities.runtime.instructions.MgLinearInstruction;
-import cz.mg.application.entities.statical.parts.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 import cz.mg.application.entities.statical.parts.expressions.*;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.InternalException;
@@ -24,7 +24,7 @@ public class MgExpressionInstructionCreationService extends MgService {
         return reversed;
     }
 
-    public static List<MgVariable> create(MgExpression expression, List<MgVariable> variables, List<MgInstruction> instructions){
+    public static List<MgInstanceVariable> create(MgExpression expression, List<MgInstanceVariable> variables, List<MgInstruction> instructions){
         if(expression instanceof MgAssignmentExpression){
             return MgAssignmentExpressionInstructionCreationService.create(
                 (MgAssignmentExpression)expression, variables, instructions
@@ -85,9 +85,9 @@ public class MgExpressionInstructionCreationService extends MgService {
             );
         }
 
-        if(expression instanceof MgVariableExpression){
+        if(expression instanceof MgLocalVariableExpression){
             return MgVariableExpressionInstructionCreationService.create(
-                (MgVariableExpression) expression, variables, instructions
+                (MgLocalVariableExpression) expression, variables, instructions
             );
         }
 

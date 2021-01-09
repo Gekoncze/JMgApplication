@@ -9,7 +9,9 @@ import cz.mg.annotations.storage.Value;
 import cz.mg.application.entities.runtime.types.MgClassType;
 import cz.mg.application.entities.statical.components.MgDefinition;
 import cz.mg.application.entities.statical.parts.MgInterface;
-import cz.mg.application.entities.statical.parts.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgGlobalVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
+import cz.mg.application.entities.statical.parts.variables.MgTypeVariable;
 import cz.mg.collections.list.List;
 
 
@@ -21,7 +23,13 @@ public class MgClass extends MgDefinition {
     private final List<MgClass> baseClasses = new List<>();
 
     @Mandatory @Part
-    private final List<MgVariable> variables = new List<>();
+    private final List<MgInstanceVariable> instanceVariables = new List<>();
+
+    @Mandatory @Part
+    private final List<MgTypeVariable> typeVariables = new List<>();
+
+    @Mandatory @Part
+    private final List<MgGlobalVariable> globalVariables = new List<>();
 
     @Mandatory @Part
     private final List<MgProcedure> procedures = new List<>();
@@ -46,8 +54,16 @@ public class MgClass extends MgDefinition {
         return baseClasses;
     }
 
-    public List<MgVariable> getVariables() {
-        return variables;
+    public List<MgInstanceVariable> getInstanceVariables() {
+        return instanceVariables;
+    }
+
+    public List<MgTypeVariable> getTypeVariables() {
+        return typeVariables;
+    }
+
+    public List<MgGlobalVariable> getGlobalVariables() {
+        return globalVariables;
     }
 
     public List<MgProcedure> getProcedures() {

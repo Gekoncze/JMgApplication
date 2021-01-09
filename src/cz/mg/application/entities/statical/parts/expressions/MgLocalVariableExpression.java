@@ -5,11 +5,11 @@ import cz.mg.annotations.storage.Link;
 import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 
 
-public class MgMemberVariableExpression extends MgMemberExpression {
+public class MgLocalVariableExpression extends MgExpression {
     @Optional @Link
     private MgInstanceVariable variable;
 
-    public MgMemberVariableExpression() {
+    public MgLocalVariableExpression() {
     }
 
     public MgInstanceVariable getVariable() {

@@ -8,7 +8,7 @@ import cz.mg.application.entities.runtime.objects.MgClassObject;
 import cz.mg.application.entities.runtime.objects.MgTask;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
 import cz.mg.application.entities.statical.parts.MgInterface;
-import cz.mg.application.entities.statical.parts.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgVariable;
 import cz.mg.collections.array.ReadableArray;
 
 

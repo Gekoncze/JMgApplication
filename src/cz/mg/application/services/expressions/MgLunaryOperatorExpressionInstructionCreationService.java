@@ -6,7 +6,8 @@ import cz.mg.application.entities.runtime.instructions.MgDestroyTaskInstruction;
 import cz.mg.application.entities.runtime.instructions.MgEnterTaskInstruction;
 import cz.mg.application.entities.runtime.instructions.MgInstruction;
 import cz.mg.application.entities.statical.components.definitions.MgLunaryOperator;
-import cz.mg.application.entities.statical.parts.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgExpressionVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 import cz.mg.application.entities.statical.parts.expressions.MgLunaryOperatorExpression;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.LogicalException;
@@ -17,9 +18,9 @@ import java.util.Iterator;
 
 
 public class MgLunaryOperatorExpressionInstructionCreationService extends MgService {
-    public static List<MgVariable> create(
+    public static List<MgInstanceVariable> create(
         MgLunaryOperatorExpression expression,
-        List<MgVariable> variables,
+        List<MgInstanceVariable> variables,
         List<MgInstruction> instructions
     ){
         if(expression.getOperator() == null) throw new LogicalException(expression, "Missing operator.");
@@ -27,18 +28,17 @@ public class MgLunaryOperatorExpressionInstructionCreationService extends MgServ
 
         MgLunaryOperator operator = expression.getOperator();
 
-        List<MgVariable> rightOutputs = MgExpressionInstructionCreationService.create(
+        List<MgInstanceVariable> rightOutputs = MgExpressionInstructionCreationService.create(
             expression.getRight(), variables, instructions
         );
 
-        List<MgVariable> selfOutputs = new List<>();
+        List<MgInstanceVariable> selfOutputs = new List<>();
 
-        Iterator<MgVariable> rightOutputIterator = rightOutputs.iterator();
+        Iterator<MgInstanceVariable> rightOutputIterator = rightOutputs.iterator();
         while(rightOutputIterator.hasNext()){
             // todo - check for variable compatibility
-            MgVariable rightSource = rightOutputIterator.next();
-            MgVariable selfOutput = new MgVariable();
-            selfOutput.setDefinition(operator.getResult().getDefinition());
+            MgInstanceVariable rightSource = rightOutputIterator.next();
+            MgInstanceVariable selfOutput = new MgExpressionVariable(operator.getResult().getDefinition());
             selfOutputs.addLast(selfOutput);
             variables.addLast(selfOutput);
             instructions.addLast(new MgCreateTaskInstruction(

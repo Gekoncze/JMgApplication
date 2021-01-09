@@ -9,20 +9,20 @@ import cz.mg.application.entities.runtime.types.MgProcedureType;
 import cz.mg.application.entities.statical.components.MgDefinition;
 import cz.mg.application.entities.statical.parts.MgCheckpoint;
 import cz.mg.application.entities.statical.parts.MgInterface;
-import cz.mg.application.entities.statical.parts.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 import cz.mg.application.entities.statical.parts.commands.interfaces.MgStandaloneCommand;
 import cz.mg.collections.list.List;
 
 
 public class MgProcedure extends MgDefinition {
     @Mandatory @Part
-    private final List<MgVariable> input = new List<>();
+    private final List<MgInstanceVariable> input = new List<>();
 
     @Mandatory @Part
-    private final List<MgVariable> output = new List<>();
+    private final List<MgInstanceVariable> output = new List<>();
 
     @Optional @Part
-    private final List<MgVariable> local = new List<>();
+    private final List<MgInstanceVariable> local = new List<>();
 
     @Optional @Link
     private MgInterface mgInterface;
@@ -39,15 +39,15 @@ public class MgProcedure extends MgDefinition {
     public MgProcedure() {
     }
 
-    public List<MgVariable> getInput() {
+    public List<MgInstanceVariable> getInput() {
         return input;
     }
 
-    public List<MgVariable> getOutput() {
+    public List<MgInstanceVariable> getOutput() {
         return output;
     }
 
-    public List<MgVariable> getLocal() {
+    public List<MgInstanceVariable> getLocal() {
         return local;
     }
 

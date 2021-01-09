@@ -3,7 +3,7 @@ package cz.mg.application.services.expressions;
 import cz.mg.application.entities.runtime.instructions.MgInstruction;
 import cz.mg.application.entities.runtime.instructions.MgSetLocalToLocalInstruction;
 import cz.mg.application.entities.runtime.instructions.MgSetLocalToMemberInstruction;
-import cz.mg.application.entities.statical.parts.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 import cz.mg.application.entities.statical.parts.expressions.*;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.LogicalException;
@@ -13,18 +13,18 @@ import java.util.Iterator;
 
 
 public class MgAssignmentExpressionInstructionCreationService extends MgService {
-    public static List<MgVariable> create(
+    public static List<MgInstanceVariable> create(
         MgAssignmentExpression expression,
-        List<MgVariable> variables,
+        List<MgInstanceVariable> variables,
         List<MgInstruction> instructions
     ){
         if(expression.getLeft() == null) throw new LogicalException(expression, "Missing left expression.");
         if(expression.getRight() == null) throw new LogicalException(expression, "Missing right expression.");
 
-        List<MgVariable> leftOutputs = MgExpressionInstructionCreationService.create(
+        List<MgInstanceVariable> leftOutputs = MgExpressionInstructionCreationService.create(
             expression.getLeft(), variables, instructions
         );
-        List<MgVariable> rightOutputs = MgExpressionInstructionCreationService.create(
+        List<MgInstanceVariable> rightOutputs = MgExpressionInstructionCreationService.create(
             expression.getRight(), variables, instructions
         );
 
@@ -38,18 +38,18 @@ public class MgAssignmentExpressionInstructionCreationService extends MgService 
             throw new LogicalException(expression, "Cannot assign values to left expression.");
         }
 
-        Iterator<MgVariable> leftOutputIterator = leftOutputs.iterator();
-        Iterator<MgVariable> rightOutputIterator = rightOutputs.iterator();
+        Iterator<MgInstanceVariable> leftOutputIterator = leftOutputs.iterator();
+        Iterator<MgInstanceVariable> rightOutputIterator = rightOutputs.iterator();
         for(MgExpression leftExpression : leftExpressions){
-            MgVariable leftOutput = leftOutputIterator.next();
-            MgVariable rightOutput = rightOutputIterator.next();
-            if(leftExpression instanceof MgVariableExpression){
-                MgVariable variable = ((MgVariableExpression) leftExpression).getVariable();
+            MgInstanceVariable leftOutput = leftOutputIterator.next();
+            MgInstanceVariable rightOutput = rightOutputIterator.next();
+            if(leftExpression instanceof MgLocalVariableExpression){
+                MgInstanceVariable variable = ((MgLocalVariableExpression) leftExpression).getVariable();
                 instructions.addLast(new MgSetLocalToLocalInstruction(rightOutput, variable));
                 // todo - check for variable compatibility
             } else if(leftExpression instanceof MgMemberVariableExpression){
                 MgMemberVariableExpression memberExpression = (MgMemberVariableExpression) leftExpression;
-                MgVariable variable = memberExpression.getVariable();
+                MgInstanceVariable variable = memberExpression.getVariable();
                 instructions.addLast(new MgSetLocalToMemberInstruction(rightOutput, leftOutput, variable));
                 // todo - check for variable compatibility
             } else {

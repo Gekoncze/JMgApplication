@@ -8,7 +8,7 @@ import cz.mg.application.entities.statical.components.definitions.MgClass;
 import cz.mg.application.entities.statical.components.definitions.MgOperator;
 import cz.mg.application.entities.statical.parts.MgInterface;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
-import cz.mg.application.entities.statical.parts.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgVariable;
 import cz.mg.collections.array.ReadableArray;
 import cz.mg.collections.map.Map;
 import cz.mg.collections.map.ReadableMap;

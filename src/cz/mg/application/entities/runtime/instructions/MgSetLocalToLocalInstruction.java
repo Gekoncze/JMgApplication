@@ -3,7 +3,7 @@ package cz.mg.application.entities.runtime.instructions;
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Link;
 import cz.mg.application.entities.runtime.objects.MgTask;
-import cz.mg.application.entities.statical.parts.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgVariable;
 
 
 public class MgSetLocalToLocalInstruction extends MgLinearInstruction {

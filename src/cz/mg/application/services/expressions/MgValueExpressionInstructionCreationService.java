@@ -2,7 +2,8 @@ package cz.mg.application.services.expressions;
 
 import cz.mg.application.entities.runtime.instructions.MgInstruction;
 import cz.mg.application.entities.runtime.instructions.MgSetValueToLocalInstruction;
-import cz.mg.application.entities.statical.parts.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgExpressionVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 import cz.mg.application.entities.statical.parts.expressions.MgValueExpression;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.LogicalException;
@@ -10,16 +11,15 @@ import cz.mg.collections.list.List;
 
 
 public class MgValueExpressionInstructionCreationService extends MgService {
-    public static List<MgVariable> create(
+    public static List<MgInstanceVariable> create(
         MgValueExpression expression,
-        List<MgVariable> variables,
+        List<MgInstanceVariable> variables,
         List<MgInstruction> instructions
     ){
         if(expression.getAtom() == null) throw new LogicalException(expression, "Missing atom definition.");
         if(expression.getValue() == null) throw new LogicalException(expression, "Missing value.");
 
-        MgVariable selfOutput = new MgVariable();
-        selfOutput.setDefinition(expression.getAtom());
+        MgInstanceVariable selfOutput = new MgExpressionVariable(expression.getAtom());
 
         try {
             instructions.addLast(

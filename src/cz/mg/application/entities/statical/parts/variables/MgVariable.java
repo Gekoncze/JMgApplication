@@ -1,4 +1,4 @@
-package cz.mg.application.entities.statical.parts;
+package cz.mg.application.entities.statical.parts.variables;
 
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.requirement.Optional;
@@ -6,10 +6,11 @@ import cz.mg.annotations.storage.Link;
 import cz.mg.annotations.storage.Value;
 import cz.mg.application.Named;
 import cz.mg.application.entities.statical.components.MgDefinition;
+import cz.mg.application.entities.statical.parts.MgPart;
 import cz.mg.collections.text.Text;
 
 
-public class MgVariable extends MgPart implements Named {
+public abstract class MgVariable extends MgPart implements Named {
     @Mandatory @Value
     private Text name = new Text();
 

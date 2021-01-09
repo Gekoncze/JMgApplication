@@ -1,9 +1,12 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-finished last variable expression instruction creation service
+added a concept of instance, type and definition variables
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
+add definition-variable validation for all commands and expressions
+    need to make sure wrong variable is not used
 
+add special handling of buildin operators
 dont forget to connect expression instructions at the end of its resolution
 
 finish logic to create instructions from commands
@@ -11,9 +14,6 @@ finish logic to create instructions from expressions
 
 
 ##### SOON ##### -------------------------------------------------------------------------------------------------------
-add definition-variable validation for all commands and expressions
-    need to make sure wrong variable is not used
-
 extend tests for procedure type and class type
 
 add test for exception handling service

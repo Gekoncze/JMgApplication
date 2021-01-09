@@ -3,18 +3,18 @@ package cz.mg.application.entities.buildin.atoms.int32;
 import cz.mg.application.entities.runtime.objects.MgTask;
 import cz.mg.application.entities.statical.components.definitions.MgBuildinRunnable;
 import cz.mg.application.entities.statical.components.definitions.MgLunaryOperator;
-import cz.mg.application.entities.statical.parts.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 import cz.mg.collections.text.Text;
 
 
 public abstract class MgInt32LunaryOperator extends MgLunaryOperator implements MgBuildinRunnable {
     public MgInt32LunaryOperator() {
-        MgVariable right = new MgVariable();
+        MgInstanceVariable right = new MgInstanceVariable();
         right.setDefinition(MgInt32.getInstance());
         right.setName(new Text("right"));
         setRight(right);
 
-        MgVariable result = new MgVariable();
+        MgInstanceVariable result = new MgInstanceVariable();
         result.setDefinition(MgInt32.getInstance());
         result.setName(new Text("result"));
         setResult(result);

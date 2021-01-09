@@ -5,6 +5,7 @@ import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Link;
 import cz.mg.annotations.storage.Part;
 import cz.mg.application.entities.statical.parts.commands.interfaces.MgStandaloneCommand;
+import cz.mg.application.entities.statical.parts.variables.MgVariable;
 import cz.mg.collections.list.List;
 
 
