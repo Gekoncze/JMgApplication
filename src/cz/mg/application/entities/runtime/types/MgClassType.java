@@ -9,7 +9,7 @@ import cz.mg.application.entities.statical.components.definitions.MgOperator;
 import cz.mg.application.entities.statical.parts.MgInterface;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
 import cz.mg.application.entities.statical.parts.variables.MgVariable;
-import cz.mg.collections.array.ReadableArray;
+import cz.mg.collections.array.ReadonlyArray;
 import cz.mg.collections.map.Map;
 import cz.mg.collections.map.ReadableMap;
 
@@ -19,24 +19,24 @@ public class MgClassType extends MgStructuredType {
     private final MgClass clazz;
 
     @Mandatory @Link
-    private final ReadableArray<MgProcedure> procedures;
+    private final ReadonlyArray<MgProcedure> procedures;
 
     @Mandatory @Link
-    private final ReadableArray<MgInterface> interfaces;
+    private final ReadonlyArray<MgInterface> interfaces;
 
     @Mandatory @Link
-    private final ReadableArray<MgOperator> operators;
+    private final ReadonlyArray<MgOperator> operators;
 
     @Mandatory @Link
     private final ReadableMap<MgInterface, MgProcedure> procedureMap;
 
     public MgClassType(
         MgClass clazz,
-        ReadableArray<MgType> types,
-        ReadableArray<MgVariable> variables,
-        ReadableArray<MgProcedure> procedures,
-        ReadableArray<MgInterface> interfaces,
-        ReadableArray<MgOperator> operators,
+        ReadonlyArray<MgType> types,
+        ReadonlyArray<MgVariable> variables,
+        ReadonlyArray<MgProcedure> procedures,
+        ReadonlyArray<MgInterface> interfaces,
+        ReadonlyArray<MgOperator> operators,
         Map<MgInterface, MgProcedure> procedureMap
     ) {
         super(types, variables);
@@ -51,15 +51,15 @@ public class MgClassType extends MgStructuredType {
         return clazz;
     }
 
-    public ReadableArray<MgProcedure> getProcedures() {
+    public ReadonlyArray<MgProcedure> getProcedures() {
         return procedures;
     }
 
-    public ReadableArray<MgInterface> getInterfaces() {
+    public ReadonlyArray<MgInterface> getInterfaces() {
         return interfaces;
     }
 
-    public ReadableArray<MgOperator> getOperators() {
+    public ReadonlyArray<MgOperator> getOperators() {
         return operators;
     }
 

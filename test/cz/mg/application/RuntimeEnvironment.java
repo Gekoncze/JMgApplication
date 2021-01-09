@@ -6,7 +6,7 @@ import cz.mg.application.architecture.utilities.JavaThread;
 import cz.mg.application.entities.runtime.instructions.MgBuildinRunnableInstruction;
 import cz.mg.application.entities.runtime.types.MgProcedureType;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
-import cz.mg.collections.array.Array;
+import cz.mg.collections.array.ReadonlyArray;
 import cz.mg.collections.map.Map;
 
 
@@ -23,8 +23,8 @@ public class RuntimeEnvironment {
 
         procedure.setType(new MgProcedureType(
             procedure,
-            new Array<>(),
-            new Array<>(instruction),
+            new ReadonlyArray<>(),
+            new ReadonlyArray<>(instruction),
             new Map<>()
         ));
 

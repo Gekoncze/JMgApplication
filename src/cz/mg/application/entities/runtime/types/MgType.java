@@ -4,18 +4,18 @@ import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Link;
 import cz.mg.application.entities.MgEntity;
 import cz.mg.application.entities.runtime.objects.MgObject;
-import cz.mg.collections.array.ReadableArray;
+import cz.mg.collections.array.ReadonlyArray;
 
 
 public abstract class MgType extends MgEntity {
     @Mandatory @Link
-    private final ReadableArray<MgType> types;
+    private final ReadonlyArray<MgType> types;
 
-    public MgType(ReadableArray<MgType> types) {
+    public MgType(ReadonlyArray<MgType> types) {
         this.types = types;
     }
 
-    public ReadableArray<MgType> getTypes() {
+    public ReadonlyArray<MgType> getTypes() {
         return types;
     }
 

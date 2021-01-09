@@ -8,6 +8,7 @@ import cz.mg.application.entities.statical.parts.MgInterface;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
 import cz.mg.application.entities.statical.parts.variables.MgVariable;
 import cz.mg.collections.array.Array;
+import cz.mg.collections.array.ReadonlyArray;
 import cz.mg.collections.list.List;
 import cz.mg.collections.map.Map;
 
@@ -15,22 +16,22 @@ import cz.mg.collections.map.Map;
 public class MgClassTypeService extends MgService {
     public static void create(MgClass clazz){
         validate(clazz);
-        Array<MgType> types = unionTypes(clazz);
-        Array<MgVariable> variables = unionVariables(clazz);
-        Array<MgProcedure> procedures = unionProcedures(clazz);
-        Array<MgInterface> interfaces = unionInterfaces(clazz);
-        Array<MgOperator> operators = unionOperators(clazz);
+        ReadonlyArray<MgType> types = unionTypes(clazz);
+        ReadonlyArray<MgVariable> variables = unionVariables(clazz);
+        ReadonlyArray<MgProcedure> procedures = unionProcedures(clazz);
+        ReadonlyArray<MgInterface> interfaces = unionInterfaces(clazz);
+        ReadonlyArray<MgOperator> operators = unionOperators(clazz);
         Map<MgInterface, MgProcedure> procedureMap = createProcedureMap(clazz, interfaces);
         clazz.setType(new MgClassType(clazz, types, variables, procedures, interfaces, operators, procedureMap));
     }
 
-    private static Array<MgType> unionTypes(MgClass clazz){
+    private static ReadonlyArray<MgType> unionTypes(MgClass clazz){
         List<MgType> types = new List<>();
         for(MgClass base : clazz.getBaseClasses()){
             if(base.getType() == null) create(base);
             types.addLast(base.getType());
         }
-        return new Array<>(types);
+        return new ReadonlyArray<>(types);
     }
 
     private static void validate(MgClass clazz){
@@ -38,7 +39,7 @@ public class MgClassTypeService extends MgService {
         MgClassService.forEachClass(clazz, c -> {});
     }
 
-    private static Array<MgVariable> unionVariables(MgClass clazz){
+    private static ReadonlyArray<MgVariable> unionVariables(MgClass clazz){
         List<MgVariable> variables = new List<>();
         for(MgClass base : clazz.getBaseClasses()){
             for(MgVariable variable : base.getType().getVariables()){
@@ -48,10 +49,10 @@ public class MgClassTypeService extends MgService {
             }
         }
         variables.addCollectionLast(clazz.getInstanceVariables());
-        return new Array<>(variables);
+        return new ReadonlyArray<>(variables);
     }
 
-    private static Array<MgProcedure> unionProcedures(MgClass clazz){
+    private static ReadonlyArray<MgProcedure> unionProcedures(MgClass clazz){
         List<MgProcedure> procedures = new List<>();
         for(MgClass base : clazz.getBaseClasses()){
             for(MgProcedure procedure : base.getType().getProcedures()){
@@ -61,10 +62,10 @@ public class MgClassTypeService extends MgService {
             }
         }
         procedures.addCollectionLast(clazz.getProcedures());
-        return new Array<>(procedures);
+        return new ReadonlyArray<>(procedures);
     }
 
-    private static Array<MgInterface> unionInterfaces(MgClass clazz){
+    private static ReadonlyArray<MgInterface> unionInterfaces(MgClass clazz){
         List<MgInterface> interfaces = new List<>();
         for(MgClass base : clazz.getBaseClasses()){
             for(MgInterface mgInterface : base.getType().getInterfaces()){
@@ -74,10 +75,10 @@ public class MgClassTypeService extends MgService {
             }
         }
         interfaces.addCollectionLast(clazz.getInterfaces());
-        return new Array<>(interfaces);
+        return new ReadonlyArray<>(interfaces);
     }
 
-    private static Array<MgOperator> unionOperators(MgClass clazz){
+    private static ReadonlyArray<MgOperator> unionOperators(MgClass clazz){
         List<MgOperator> operators = new List<>();
         for(MgClass base : clazz.getBaseClasses()){
             for(MgOperator operaotor : base.getType().getOperators()){
@@ -87,10 +88,10 @@ public class MgClassTypeService extends MgService {
             }
         }
         operators.addCollectionLast(clazz.getOperators());
-        return new Array<>(operators);
+        return new ReadonlyArray<>(operators);
     }
 
-    private static Map<MgInterface, MgProcedure> createProcedureMap(MgClass clazz, Array<MgInterface> interfaces){
+    private static Map<MgInterface, MgProcedure> createProcedureMap(MgClass clazz, ReadonlyArray<MgInterface> interfaces){
         Map<MgInterface, MgProcedure> map = new Map<>();
         for(MgInterface mgInterface : interfaces){
             map.set(mgInterface, MgClassTypeInterfaceService.resolveProcedure(clazz, mgInterface));

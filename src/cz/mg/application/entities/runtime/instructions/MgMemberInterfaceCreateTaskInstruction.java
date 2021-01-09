@@ -3,13 +3,13 @@ package cz.mg.application.entities.runtime.instructions;
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Link;
 import cz.mg.application.architecture.MgThread;
-import cz.mg.application.entities.runtime.Connection;
 import cz.mg.application.entities.runtime.objects.MgClassObject;
 import cz.mg.application.entities.runtime.objects.MgTask;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
 import cz.mg.application.entities.statical.parts.MgInterface;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 import cz.mg.application.entities.statical.parts.variables.MgVariable;
-import cz.mg.collections.array.ReadableArray;
+import cz.mg.collections.array.ReadonlyArray;
 
 
 public class MgMemberInterfaceCreateTaskInstruction extends MgLinearInstruction {
@@ -20,16 +20,16 @@ public class MgMemberInterfaceCreateTaskInstruction extends MgLinearInstruction 
     private final MgInterface mgInterface;
 
     @Mandatory @Link
-    private final ReadableArray<Connection> parameters;
+    private final ReadonlyArray<MgInstanceVariable> inputs;
 
     public MgMemberInterfaceCreateTaskInstruction(
         MgVariable parent,
         MgInterface mgInterface,
-        ReadableArray<Connection> parameters
+        ReadonlyArray<MgInstanceVariable> inputs
     ) {
         this.parent = parent;
         this.mgInterface = mgInterface;
-        this.parameters = parameters;
+        this.inputs = inputs;
     }
 
     @Override
@@ -37,8 +37,10 @@ public class MgMemberInterfaceCreateTaskInstruction extends MgLinearInstruction 
         MgClassObject parentObject = (MgClassObject) task.getObject(parent);
         MgProcedure procedure = parentObject.getType().getProcedure(mgInterface);
         MgTask newTask = procedure.getType().create();
-        for(Connection parameter : parameters){
-            parameter.run(task, newTask);
+        int i = newTask.getType().getInputDelta();
+        for(MgInstanceVariable input : inputs){
+            newTask.setObject(i, task.getObject(input));
+            i++;
         }
         MgThread.getInstance().getStack().addLast(newTask);
         super.run(task);

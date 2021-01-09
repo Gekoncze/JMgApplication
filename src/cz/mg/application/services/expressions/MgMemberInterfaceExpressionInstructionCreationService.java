@@ -1,21 +1,19 @@
 package cz.mg.application.services.expressions;
 
-import cz.mg.application.entities.runtime.Connection;
 import cz.mg.application.entities.runtime.instructions.MgDestroyTaskInstruction;
 import cz.mg.application.entities.runtime.instructions.MgEnterTaskInstruction;
 import cz.mg.application.entities.runtime.instructions.MgInstruction;
 import cz.mg.application.entities.runtime.instructions.MgMemberInterfaceCreateTaskInstruction;
 import cz.mg.application.entities.statical.parts.MgInterface;
-import cz.mg.application.entities.statical.parts.variables.MgExpressionVariable;
-import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 import cz.mg.application.entities.statical.parts.expressions.MgExpression;
 import cz.mg.application.entities.statical.parts.expressions.MgMemberInterfaceExpression;
+import cz.mg.application.entities.statical.parts.variables.MgExpressionVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInterfaceVariable;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.LogicalException;
-import cz.mg.collections.array.Array;
+import cz.mg.collections.array.ReadonlyArray;
 import cz.mg.collections.list.List;
-
-import java.util.Iterator;
 
 
 public class MgMemberInterfaceExpressionInstructionCreationService extends MgService {
@@ -58,27 +56,23 @@ public class MgMemberInterfaceExpressionInstructionCreationService extends MgSer
 
         // todo - add variable compatibility checks
 
-        List<Connection> input = new List<>();
-        Iterator<MgInstanceVariable> procedureInputIterator = mgInterface.getInput().iterator();
-        Iterator<MgInstanceVariable> inputOutputIterator = inputOutputs.iterator();
-        input.addLast(new Connection(parentOutput, procedureInputIterator.next()));
-        while(procedureInputIterator.hasNext() && inputOutputIterator.hasNext()){
-            MgInstanceVariable procedureInput = procedureInputIterator.next();
-            MgInstanceVariable inputOutput = inputOutputIterator.next();
-            input.addLast(new Connection(inputOutput, procedureInput));
+        List<MgInstanceVariable> input = new List<>();
+        input.addLast(parentOutput);
+        for (MgInstanceVariable inputOutput : inputOutputs) {
+            input.addLast(inputOutput);
         }
 
         List<MgInstanceVariable> selfOutputs = new List<>();
-        List<Connection> output = new List<>();
-        for(MgInstanceVariable procedureOutput : mgInterface.getOutput()){
+        List<MgInstanceVariable> output = new List<>();
+        for(MgInterfaceVariable procedureOutput : mgInterface.getOutput()){
             MgInstanceVariable selfOutput = new MgExpressionVariable(procedureOutput.getDefinition());
             selfOutputs.addLast(selfOutput);
-            output.addLast(new Connection(procedureOutput, selfOutput));
+            output.addLast(selfOutput);
         }
 
-        instructions.addLast(new MgMemberInterfaceCreateTaskInstruction(parentOutput, mgInterface, new Array<>(input)));
+        instructions.addLast(new MgMemberInterfaceCreateTaskInstruction(parentOutput, mgInterface, new ReadonlyArray<>(input)));
         instructions.addLast(new MgEnterTaskInstruction());
-        instructions.addLast(new MgDestroyTaskInstruction(new Array<>(output)));
+        instructions.addLast(new MgDestroyTaskInstruction(new ReadonlyArray<>(output)));
 
         variables.addCollectionLast(selfOutputs);
         return selfOutputs;

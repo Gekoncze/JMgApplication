@@ -4,7 +4,7 @@ import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Part;
 import cz.mg.annotations.storage.Value;
 import cz.mg.application.Named;
-import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInterfaceVariable;
 import cz.mg.collections.list.List;
 import cz.mg.collections.text.Text;
 
@@ -14,10 +14,10 @@ public class MgInterface extends MgPart implements Named {
     private Text name = new Text();
 
     @Mandatory @Part
-    private final List<MgInstanceVariable> input = new List<>();
+    private final List<MgInterfaceVariable> input = new List<>();
 
     @Mandatory @Part
-    private final List<MgInstanceVariable> output = new List<>();
+    private final List<MgInterfaceVariable> output = new List<>();
 
     public MgInterface() {
     }
@@ -31,11 +31,11 @@ public class MgInterface extends MgPart implements Named {
         this.name = name;
     }
 
-    public List<MgInstanceVariable> getInput() {
+    public List<MgInterfaceVariable> getInput() {
         return input;
     }
 
-    public List<MgInstanceVariable> getOutput() {
+    public List<MgInterfaceVariable> getOutput() {
         return output;
     }
 }

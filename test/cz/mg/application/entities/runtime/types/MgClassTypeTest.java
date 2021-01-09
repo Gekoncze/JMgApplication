@@ -3,6 +3,7 @@ package cz.mg.application.entities.runtime.types;
 import cz.mg.application.entities.runtime.objects.MgObject;
 import cz.mg.application.entities.statical.components.definitions.MgClass;
 import cz.mg.collections.array.Array;
+import cz.mg.collections.array.ReadonlyArray;
 import cz.mg.collections.map.Map;
 import cz.mg.collections.text.Text;
 import cz.mg.test.Test;
@@ -23,11 +24,11 @@ public class MgClassTypeTest implements Test {
 
         MgClassType classType = new MgClassType(
             clazz,
-            new Array<>(),
-            new Array<>(),
-            new Array<>(),
-            new Array<>(),
-            new Array<>(),
+            new ReadonlyArray<>(),
+            new ReadonlyArray<>(),
+            new ReadonlyArray<>(),
+            new ReadonlyArray<>(),
+            new ReadonlyArray<>(),
             new Map<>()
         );
 

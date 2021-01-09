@@ -27,4 +27,12 @@ public class MgTask extends MgStructuredObject {
     public void setInstruction(MgInstruction instruction) {
         this.instruction = instruction;
     }
+
+    public MgObject getObject(int i){
+        return getObject(getType().getVariables().get(i));
+    }
+
+    public void setObject(int i, MgObject object){
+        setObject(getType().getVariables().get(i), object);
+    }
 }

@@ -1,6 +1,5 @@
 package cz.mg.application.services.expressions;
 
-import cz.mg.application.entities.runtime.Connection;
 import cz.mg.application.entities.runtime.instructions.MgCreateTaskInstruction;
 import cz.mg.application.entities.runtime.instructions.MgDestroyTaskInstruction;
 import cz.mg.application.entities.runtime.instructions.MgEnterTaskInstruction;
@@ -11,7 +10,7 @@ import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 import cz.mg.application.entities.statical.parts.expressions.MgRunaryOperatorExpression;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.LogicalException;
-import cz.mg.collections.array.Array;
+import cz.mg.collections.array.ReadonlyArray;
 import cz.mg.collections.list.List;
 
 import java.util.Iterator;
@@ -43,15 +42,11 @@ public class MgRunaryOperatorExpressionInstructionCreationService extends MgServ
             variables.addLast(selfOutput);
             instructions.addLast(new MgCreateTaskInstruction(
                 operator.getType(),
-                new Array<>(
-                    new Connection(leftSource, operator.getLeft())
-                )
+                new ReadonlyArray<>(leftSource)
             ));
             instructions.addLast(new MgEnterTaskInstruction());
             instructions.addLast(new MgDestroyTaskInstruction(
-                new Array<>(
-                    new Connection(operator.getResult(), selfOutput)
-                )
+                new ReadonlyArray<>(selfOutput)
             ));
         }
 
