@@ -54,8 +54,6 @@ public class MgMemberInterfaceExpressionInstructionCreationService extends MgSer
             throw new LogicalException(expression, "Interface input count mismatch.");
         }
 
-        // todo - add variable compatibility checks
-
         List<MgInstanceVariable> input = new List<>();
         input.addLast(parentOutput);
         for (MgInstanceVariable inputOutput : inputOutputs) {

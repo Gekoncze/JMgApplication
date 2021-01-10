@@ -32,7 +32,6 @@ public class MgLunaryOperatorExpressionInstructionCreationService extends MgServ
         List<MgInstanceVariable> selfOutputs = new List<>();
 
         for (MgInstanceVariable rightSource : rightOutputs) {
-            // todo - check for variable compatibility
             MgInstanceVariable selfOutput = new MgExpressionVariable(operator.getResult().getDefinition());
             selfOutputs.addLast(selfOutput);
             variables.addLast(selfOutput);

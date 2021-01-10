@@ -27,9 +27,6 @@ public class MgMemberVariableExpressionInstructionCreationService extends MgServ
         }
 
         MgInstanceVariable parentOutput = parentOutputs.getFirst();
-
-        // todo - add variable compatibility checks
-
         MgInstanceVariable selfOutput = new MgExpressionVariable(expression.getVariable().getDefinition());
 
         instructions.addLast(

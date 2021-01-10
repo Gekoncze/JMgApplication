@@ -53,8 +53,6 @@ public class MgMemberProcedureExpressionInstructionCreationService extends MgSer
             throw new LogicalException(expression, "Procedure input count mismatch.");
         }
 
-        // todo - add variable compatibility checks
-
         List<MgInstanceVariable> input = new List<>();
         input.addLast(parentOutput);
         for (MgInstanceVariable inputOutput : inputOutputs) {

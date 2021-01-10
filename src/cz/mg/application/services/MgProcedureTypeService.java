@@ -10,6 +10,7 @@ import cz.mg.collections.map.Map;
 
 public class MgProcedureTypeService extends MgService {
     public static void create(MgProcedure procedure){
+        // todo - add instruction validation
         procedure.setType(new MgProcedureType(
             procedure,
             unionVariables(procedure),

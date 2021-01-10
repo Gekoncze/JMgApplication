@@ -38,8 +38,6 @@ public class MgProcedureExpressionInstructionCreationService extends MgService {
             throw new LogicalException(expression, "Procedure input count mismatch.");
         }
 
-        // todo - add variable compatibility checks
-
         List<MgInstanceVariable> selfOutputs = new List<>();
         for(MgInstanceVariable procedureOutput : procedure.getOutput()){
             MgInstanceVariable selfOutput = new MgExpressionVariable(procedureOutput.getDefinition());

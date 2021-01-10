@@ -35,7 +35,6 @@ public class MgRunaryOperatorExpressionInstructionCreationService extends MgServ
 
         Iterator<MgInstanceVariable> leftOutputIterator = leftOutputs.iterator();
         while(leftOutputIterator.hasNext()){
-            // todo - check for variable compatibility
             MgInstanceVariable leftSource = leftOutputIterator.next();
             MgInstanceVariable selfOutput = new MgExpressionVariable(operator.getResult().getDefinition());
             selfOutputs.addLast(selfOutput);

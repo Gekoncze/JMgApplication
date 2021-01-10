@@ -1,10 +1,9 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-fixed various issues around procedures and their instructions
-fixed broken interface calls
+prepared definition-variable validation for instructions
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
-add definition-variable validation for all commands and expressions
+add definition-variable validation for all instructions
     need to make sure variable from another definition is not used
     need to make sure compatible types are used
 
@@ -21,6 +20,7 @@ finish logic to create instructions from expressions
 ##### SOON ##### -------------------------------------------------------------------------------------------------------
 extend tests for procedure type and class type
 
+add test for instruction validator
 add test for MgValidator
 add test for exception handling service
 add test for instruction creation service

@@ -44,7 +44,6 @@ public class MgBinaryOperatorExpressionInstructionCreationService extends MgServ
         Iterator<MgInstanceVariable> leftOutputIterator = leftOutputs.iterator();
         Iterator<MgInstanceVariable> rightOutputIterator = rightOutputs.iterator();
         while(leftOutputIterator.hasNext() && rightOutputIterator.hasNext()){
-            // todo - check for variable compatibility
             MgInstanceVariable leftSource = leftOutputIterator.next();
             MgInstanceVariable rightSource = rightOutputIterator.next();
             MgInstanceVariable selfOutput = new MgExpressionVariable(operator.getResult().getDefinition());

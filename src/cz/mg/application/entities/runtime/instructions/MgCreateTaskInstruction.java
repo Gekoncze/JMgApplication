@@ -7,7 +7,7 @@ import cz.mg.application.architecture.MgThread;
 import cz.mg.application.entities.runtime.objects.MgTask;
 import cz.mg.application.entities.runtime.types.MgProcedureType;
 import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
-import cz.mg.application.services.MgValidator;
+import cz.mg.application.services.validation.MgValidator;
 import cz.mg.collections.array.ReadonlyArray;
 
 

@@ -13,8 +13,6 @@ public class MgVariableExpressionInstructionCreationService extends MgService {
         List<MgInstanceVariable> variables,
         List<MgInstruction> instructions
     ){
-        // todo - add variable compatibility checks
-
         MgInstanceVariable selfOutput = expression.getVariable();
 
         variables.addLast(

@@ -7,7 +7,7 @@ import cz.mg.application.entities.buildin.atoms.bool8.MgBool8;
 import cz.mg.application.entities.buildin.atoms.bool8.MgBool8Object;
 import cz.mg.application.entities.runtime.objects.MgTask;
 import cz.mg.application.entities.statical.parts.variables.MgVariable;
-import cz.mg.application.services.MgValidator;
+import cz.mg.application.services.validation.MgValidator;
 
 import java.util.Objects;
 

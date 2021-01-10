@@ -3,8 +3,8 @@ package cz.mg.application.services.expressions;
 import cz.mg.application.entities.runtime.instructions.MgInstruction;
 import cz.mg.application.entities.runtime.instructions.MgSetLocalToLocalInstruction;
 import cz.mg.application.entities.runtime.instructions.MgSetLocalToMemberInstruction;
-import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 import cz.mg.application.entities.statical.parts.expressions.*;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.LogicalException;
 import cz.mg.collections.list.List;
@@ -35,7 +35,7 @@ public class MgAssignmentExpressionInstructionCreationService extends MgService 
         List<MgExpression> leftExpressions = unwrap(expression.getLeft());
 
         if(leftOutputs.count() != leftExpressions.count()){
-            throw new LogicalException(expression, "Cannot assign values to left expression.");
+            throw new LogicalException(expression, "Cannot assign values to the left expression.");
         }
 
         Iterator<MgInstanceVariable> leftOutputIterator = leftOutputs.iterator();
@@ -46,12 +46,10 @@ public class MgAssignmentExpressionInstructionCreationService extends MgService 
             if(leftExpression instanceof MgLocalVariableExpression){
                 MgInstanceVariable variable = ((MgLocalVariableExpression) leftExpression).getVariable();
                 instructions.addLast(new MgSetLocalToLocalInstruction(rightOutput, variable));
-                // todo - check for variable compatibility
             } else if(leftExpression instanceof MgMemberVariableExpression){
                 MgMemberVariableExpression memberExpression = (MgMemberVariableExpression) leftExpression;
                 MgInstanceVariable variable = memberExpression.getVariable();
                 instructions.addLast(new MgSetLocalToMemberInstruction(rightOutput, leftOutput, variable));
-                // todo - check for variable compatibility
             } else {
                 throw new LogicalException(expression, "Illegal assignment expression.");
             }
