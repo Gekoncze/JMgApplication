@@ -9,9 +9,8 @@ import cz.mg.collections.Clump;
 import cz.mg.collections.list.List;
 
 
-public class MgInstructionOptimizationService extends MgInstructionService {
+public class MgInstructionOptimizationService extends MgService {
     public static void optimize(MgProcedure procedure){
-        check(procedure);
         Clump<MgInstruction> instructions = procedure.getType().getInstructions();
         List<MgDummyInstruction> dummyInstructions = new List<>();
 

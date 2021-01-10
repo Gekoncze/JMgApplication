@@ -3,38 +3,69 @@ package cz.mg.application.services.validation;
 import cz.mg.application.entities.runtime.types.MgStructuredType;
 import cz.mg.application.entities.statical.components.MgDefinition;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
+import cz.mg.application.entities.statical.parts.MgInterface;
 import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInterfaceVariable;
 import cz.mg.application.entities.statical.parts.variables.MgVariable;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.ValidationException;
+import cz.mg.collections.Clump;
 import cz.mg.collections.ReadableCollection;
 
 import java.util.Iterator;
 
 
 public class MgValidator extends MgService {
-    public static void checkOwnership(MgDefinition definition, MgVariable variable){
-        if(definition.getType() instanceof MgStructuredType){
-            MgStructuredType structuredType = (MgStructuredType) definition.getType();
-            if(!structuredType.getVariables().contains(variable)){
-                throw new ValidationException("Component " + definition.getName() + " does not have given variable.");
-            }
-        } else {
-            throw new ValidationException("Component " + definition.getName() + " is not a structured type.");
+    public static void checkNotNull(Object object){
+        if(object == null){
+            throw new ValidationException("Missing object.");
         }
+    }
+
+    public interface ValidationLogic<Type> {
+        void validate(Type type);
+    }
+
+    public static <Type> void checkType(Object object, Class<Type> typeClass, ValidationLogic<Type> validationLogic){
+        if(object.getClass().isInstance(typeClass)){
+            validationLogic.validate((Type) object);
+        } else {
+            throw new ValidationException("Expected " + typeClass.getSimpleName() + ".");
+        }
+    }
+
+    public static void checkOwnership(MgDefinition definition, Clump<? extends MgVariable> variables){
+        for(MgVariable variable : variables){
+            checkOwnership(definition, variable);
+        }
+    }
+
+    public static void checkOwnership(MgDefinition definition, MgVariable variable){
+        checkType(definition.getType(), MgStructuredType.class, structuredType -> {
+            if(!structuredType.getVariables().contains(variable)){
+                throw new ValidationException("Type " + definition.getName() + " does not contain variable " + variable.getName() + ".");
+            }
+        });
     }
 
     public static void checkCompatibility(MgVariable source, MgDefinition destination)
     {
         if(!source.getDefinition().getType().is(destination.getType())){
-            throw new ValidationException("Incompatible variable type: " + source.getDefinition().getType() + " is not " + destination.getName());
+            throw new ValidationException("Incompatible types: " + source.getDefinition().getType() + " is not " + destination.getName());
         }
     }
 
     public static void checkCompatibility(MgVariable source, MgVariable destination)
     {
         if(!source.getDefinition().getType().is(destination.getDefinition().getType())){
-            throw new ValidationException("Incompatible variable types: " + source.getDefinition().getName() + " is not " + destination.getDefinition().getName() + ".");
+            throw new ValidationException("Incompatible types: " + source.getDefinition().getName() + " is not " + destination.getDefinition().getName() + ".");
+        }
+    }
+
+    public static void checkCompatibility(MgDefinition source, MgVariable destination)
+    {
+        if(!source.getType().is(destination.getDefinition().getType())){
+            throw new ValidationException("Incompatible types: " + source.getName() + " is not " + destination.getDefinition().getName() + ".");
         }
     }
 
@@ -61,6 +92,34 @@ public class MgValidator extends MgService {
         Iterator<MgInstanceVariable> destinations = localDestination.iterator();
         while (sources.hasNext() && destinations.hasNext()){
             MgInstanceVariable source = sources.next();
+            MgInstanceVariable destination = destinations.next();
+            checkCompatibility(source, destination);
+        }
+    }
+
+    public static void checkInputCompatibility(MgInterface iinterface, ReadableCollection<MgInstanceVariable> localSource){
+        if(iinterface.getInput().count() != localSource.count()) {
+            throw new ValidationException("Illegal input count for procedure " + iinterface.getName() + ": " + iinterface.getInput().count() + " vs " + localSource.count() + ".");
+        }
+
+        Iterator<MgInstanceVariable> sources = localSource.iterator();
+        Iterator<MgInterfaceVariable> destinations = iinterface.getInput().iterator();
+        while (sources.hasNext() && destinations.hasNext()){
+            MgInstanceVariable source = sources.next();
+            MgInterfaceVariable destination = destinations.next();
+            checkCompatibility(source, destination);
+        }
+    }
+
+    public static void checkOutputCompatibility(MgInterface iinterface, ReadableCollection<MgInstanceVariable> localDestination){
+        if(iinterface.getOutput().count() != localDestination.count()) {
+            throw new ValidationException("Illegal output count for procedure " + iinterface.getName() + ": " + iinterface.getOutput().count() + " vs " + localDestination.count() + ".");
+        }
+
+        Iterator<MgInterfaceVariable> sources = iinterface.getOutput().iterator();
+        Iterator<MgInstanceVariable> destinations = localDestination.iterator();
+        while (sources.hasNext() && destinations.hasNext()){
+            MgInterfaceVariable source = sources.next();
             MgInstanceVariable destination = destinations.next();
             checkCompatibility(source, destination);
         }

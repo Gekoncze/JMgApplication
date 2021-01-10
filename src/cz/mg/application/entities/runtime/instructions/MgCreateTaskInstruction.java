@@ -7,7 +7,6 @@ import cz.mg.application.architecture.MgThread;
 import cz.mg.application.entities.runtime.objects.MgTask;
 import cz.mg.application.entities.runtime.types.MgProcedureType;
 import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
-import cz.mg.application.services.validation.MgValidator;
 import cz.mg.collections.array.ReadonlyArray;
 
 
@@ -19,9 +18,16 @@ public class MgCreateTaskInstruction extends MgLinearInstruction {
     private final ReadonlyArray<MgInstanceVariable> sources;
 
     public MgCreateTaskInstruction(MgProcedureType procedureType, ReadonlyArray<MgInstanceVariable> sources) {
-        MgValidator.checkInputCompatibility(procedureType.getProcedure(), sources);
         this.procedureType = procedureType;
         this.sources = sources;
+    }
+
+    public MgProcedureType getProcedureType() {
+        return procedureType;
+    }
+
+    public ReadonlyArray<MgInstanceVariable> getSources() {
+        return sources;
     }
 
     @Override

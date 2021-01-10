@@ -16,6 +16,10 @@ public class MgDestroyTaskInstruction extends MgLinearInstruction {
         this.destinations = destinations;
     }
 
+    public ReadonlyArray<MgInstanceVariable> getDestinations() {
+        return destinations;
+    }
+
     @Override
     public void run(MgTask task) {
         MgThread thread = MgThread.getInstance();

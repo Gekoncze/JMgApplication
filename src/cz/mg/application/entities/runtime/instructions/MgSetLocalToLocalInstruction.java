@@ -21,6 +21,14 @@ public class MgSetLocalToLocalInstruction extends MgLinearInstruction {
         this.destination = destination;
     }
 
+    public MgVariable getSource() {
+        return source;
+    }
+
+    public MgVariable getDestination() {
+        return destination;
+    }
+
     @Override
     public void run(MgTask task) {
         task.setObject(destination, task.getObject(source));

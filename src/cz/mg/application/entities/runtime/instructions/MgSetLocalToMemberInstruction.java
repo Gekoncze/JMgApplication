@@ -27,6 +27,18 @@ public class MgSetLocalToMemberInstruction extends MgLinearInstruction {
         this.destinationMember = destinationMember;
     }
 
+    public MgVariable getSource() {
+        return source;
+    }
+
+    public MgVariable getDestination() {
+        return destination;
+    }
+
+    public MgVariable getDestinationMember() {
+        return destinationMember;
+    }
+
     @Override
     public void run(MgTask task) {
         MgStructuredObject destinationObject = (MgStructuredObject) task.getObject(destination);

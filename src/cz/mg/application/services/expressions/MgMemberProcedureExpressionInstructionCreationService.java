@@ -11,6 +11,7 @@ import cz.mg.application.entities.statical.parts.variables.MgExpressionVariable;
 import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.LogicalException;
+import cz.mg.application.services.validation.MgValidator;
 import cz.mg.collections.array.ReadonlyArray;
 import cz.mg.collections.list.List;
 
@@ -64,6 +65,9 @@ public class MgMemberProcedureExpressionInstructionCreationService extends MgSer
             MgInstanceVariable selfOutput = new MgExpressionVariable(procedureOutput.getDefinition());
             selfOutputs.addLast(selfOutput);
         }
+
+        MgValidator.checkInputCompatibility(procedure, input);
+        MgValidator.checkOutputCompatibility(procedure, selfOutputs);
 
         instructions.addLast(new MgCreateTaskInstruction(procedure.getType(), new ReadonlyArray<>(input)));
         instructions.addLast(new MgEnterTaskInstruction());

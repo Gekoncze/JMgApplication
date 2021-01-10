@@ -15,6 +15,10 @@ public class MgBuildinRunnableInstruction extends MgLinearInstruction {
         this.runnable = runnable;
     }
 
+    public MgBuildinRunnable getRunnable() {
+        return runnable;
+    }
+
     @Override
     public void run(MgTask task) {
         runnable.run(task);

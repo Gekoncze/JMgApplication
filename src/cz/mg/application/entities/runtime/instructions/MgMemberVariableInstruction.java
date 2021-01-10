@@ -23,6 +23,18 @@ public class MgMemberVariableInstruction extends MgLinearInstruction {
         this.output = output;
     }
 
+    public MgVariable getParent() {
+        return parent;
+    }
+
+    public MgVariable getChild() {
+        return child;
+    }
+
+    public MgVariable getOutput() {
+        return output;
+    }
+
     @Override
     public void run(MgTask task) {
         MgStructuredObject parentObject = (MgStructuredObject) task.getObject(parent);

@@ -22,6 +22,14 @@ public class MgSetValueToLocalInstruction extends MgLinearInstruction {
         this.destination = destination;
     }
 
+    public MgAtomicObject getValue() {
+        return value;
+    }
+
+    public MgVariable getDestination() {
+        return destination;
+    }
+
     @Override
     public void run(MgTask task) {
         task.setObject(destination, value);

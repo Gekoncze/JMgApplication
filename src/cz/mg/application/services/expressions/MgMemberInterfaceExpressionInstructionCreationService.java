@@ -12,6 +12,7 @@ import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 import cz.mg.application.entities.statical.parts.variables.MgInterfaceVariable;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.LogicalException;
+import cz.mg.application.services.validation.MgValidator;
 import cz.mg.collections.array.ReadonlyArray;
 import cz.mg.collections.list.List;
 
@@ -67,6 +68,9 @@ public class MgMemberInterfaceExpressionInstructionCreationService extends MgSer
             selfOutputs.addLast(selfOutput);
             output.addLast(selfOutput);
         }
+
+        MgValidator.checkInputCompatibility(mgInterface, input);
+        MgValidator.checkOutputCompatibility(mgInterface, output);
 
         instructions.addLast(new MgMemberInterfaceCreateTaskInstruction(parentOutput, mgInterface, new ReadonlyArray<>(input)));
         instructions.addLast(new MgEnterTaskInstruction());

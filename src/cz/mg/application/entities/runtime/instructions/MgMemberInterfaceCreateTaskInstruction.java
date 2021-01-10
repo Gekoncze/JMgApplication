@@ -20,16 +20,28 @@ public class MgMemberInterfaceCreateTaskInstruction extends MgLinearInstruction 
     private final MgInterface mgInterface;
 
     @Mandatory @Link
-    private final ReadonlyArray<MgInstanceVariable> inputs;
+    private final ReadonlyArray<MgInstanceVariable> sources;
 
     public MgMemberInterfaceCreateTaskInstruction(
         MgVariable parent,
         MgInterface mgInterface,
-        ReadonlyArray<MgInstanceVariable> inputs
+        ReadonlyArray<MgInstanceVariable> sources
     ) {
         this.parent = parent;
         this.mgInterface = mgInterface;
-        this.inputs = inputs;
+        this.sources = sources;
+    }
+
+    public MgVariable getParent() {
+        return parent;
+    }
+
+    public MgInterface getInterface() {
+        return mgInterface;
+    }
+
+    public ReadonlyArray<MgInstanceVariable> getSources() {
+        return sources;
     }
 
     @Override
@@ -38,8 +50,8 @@ public class MgMemberInterfaceCreateTaskInstruction extends MgLinearInstruction 
         MgProcedure procedure = parentObject.getType().getProcedure(mgInterface);
         MgTask newTask = procedure.getType().create();
         int i = newTask.getType().getInputDelta();
-        for(MgInstanceVariable input : inputs){
-            newTask.setObject(i, task.getObject(input));
+        for(MgInstanceVariable source : sources){
+            newTask.setObject(i, task.getObject(source));
             i++;
         }
         MgThread.getInstance().getStack().addLast(newTask);

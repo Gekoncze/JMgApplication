@@ -10,10 +10,9 @@ import cz.mg.collections.array.Array;
 import cz.mg.collections.list.List;
 
 import static cz.mg.application.services.MgInstructionOptimizationService.optimize;
-import static cz.mg.application.services.MgInstructionValidationService.validate;
 
 
-public class MgInstructionCreationService extends MgInstructionService {
+public class MgInstructionCreationService extends MgService {
     public static void create(MgProcedure procedure){
 //        check(procedure);
 //        createSequence(procedure.getCommands(), null, null);

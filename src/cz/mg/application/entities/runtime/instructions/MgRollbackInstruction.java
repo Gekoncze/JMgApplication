@@ -11,7 +11,7 @@ import cz.mg.application.entities.statical.parts.variables.MgVariable;
 
 public class MgRollbackInstruction extends MgTerminatingInstruction {
     @Mandatory @Link
-    private MgVariable variable;
+    private final MgVariable variable;
 
     public MgRollbackInstruction(MgVariable variable) {
         this.variable = variable;
@@ -19,10 +19,6 @@ public class MgRollbackInstruction extends MgTerminatingInstruction {
 
     public MgVariable getVariable() {
         return variable;
-    }
-
-    public void setVariable(MgVariable variable) {
-        this.variable = variable;
     }
 
     @Override

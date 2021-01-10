@@ -1,12 +1,10 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-prepared definition-variable validation for instructions
+added definition-variable validation for all instructions
+made sure variable from another definition is not used
+made sure compatible types are used
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
-add definition-variable validation for all instructions
-    need to make sure variable from another definition is not used
-    need to make sure compatible types are used
-
 wrap all expression services with try catch and rethrow if needed
 add check for interface compatibility in procedure
 validate operator input and output count on its procedure type creation

@@ -7,6 +7,6 @@ import cz.mg.application.services.MgService;
 
 public class MgLeaveTaskInstructionValidationService extends MgService {
     public static void validate(MgProcedure procedure, MgLeaveTaskInstruction instruction){
-        todo;
+        // nothing to do
     }
 }

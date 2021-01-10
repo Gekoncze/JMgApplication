@@ -7,6 +7,6 @@ import cz.mg.application.services.MgService;
 
 public class MgDummyInstructionValidationService extends MgService {
     public static void validate(MgProcedure procedure, MgDummyInstruction instruction){
-        todo;
+        // nothing to do
     }
 }
