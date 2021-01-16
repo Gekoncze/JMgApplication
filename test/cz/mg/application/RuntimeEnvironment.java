@@ -16,7 +16,7 @@ public class RuntimeEnvironment {
         MgThread thread = new MgThread();
         MgProcedure procedure = new MgProcedure();
 
-        MgBuildinRunnableInstruction instruction = new MgBuildinRunnableInstruction(null, (task) -> {
+        MgBuildinRunnableInstruction instruction = new MgBuildinRunnableInstruction((task) -> {
             runnable.run();
             core.destroy();
         });

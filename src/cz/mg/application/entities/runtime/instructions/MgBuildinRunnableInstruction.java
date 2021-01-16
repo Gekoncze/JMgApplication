@@ -10,8 +10,7 @@ public class MgBuildinRunnableInstruction extends MgLinearInstruction {
     @Mandatory @Link
     private final MgBuildinRunnable runnable;
 
-    public MgBuildinRunnableInstruction(MgInstruction nextInstruction, MgBuildinRunnable runnable) {
-        super(nextInstruction);
+    public MgBuildinRunnableInstruction(MgBuildinRunnable runnable) {
         this.runnable = runnable;
     }
 
