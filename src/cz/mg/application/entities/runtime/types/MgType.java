@@ -26,6 +26,6 @@ public abstract class MgType extends MgEntity {
     }
 
     public boolean maybe(MgType type){
-        return this == type || type.types.contains(this);
+        return this == type || types.contains(type) || type.types.contains(this);
     }
 }

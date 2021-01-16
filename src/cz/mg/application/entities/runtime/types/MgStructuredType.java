@@ -3,21 +3,21 @@ package cz.mg.application.entities.runtime.types;
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Link;
 import cz.mg.application.entities.runtime.objects.MgStructuredObject;
-import cz.mg.application.entities.statical.parts.variables.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 import cz.mg.collections.array.ReadonlyArray;
 
 
 public abstract class MgStructuredType extends MgType {
     @Mandatory @Link
-    private final ReadonlyArray<MgVariable> variables;
+    private final ReadonlyArray<MgInstanceVariable> instanceVariables;
 
-    public MgStructuredType(ReadonlyArray<MgType> types, ReadonlyArray<MgVariable> variables) {
+    public MgStructuredType(ReadonlyArray<MgType> types, ReadonlyArray<MgInstanceVariable> instanceVariables) {
         super(types);
-        this.variables = variables;
+        this.instanceVariables = instanceVariables;
     }
 
-    public ReadonlyArray<MgVariable> getVariables() {
-        return variables;
+    public ReadonlyArray<MgInstanceVariable> getInstanceVariables() {
+        return instanceVariables;
     }
 
     @Override

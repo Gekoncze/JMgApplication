@@ -9,7 +9,7 @@ import cz.mg.application.entities.runtime.instructions.MgInstruction;
 import cz.mg.application.entities.runtime.objects.MgTask;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
 import cz.mg.application.entities.statical.parts.MgCheckpoint;
-import cz.mg.application.entities.statical.parts.variables.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 import cz.mg.collections.array.ReadonlyArray;
 import cz.mg.collections.map.Map;
 
@@ -33,11 +33,11 @@ public class MgProcedureType extends MgStructuredType {
 
     public MgProcedureType(
         MgProcedure procedure,
-        ReadonlyArray<MgVariable> variables,
+        ReadonlyArray<MgInstanceVariable> instanceVariables,
         ReadonlyArray<MgInstruction> instructions,
         Map<MgCheckpoint, MgInstruction> checkpointInstructionMap
     ) {
-        super(new ReadonlyArray<>(), variables);
+        super(new ReadonlyArray<>(), instanceVariables);
         this.instructions = instructions;
         this.procedure = procedure;
         this.checkpointInstructionMap = checkpointInstructionMap;

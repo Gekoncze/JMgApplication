@@ -27,22 +27,22 @@ public class MgValidator extends MgService {
     }
 
     public static <Type> void checkType(Object object, Class<Type> typeClass, ValidationLogic<Type> validationLogic){
-        if(object.getClass().isInstance(typeClass)){
+        if(typeClass.isInstance(object)){
             validationLogic.validate((Type) object);
         } else {
             throw new ValidationException("Expected " + typeClass.getSimpleName() + ".");
         }
     }
 
-    public static void checkOwnership(MgDefinition definition, Clump<? extends MgVariable> variables){
-        for(MgVariable variable : variables){
+    public static void checkOwnership(MgDefinition definition, Clump<MgInstanceVariable> variables){
+        for(MgInstanceVariable variable : variables){
             checkOwnership(definition, variable);
         }
     }
 
-    public static void checkOwnership(MgDefinition definition, MgVariable variable){
+    public static void checkOwnership(MgDefinition definition, MgInstanceVariable variable){
         checkType(definition.getType(), MgStructuredType.class, structuredType -> {
-            if(!structuredType.getVariables().contains(variable)){
+            if(!structuredType.getInstanceVariables().contains(variable)){
                 throw new ValidationException("Type " + definition.getName() + " does not contain variable " + variable.getName() + ".");
             }
         });

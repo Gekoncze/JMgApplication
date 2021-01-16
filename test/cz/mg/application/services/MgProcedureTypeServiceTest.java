@@ -45,10 +45,10 @@ public class MgProcedureTypeServiceTest implements Test {
         procedure.getLocal().addLast(local);
         MgProcedureTypeService.create(procedure);
         assertNotNull(procedure.getType());
-        assertNotNull(procedure.getType().getVariables());
-        assertEquals(procedure.getType().getVariables().count(), 3);
-        assertEquals(procedure.getType().getVariables().get(0), input);
-        assertEquals(procedure.getType().getVariables().get(1), output);
-        assertEquals(procedure.getType().getVariables().get(2), local);
+        assertNotNull(procedure.getType().getInstanceVariables());
+        assertEquals(procedure.getType().getInstanceVariables().count(), 3);
+        assertEquals(procedure.getType().getInstanceVariables().get(0), input);
+        assertEquals(procedure.getType().getInstanceVariables().get(1), output);
+        assertEquals(procedure.getType().getInstanceVariables().get(2), local);
     }
 }

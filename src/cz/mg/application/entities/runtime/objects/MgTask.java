@@ -29,10 +29,10 @@ public class MgTask extends MgStructuredObject {
     }
 
     public MgObject getObject(int i){
-        return getObject(getType().getVariables().get(i));
+        return getObject(getType().getInstanceVariables().get(i));
     }
 
     public void setObject(int i, MgObject object){
-        setObject(getType().getVariables().get(i), object);
+        setObject(getType().getInstanceVariables().get(i), object);
     }
 }

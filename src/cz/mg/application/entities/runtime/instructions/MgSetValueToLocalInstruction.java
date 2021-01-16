@@ -4,7 +4,7 @@ import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Link;
 import cz.mg.application.entities.runtime.objects.MgAtomicObject;
 import cz.mg.application.entities.runtime.objects.MgTask;
-import cz.mg.application.entities.statical.parts.variables.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 
 
 public class MgSetValueToLocalInstruction extends MgLinearInstruction {
@@ -12,11 +12,11 @@ public class MgSetValueToLocalInstruction extends MgLinearInstruction {
     private final MgAtomicObject value;
 
     @Mandatory @Link
-    private final MgVariable destination;
+    private final MgInstanceVariable destination;
 
     public MgSetValueToLocalInstruction(
         MgAtomicObject value,
-        MgVariable destination
+        MgInstanceVariable destination
     ) {
         this.value = value;
         this.destination = destination;
@@ -26,7 +26,7 @@ public class MgSetValueToLocalInstruction extends MgLinearInstruction {
         return value;
     }
 
-    public MgVariable getDestination() {
+    public MgInstanceVariable getDestination() {
         return destination;
     }
 

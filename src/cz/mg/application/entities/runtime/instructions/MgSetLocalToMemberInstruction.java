@@ -4,38 +4,38 @@ import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Link;
 import cz.mg.application.entities.runtime.objects.MgStructuredObject;
 import cz.mg.application.entities.runtime.objects.MgTask;
-import cz.mg.application.entities.statical.parts.variables.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 
 
 public class MgSetLocalToMemberInstruction extends MgLinearInstruction {
     @Mandatory @Link
-    private final MgVariable source;
+    private final MgInstanceVariable source;
 
     @Mandatory @Link
-    private final MgVariable destination;
+    private final MgInstanceVariable destination;
 
     @Mandatory @Link
-    private final MgVariable destinationMember;
+    private final MgInstanceVariable destinationMember;
 
     public MgSetLocalToMemberInstruction(
-        MgVariable source,
-        MgVariable destination,
-        MgVariable destinationMember
+        MgInstanceVariable source,
+        MgInstanceVariable destination,
+        MgInstanceVariable destinationMember
     ) {
         this.source = source;
         this.destination = destination;
         this.destinationMember = destinationMember;
     }
 
-    public MgVariable getSource() {
+    public MgInstanceVariable getSource() {
         return source;
     }
 
-    public MgVariable getDestination() {
+    public MgInstanceVariable getDestination() {
         return destination;
     }
 
-    public MgVariable getDestinationMember() {
+    public MgInstanceVariable getDestinationMember() {
         return destinationMember;
     }
 

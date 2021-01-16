@@ -8,7 +8,7 @@ import cz.mg.application.entities.statical.components.definitions.MgClass;
 import cz.mg.application.entities.statical.components.definitions.MgOperator;
 import cz.mg.application.entities.statical.parts.MgInterface;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
-import cz.mg.application.entities.statical.parts.variables.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 import cz.mg.collections.array.ReadonlyArray;
 import cz.mg.collections.map.Map;
 import cz.mg.collections.map.ReadableMap;
@@ -33,13 +33,13 @@ public class MgClassType extends MgStructuredType {
     public MgClassType(
         MgClass clazz,
         ReadonlyArray<MgType> types,
-        ReadonlyArray<MgVariable> variables,
+        ReadonlyArray<MgInstanceVariable> instanceVariables,
         ReadonlyArray<MgProcedure> procedures,
         ReadonlyArray<MgInterface> interfaces,
         ReadonlyArray<MgOperator> operators,
         Map<MgInterface, MgProcedure> procedureMap
     ) {
-        super(types, variables);
+        super(types, instanceVariables);
         this.clazz = clazz;
         this.procedures = procedures;
         this.interfaces = interfaces;

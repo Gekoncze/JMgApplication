@@ -2,7 +2,7 @@ package cz.mg.application.services;
 
 import cz.mg.application.entities.runtime.types.MgProcedureType;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
-import cz.mg.application.entities.statical.parts.variables.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 import cz.mg.collections.array.Array;
 import cz.mg.collections.array.ReadonlyArray;
 import cz.mg.collections.map.Map;
@@ -19,8 +19,8 @@ public class MgProcedureTypeService extends MgService {
         ));
     }
 
-    private static ReadonlyArray<MgVariable> unionVariables(MgProcedure procedure){
-        Array<MgVariable> variables = new Array<>(
+    private static ReadonlyArray<MgInstanceVariable> unionVariables(MgProcedure procedure){
+        Array<MgInstanceVariable> variables = new Array<>(
             procedure.getInput().count() +
                 procedure.getOutput().count() +
                 procedure.getLocal().count()
@@ -28,17 +28,17 @@ public class MgProcedureTypeService extends MgService {
 
         int i = 0;
 
-        for(MgVariable variable : procedure.getInput()){
+        for(MgInstanceVariable variable : procedure.getInput()){
             variables.set(variable, i);
             i++;
         }
 
-        for(MgVariable variable : procedure.getOutput()){
+        for(MgInstanceVariable variable : procedure.getOutput()){
             variables.set(variable, i);
             i++;
         }
 
-        for(MgVariable variable : procedure.getLocal()){
+        for(MgInstanceVariable variable : procedure.getLocal()){
             variables.set(variable, i);
             i++;
         }

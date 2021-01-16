@@ -1,93 +1,72 @@
 package cz.mg.application.services;
 
-import cz.mg.application.entities.runtime.types.MgType;
 import cz.mg.application.entities.runtime.types.MgClassType;
+import cz.mg.application.entities.runtime.types.MgType;
 import cz.mg.application.entities.statical.components.definitions.MgClass;
 import cz.mg.application.entities.statical.components.definitions.MgOperator;
-import cz.mg.application.entities.statical.parts.MgInterface;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
-import cz.mg.application.entities.statical.parts.variables.MgVariable;
-import cz.mg.collections.array.Array;
+import cz.mg.application.entities.statical.parts.MgInterface;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 import cz.mg.collections.array.ReadonlyArray;
 import cz.mg.collections.list.List;
 import cz.mg.collections.map.Map;
+
+import static cz.mg.application.services.MgClassService.forEachClass;
 
 
 public class MgClassTypeService extends MgService {
     public static void create(MgClass clazz){
         validate(clazz);
+        createDependentTypes(clazz);
         ReadonlyArray<MgType> types = unionTypes(clazz);
-        ReadonlyArray<MgVariable> variables = unionVariables(clazz);
+        ReadonlyArray<MgInstanceVariable> instanceVariables = unionVariables(clazz);
         ReadonlyArray<MgProcedure> procedures = unionProcedures(clazz);
         ReadonlyArray<MgInterface> interfaces = unionInterfaces(clazz);
         ReadonlyArray<MgOperator> operators = unionOperators(clazz);
         Map<MgInterface, MgProcedure> procedureMap = createProcedureMap(clazz, interfaces);
-        clazz.setType(new MgClassType(clazz, types, variables, procedures, interfaces, operators, procedureMap));
-    }
-
-    private static ReadonlyArray<MgType> unionTypes(MgClass clazz){
-        List<MgType> types = new List<>();
-        for(MgClass base : clazz.getBaseClasses()){
-            if(base.getType() == null) create(base);
-            types.addLast(base.getType());
-        }
-        return new ReadonlyArray<>(types);
+        clazz.setType(new MgClassType(clazz, types, instanceVariables, procedures, interfaces, operators, procedureMap));
     }
 
     private static void validate(MgClass clazz){
         // check for cyclic inheritance
-        MgClassService.forEachClass(clazz, c -> {});
+        forEachClass(clazz, c -> {});
     }
 
-    private static ReadonlyArray<MgVariable> unionVariables(MgClass clazz){
-        List<MgVariable> variables = new List<>();
+    private static void createDependentTypes(MgClass clazz){
         for(MgClass base : clazz.getBaseClasses()){
-            for(MgVariable variable : base.getType().getVariables()){
-                if(!variables.contains(variable)){
-                    variables.addLast(variable);
-                }
+            if(base.getType() == null){
+                create(base);
             }
         }
-        variables.addCollectionLast(clazz.getInstanceVariables());
+    }
+
+    private static ReadonlyArray<MgType> unionTypes(MgClass clazz){
+        List<MgType> types = new List<>();
+        forEachClass(clazz, (c -> types.addLast(c.getType())));
+        return new ReadonlyArray<>(types);
+    }
+
+    private static ReadonlyArray<MgInstanceVariable> unionVariables(MgClass clazz){
+        List<MgInstanceVariable> variables = new List<>();
+        forEachClass(clazz, (c -> variables.addCollectionLast(c.getInstanceVariables())));
         return new ReadonlyArray<>(variables);
     }
 
     private static ReadonlyArray<MgProcedure> unionProcedures(MgClass clazz){
         List<MgProcedure> procedures = new List<>();
-        for(MgClass base : clazz.getBaseClasses()){
-            for(MgProcedure procedure : base.getType().getProcedures()){
-                if(!procedures.contains(procedure)){
-                    procedures.addLast(procedure);
-                }
-            }
-        }
-        procedures.addCollectionLast(clazz.getProcedures());
+        forEachClass(clazz, (c -> procedures.addCollectionLast(c.getProcedures())));
         return new ReadonlyArray<>(procedures);
     }
 
     private static ReadonlyArray<MgInterface> unionInterfaces(MgClass clazz){
         List<MgInterface> interfaces = new List<>();
-        for(MgClass base : clazz.getBaseClasses()){
-            for(MgInterface mgInterface : base.getType().getInterfaces()){
-                if(!interfaces.contains(mgInterface)){
-                    interfaces.addLast(mgInterface);
-                }
-            }
-        }
-        interfaces.addCollectionLast(clazz.getInterfaces());
+        forEachClass(clazz, (c -> interfaces.addCollectionLast(c.getInterfaces())));
         return new ReadonlyArray<>(interfaces);
     }
 
     private static ReadonlyArray<MgOperator> unionOperators(MgClass clazz){
         List<MgOperator> operators = new List<>();
-        for(MgClass base : clazz.getBaseClasses()){
-            for(MgOperator operaotor : base.getType().getOperators()){
-                if(!operators.contains(operaotor)){
-                    operators.addLast(operaotor);
-                }
-            }
-        }
-        operators.addCollectionLast(clazz.getOperators());
+        forEachClass(clazz, (c -> operators.addCollectionLast(c.getOperators())));
         return new ReadonlyArray<>(operators);
     }
 

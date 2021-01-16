@@ -6,16 +6,21 @@ import cz.mg.collections.list.List;
 
 public class MgClassService {
     public static void forEachClass(MgClass clazz, ClassVisitor classVisitor){
-        forEachClass(clazz, classVisitor, new List<>());
+        forEachClass(clazz, classVisitor, new List<>(), new List<>());
     }
 
-    private static void forEachClass(MgClass clazz, ClassVisitor classVisitor, List<MgClass> path){
+    private static void forEachClass(MgClass clazz, ClassVisitor classVisitor, List<MgClass> path, List<MgClass> visited){
         if(path.contains(clazz)) throw new RuntimeException("Circular inheritance detected.");
         path.addLast(clazz);
-        for(MgClass base : clazz.getBaseClasses()){
-            forEachClass(base, classVisitor, new List<>(path));
-        }
+
+        if(visited.contains(clazz)) return;
+        visited.addLast(clazz);
+
         classVisitor.visit(clazz);
+
+        for(MgClass base : clazz.getBaseClasses()){
+            forEachClass(base, classVisitor, new List<>(path), visited);
+        }
     }
 
     public interface ClassVisitor {

@@ -3,29 +3,29 @@ package cz.mg.application.entities.runtime.instructions;
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Link;
 import cz.mg.application.entities.runtime.objects.MgTask;
-import cz.mg.application.entities.statical.parts.variables.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 
 
 public class MgSetLocalToLocalInstruction extends MgLinearInstruction {
     @Mandatory @Link
-    private final MgVariable source;
+    private final MgInstanceVariable source;
 
     @Mandatory @Link
-    private final MgVariable destination;
+    private final MgInstanceVariable destination;
 
     public MgSetLocalToLocalInstruction(
-        MgVariable source,
-        MgVariable destination
+        MgInstanceVariable source,
+        MgInstanceVariable destination
     ) {
         this.source = source;
         this.destination = destination;
     }
 
-    public MgVariable getSource() {
+    public MgInstanceVariable getSource() {
         return source;
     }
 
-    public MgVariable getDestination() {
+    public MgInstanceVariable getDestination() {
         return destination;
     }
 

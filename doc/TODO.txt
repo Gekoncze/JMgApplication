@@ -1,11 +1,20 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-...
+added bunch of tests and fixes
+added type test + fixed type
+added class service test + fixed class service
+extended class type service test + simplified class type service
+added validator test
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
-add test for MgValidator
+change class type service to create type only for the one class being passed
+    the problematic part is if(base.getType() == null)
+        if we try to recompile, then we get wrong result, because dependencies would not get recompiled
+
+add more tests for MgValidator
 add test for expression instruction creation service
 add test for command instruction creation service
+add inheritance and circular inheritance test for class type service
 
 finish logic to create instructions from procedures and operators
     dont forget to optimize instructions
@@ -18,7 +27,7 @@ add test for procedure instruction creation service
 add test for instruction optimization service
 add test for exception handling logic (if needed)
 add tests for simple procedure examples execution
-extend tests for procedure type and class type
+extend tests for procedure type service
 
 
 ##### LATER ##### -------------------------------------------------------------------------------------------------------

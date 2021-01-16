@@ -4,34 +4,34 @@ import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Link;
 import cz.mg.application.entities.runtime.objects.MgStructuredObject;
 import cz.mg.application.entities.runtime.objects.MgTask;
-import cz.mg.application.entities.statical.parts.variables.MgVariable;
+import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 
 
 public class MgMemberVariableInstruction extends MgLinearInstruction {
     @Mandatory @Link
-    private final MgVariable parent;
+    private final MgInstanceVariable parent;
 
     @Mandatory @Link
-    private final MgVariable child;
+    private final MgInstanceVariable child;
 
     @Mandatory @Link
-    private final MgVariable output;
+    private final MgInstanceVariable output;
 
-    public MgMemberVariableInstruction(MgVariable parent, MgVariable child, MgVariable output) {
+    public MgMemberVariableInstruction(MgInstanceVariable parent, MgInstanceVariable child, MgInstanceVariable output) {
         this.parent = parent;
         this.child = child;
         this.output = output;
     }
 
-    public MgVariable getParent() {
+    public MgInstanceVariable getParent() {
         return parent;
     }
 
-    public MgVariable getChild() {
+    public MgInstanceVariable getChild() {
         return child;
     }
 
-    public MgVariable getOutput() {
+    public MgInstanceVariable getOutput() {
         return output;
     }
 
