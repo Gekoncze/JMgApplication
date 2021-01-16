@@ -20,151 +20,97 @@ public class MgInstructionCreationService extends MgService {
 //        validate(procedure);
     }
 
-//    private static void createSequence(List<MgStandaloneCommand> commands, MgStandaloneCommand nextCommand){
+    private static void createSequence(List<MgStandaloneCommand> commands, MgStandaloneCommand nextCommand){
 //        for(MgStandaloneCommand command : reverse(commands)){
 //            create(command, nextCommand, parent);
 //            nextCommand = command;
 //        }
-//    }
-//
-//    private static List<MgStandaloneCommand> reverse(List<MgStandaloneCommand> commands){
+    }
+
+    private static List<MgStandaloneCommand> reverse(List<MgStandaloneCommand> commands){
 //        List<MgStandaloneCommand> reversed = new List<>();
 //        for(MgStandaloneCommand command : commands){
 //            reversed.addFirst(command);
 //        }
 //        return reversed;
-//    }
-//
-//    private static void create(MgAnyCommand command, MgStandaloneCommand nextCommand){
-//        if(command instanceof MgBreakCommand){
-//            create((MgBreakCommand) command, nextCommand, parent);
-//            return;
-//        }
-//
-//        if(command instanceof MgCaseCommand){
-//            create((MgCaseCommand) command, nextCommand, parent);
-//            return;
-//        }
-//
-//        if(command instanceof MgContinueCommand){
-//            create((MgContinueCommand) command, nextCommand, parent);
-//            return;
-//        }
-//
-//        if(command instanceof MgExpressionCommand){
-//            create((MgExpressionCommand) command, nextCommand, parent);
-//            return;
-//        }
-//
-//        if(command instanceof MgReturnCommand){
-//            create((MgReturnCommand) command, nextCommand, parent);
-//            return;
-//        }
-//
-//        if(command instanceof MgRollbackCommand){
-//            create((MgRollbackCommand) command, nextCommand, parent);
-//            return;
-//        }
-//
-//        if(command instanceof MgSwitchCommand){
-//            create((MgSwitchCommand) command, nextCommand, parent);
-//            return;
-//        }
-//
-//        if(command instanceof MgWhileCommand){
-//            create((MgWhileCommand) command, nextCommand, parent);
-//            return;
-//        }
-//
-//        throw new InternalException((MgCommand)command, "Could not create instructions. Unsupported command type " + command.getClass().getSimpleName() + ".");
-//    }
-//
-//    private static void create(MgBreakCommand command, MgStandaloneCommand nextCommand){
+        return null;
+    }
+
+    private static void create(MgBreakCommand command, MgStandaloneCommand nextCommand){
 //        command.setRuntimeCommand(new MgRuntimeCommand(
 //            command,
 //            parent,
 //            new Array<>(
-//                new MgGotoInstruction(command, command.getTarget().getRuntimeCommand().getInstructions().getLast())
+//
 //            ),
 //            new Array<>()
 //        ));
-//    }
-//
-//    private static void create(MgCaseCommand command, MgStandaloneCommand nextCommand){
+    }
+
+    private static void create(MgCaseCommand command, MgStandaloneCommand nextCommand){
 //        createDummyInstructions(command, parent);
 //        createSequence(command.getCommands(), nextCommand, command);
 //        connectDummyInstructions(command, command.getCommands(), nextCommand);
-//    }
-//
-//    private static void create(MgContinueCommand command, MgStandaloneCommand nextCommand){
+    }
+
+    private static void create(MgExpressionCommand command, MgStandaloneCommand nextCommand){
 //        command.setRuntimeCommand(new MgRuntimeCommand(
 //            command,
 //            parent,
 //            new Array<>(
-//                new MgGotoInstruction(command, command.getTarget().getRuntimeCommand().getInstructions().getFirst())
+//                create(procedure, output, command.getExpression())
 //            ),
 //            new Array<>()
-//        ));
-//    }
-//
-//    private static void create(MgExpressionCommand command, MgStandaloneCommand nextCommand){
-////        command.setRuntimeCommand(new MgRuntimeCommand(
-////            command,
-////            parent,
-////            new Array<>(
-////                create(procedure, output, command.getExpression())
-////            ),
-////            new Array<>()
-////        )); todo
-//    }
-//
-//    private static void create(MgReturnCommand command, MgStandaloneCommand nextCommand){
-////        command.setRuntimeCommand(new MgRuntimeCommand(
-////            command,
-////            parent,
-////            new Array<>(
-////                new MgPopProcedureInstruction(command, parameters)
-////            ),
-////            new Array<>()
-////        )); todo
-//    }
-//
-//    private static void create(MgRollbackCommand command, MgStandaloneCommand nextCommand){
-////        command.setRuntimeCommand(new MgRuntimeCommand(
-////            command,
-////            parent,
-////            new Array<>(
-////                new MgRollbackInstruction(command, variable)
-////            ),
-////            new Array<>()
-////        )); todo
-//    }
-//
-//    private static void create(MgSwitchCommand command, MgStandaloneCommand nextCommand){
-////        command.setRuntimeCommand(new MgRuntimeCommand(
-////            command,
-////            parent,
-////            new Array<>(
-////                todo
-////            ),
-////            new Array<>(command.getCaseCommands())
-////        )); todo
-//    }
-//
-//    private static void create(MgWhileCommand command, MgStandaloneCommand nextCommand){
-////        create(procedure, output, command.getExpression());
-////        command.setRuntimeCommand(new MgRuntimeCommand(
-////            command,
-////            parent,
-////            new Array<>(
-////                todo
-////            ),
-////            new Array<>(command.getCommands())
-////        )); todo
-//    }
-//
-//    // todo - dummy instructions might not be needed for all block commands
-//    private static void createDummyInstructions(MgBlockCommand command){
+//        )); todo
+    }
+
+    private static void create(MgReturnCommand command, MgStandaloneCommand nextCommand){
+//        command.setRuntimeCommand(new MgRuntimeCommand(
+//            command,
+//            parent,
+//            new Array<>(
+//                new MgPopProcedureInstruction(command, parameters)
+//            ),
+//            new Array<>()
+//        )); todo
+    }
+
+    private static void create(MgRollbackCommand command, MgStandaloneCommand nextCommand){
+//        command.setRuntimeCommand(new MgRuntimeCommand(
+//            command,
+//            parent,
+//            new Array<>(
+//                new MgRollbackInstruction(command, variable)
+//            ),
+//            new Array<>()
+//        )); todo
+    }
+
+    private static void create(MgSwitchCommand command, MgStandaloneCommand nextCommand){
+//        command.setRuntimeCommand(new MgRuntimeCommand(
+//            command,
+//            parent,
+//            new Array<>(
+//                todo
+//            ),
+//            new Array<>(command.getCaseCommands())
+//        )); todo
+    }
+
+    private static void create(MgWhileCommand command, MgStandaloneCommand nextCommand){
+//        create(procedure, output, command.getExpression());
+//        command.setRuntimeCommand(new MgRuntimeCommand(
+//            command,
+//            parent,
+//            new Array<>(
+//                todo
+//            ),
+//            new Array<>(command.getCommands())
+//        )); todo
+    }
+
+    // todo - dummy instructions might not be needed for all block commands
+    private static void createDummyInstructions(MgBlockCommand command){
 //        command.setRuntimeCommand(new MgRuntimeCommand(
 //            command,
 //            parent,
@@ -174,9 +120,9 @@ public class MgInstructionCreationService extends MgService {
 //            ),
 //            new Array<>(command.getCommands())
 //        ));
-//    }
-//
-//    private static void connectDummyInstructions(MgBlockCommand command, List<MgStandaloneCommand> commands, MgStandaloneCommand nextCommand){
+    }
+
+    private static void connectDummyInstructions(MgBlockCommand command, List<MgStandaloneCommand> commands, MgStandaloneCommand nextCommand){
 //        MgBeginDummyInstruction begin = (MgBeginDummyInstruction) command.getRuntimeCommand().getInstructions().getFirst();
 //        MgEndDummyInstruction end = (MgEndDummyInstruction) command.getRuntimeCommand().getInstructions().getLast();
 //
@@ -187,5 +133,5 @@ public class MgInstructionCreationService extends MgService {
 //        }
 //
 //        end.setNextInstruction(nextCommand.getRuntimeCommand().getInstructions().getFirst());
-//    }
+    }
 }

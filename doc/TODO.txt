@@ -1,12 +1,13 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-added buildin expression instruction creation service
+added continue and break command instruction creation service
+finished logic to create instructions from expressions
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
 dont forget to connect expression instructions at the end of its resolution
 
 finish logic to create instructions from commands
-finish logic to create instructions from expressions
+
 add check for interface compatibility in procedure
 validate operator input and output count on its procedure type creation
 
