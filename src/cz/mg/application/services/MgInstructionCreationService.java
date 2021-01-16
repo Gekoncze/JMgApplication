@@ -53,28 +53,6 @@ public class MgInstructionCreationService extends MgService {
 //        connectDummyInstructions(command, command.getCommands(), nextCommand);
     }
 
-    private static void create(MgExpressionCommand command, MgStandaloneCommand nextCommand){
-//        command.setRuntimeCommand(new MgRuntimeCommand(
-//            command,
-//            parent,
-//            new Array<>(
-//                create(procedure, output, command.getExpression())
-//            ),
-//            new Array<>()
-//        )); todo
-    }
-
-    private static void create(MgReturnCommand command, MgStandaloneCommand nextCommand){
-//        command.setRuntimeCommand(new MgRuntimeCommand(
-//            command,
-//            parent,
-//            new Array<>(
-//                new MgPopProcedureInstruction(command, parameters)
-//            ),
-//            new Array<>()
-//        )); todo
-    }
-
     private static void create(MgRollbackCommand command, MgStandaloneCommand nextCommand){
 //        command.setRuntimeCommand(new MgRuntimeCommand(
 //            command,

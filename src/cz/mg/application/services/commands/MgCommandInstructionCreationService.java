@@ -29,11 +29,15 @@ public class MgCommandInstructionCreationService extends MgService {
         }
 
         if(command instanceof MgReturnCommand){
-            //todo;
+            return MgReturnCommandInstructionCreationService.create(
+                (MgReturnCommand) command, commandContext, variables
+            );
         }
 
         if(command instanceof MgRollbackCommand){
-            //todo;
+            return MgRollbackCommandInstructionCreationService.create(
+                (MgRollbackCommand) command, commandContext, variables
+            );
         }
 
         if(command instanceof MgSwitchCommand){
