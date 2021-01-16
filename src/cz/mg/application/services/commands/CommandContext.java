@@ -15,28 +15,23 @@ class CommandContext {
     private final CommandContext parent;
 
     @Optional @Link
-    private final MgInstruction next;
-
-    @Optional @Link
     private final MgInstruction begin;
 
     @Optional @Link
     private final MgInstruction end;
 
-    public CommandContext(MgCommand command, CommandContext parent, MgInstruction next, MgInstruction begin, MgInstruction end) {
-        this.command = command;
-        this.parent = parent;
-        this.next = next;
-        this.begin = begin;
+    public CommandContext(CommandContext commandContext, MgInstruction end) {
+        this.command = commandContext.command;
+        this.parent = commandContext.parent;
+        this.begin = commandContext.begin;
         this.end = end;
     }
 
-    public CommandContext(MgCommand command, CommandContext parent, MgInstruction next) {
+    public CommandContext(MgCommand command, CommandContext parent, MgInstruction begin, MgInstruction end) {
         this.command = command;
         this.parent = parent;
-        this.next = next;
-        this.begin = null;
-        this.end = null;
+        this.begin = begin;
+        this.end = end;
     }
 
     public MgCommand getCommand() {
@@ -45,10 +40,6 @@ class CommandContext {
 
     public CommandContext getParent() {
         return parent;
-    }
-
-    public MgInstruction getNext() {
-        return next;
     }
 
     public MgInstruction getBegin() {

@@ -2,6 +2,7 @@ package cz.mg.application.services.commands;
 
 import cz.mg.application.entities.runtime.instructions.MgInstruction;
 import cz.mg.application.entities.statical.parts.commands.*;
+import cz.mg.application.entities.statical.parts.commands.interfaces.MgStandaloneCommand;
 import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.InternalException;
@@ -9,7 +10,7 @@ import cz.mg.collections.list.List;
 
 
 public class MgCommandInstructionCreationService extends MgService {
-    public static List<MgInstruction> create(MgCommand command, CommandContext commandContext, List<MgInstanceVariable> variables){
+    public static List<MgInstruction> create(MgStandaloneCommand command, CommandContext commandContext, List<MgInstanceVariable> variables){
         if(command instanceof MgBreakCommand){
             return MgBreakCommandInstructionCreationService.create(
                 (MgBreakCommand) command, commandContext, variables
@@ -41,17 +42,17 @@ public class MgCommandInstructionCreationService extends MgService {
         }
 
         if(command instanceof MgSwitchCommand){
-            //todo;
-        }
-
-        if(command instanceof MgCaseCommand){
-            //todo;
+            return MgSwitchCommandInstructionCreationService.create(
+                (MgSwitchCommand) command, commandContext, variables
+            );
         }
 
         if(command instanceof MgWhileCommand){
-            //todo;
+            return MgWhileCommandInstructionCreationService.create(
+                (MgWhileCommand) command, commandContext, variables
+            );
         }
 
-        throw new InternalException(command, "Could not create instructions. Unsupported command type " + command.getClass().getSimpleName() + ".");
+        throw new InternalException((MgCommand)command, "Could not create instructions. Unsupported command type " + command.getClass().getSimpleName() + ".");
     }
 }
