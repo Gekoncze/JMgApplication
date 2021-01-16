@@ -1,28 +1,27 @@
 package cz.mg.application.entities.buildin.atoms.int32;
 
+import cz.mg.application.entities.buildin.MgBuildinBinaryOperator;
 import cz.mg.application.entities.runtime.objects.MgTask;
-import cz.mg.application.entities.statical.components.definitions.MgBinaryOperator;
-import cz.mg.application.entities.statical.components.definitions.MgBuildinRunnable;
-import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
-import cz.mg.collections.text.Text;
+import cz.mg.application.entities.statical.components.MgDefinition;
 
 
-public abstract class MgInt32BinaryOperator extends MgBinaryOperator implements MgBuildinRunnable {
+public abstract class MgInt32BinaryOperator extends MgBuildinBinaryOperator {
     public MgInt32BinaryOperator() {
-        MgInstanceVariable left = new MgInstanceVariable();
-        left.setDefinition(MgInt32.getInstance());
-        left.setName(new Text("left"));
-        setLeft(left);
+    }
 
-        MgInstanceVariable right = new MgInstanceVariable();
-        right.setDefinition(MgInt32.getInstance());
-        right.setName(new Text("right"));
-        setRight(right);
+    @Override
+    protected MgDefinition getLeftInputDefinition() {
+        return MgInt32.getInstance();
+    }
 
-        MgInstanceVariable result = new MgInstanceVariable();
-        result.setDefinition(MgInt32.getInstance());
-        result.setName(new Text("result"));
-        setResult(result);
+    @Override
+    protected MgDefinition getRightInputDefinition() {
+        return MgInt32.getInstance();
+    }
+
+    @Override
+    protected MgDefinition getOutputDefinition() {
+        return MgInt32.getInstance();
     }
 
     @Override

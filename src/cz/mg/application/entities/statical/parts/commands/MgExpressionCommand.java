@@ -14,6 +14,10 @@ public class MgExpressionCommand extends MgCommand implements MgSingleLineComman
     public MgExpressionCommand() {
     }
 
+    public MgExpressionCommand(MgExpression expression) {
+        this.expression = expression;
+    }
+
     public MgExpression getExpression() {
         return expression;
     }

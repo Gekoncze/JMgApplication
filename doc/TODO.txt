@@ -1,36 +1,36 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-added definition-variable validation for all instructions
-made sure variable from another definition is not used
-made sure compatible types are used
+...
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
-wrap all expression services with try catch and rethrow if needed
-add check for interface compatibility in procedure
-validate operator input and output count on its procedure type creation
 add special handling of buildin operators in operator expression services
 dont forget to connect expression instructions at the end of its resolution
 
 finish logic to create instructions from commands
 finish logic to create instructions from expressions
+add check for interface compatibility in procedure
+validate operator input and output count on its procedure type creation
 
 
 ##### SOON ##### -------------------------------------------------------------------------------------------------------
 extend tests for procedure type and class type
 
-add test for instruction validator
-add test for MgValidator
-add test for exception handling service
+add test for MgValidator ???
+add test for exception handling logic (if needed)
+
 add test for instruction creation service
 add test for instruction optimization service
-add test for instruction validation service
-add test for instruction collector service
+add test for instruction validation service ?
 add test for expression instruction creation service
+add test for command instruction creation service
+add test for procedure instruction creation service
 
 add tests for simple procedure examples execution
 
 
 ##### LATER ##### -------------------------------------------------------------------------------------------------------
+wrap all expression services with try catch and rethrow if needed
+
 add storage for statical entities
     I think I will use sqlite
     the question is if we want some version control system or not ...

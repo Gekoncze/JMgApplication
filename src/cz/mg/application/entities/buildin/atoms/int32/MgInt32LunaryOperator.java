@@ -1,23 +1,22 @@
 package cz.mg.application.entities.buildin.atoms.int32;
 
+import cz.mg.application.entities.buildin.MgBuildinLunaryOperator;
 import cz.mg.application.entities.runtime.objects.MgTask;
-import cz.mg.application.entities.statical.components.definitions.MgBuildinRunnable;
-import cz.mg.application.entities.statical.components.definitions.MgLunaryOperator;
-import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
-import cz.mg.collections.text.Text;
+import cz.mg.application.entities.statical.components.MgDefinition;
 
 
-public abstract class MgInt32LunaryOperator extends MgLunaryOperator implements MgBuildinRunnable {
+public abstract class MgInt32LunaryOperator extends MgBuildinLunaryOperator {
     public MgInt32LunaryOperator() {
-        MgInstanceVariable right = new MgInstanceVariable();
-        right.setDefinition(MgInt32.getInstance());
-        right.setName(new Text("right"));
-        setRight(right);
+    }
 
-        MgInstanceVariable result = new MgInstanceVariable();
-        result.setDefinition(MgInt32.getInstance());
-        result.setName(new Text("result"));
-        setResult(result);
+    @Override
+    protected MgDefinition getRightInputDefinition() {
+        return MgInt32.getInstance();
+    }
+
+    @Override
+    protected MgDefinition getOutputDefinition() {
+        return MgInt32.getInstance();
     }
 
     @Override
