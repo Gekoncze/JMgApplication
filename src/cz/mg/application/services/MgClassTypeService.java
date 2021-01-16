@@ -16,6 +16,7 @@ import static cz.mg.application.services.MgClassService.forEachClass;
 
 public class MgClassTypeService extends MgService {
     public static void create(MgClass clazz){
+        if(clazz.getType() != null) return;
         validate(clazz);
         createDependentTypes(clazz);
         ReadonlyArray<MgType> types = unionTypes(clazz);
@@ -34,9 +35,7 @@ public class MgClassTypeService extends MgService {
 
     private static void createDependentTypes(MgClass clazz){
         for(MgClass base : clazz.getBaseClasses()){
-            if(base.getType() == null){
-                create(base);
-            }
+            create(base);
         }
     }
 

@@ -3,12 +3,6 @@
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
-change class type service to create type only for the one class being passed
-    the problematic part is if(base.getType() == null)
-        if we try to recompile, then we get wrong result, because dependencies would not get recompiled
-        but now we need to recompile dependend classes because of interface resolution
-            so we need to reimplement the logic in a different way
-
 add more tests for MgValidator
 add test for expression instruction creation service
 add test for command instruction creation service
