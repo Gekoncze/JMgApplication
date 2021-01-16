@@ -9,23 +9,23 @@ import cz.mg.collections.list.List;
 
 
 public class MgCommandInstructionCreationService extends MgService {
-    public static void create(MgCommand command, CommandContext commandContext, List<MgInstanceVariable> variables, List<MgInstruction> instructions){
+    public static List<MgInstruction> create(MgCommand command, CommandContext commandContext, List<MgInstanceVariable> variables){
         if(command instanceof MgBreakCommand){
-            MgBreakCommandInstructionCreationService.create(
-                (MgBreakCommand) command, commandContext, variables, instructions
+            return MgBreakCommandInstructionCreationService.create(
+                (MgBreakCommand) command, commandContext, variables
             );
-            return;
         }
 
         if(command instanceof MgContinueCommand){
-            MgContinueCommandInstructionCreationService.create(
-                (MgContinueCommand) command, commandContext, variables, instructions
+            return MgContinueCommandInstructionCreationService.create(
+                (MgContinueCommand) command, commandContext, variables
             );
-            return;
         }
 
         if(command instanceof MgExpressionCommand){
-            //todo;
+            return MgExpressionCommandInstructionCreationService.create(
+                (MgExpressionCommand) command, commandContext, variables
+            );
         }
 
         if(command instanceof MgReturnCommand){

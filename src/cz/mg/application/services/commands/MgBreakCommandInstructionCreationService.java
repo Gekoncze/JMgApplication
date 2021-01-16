@@ -10,7 +10,7 @@ import cz.mg.collections.list.List;
 
 
 public class MgBreakCommandInstructionCreationService extends MgService {
-    public static void create(MgBreakCommand command, CommandContext commandContext, List<MgInstanceVariable> variables, List<MgInstruction> instructions){
+    public static List<MgInstruction> create(MgBreakCommand command, CommandContext commandContext, List<MgInstanceVariable> variables){
         if(command.getTarget() == null) throw new LogicalException(command, "Missing target command.");
 
         MgInstruction end = null;
@@ -27,8 +27,6 @@ public class MgBreakCommandInstructionCreationService extends MgService {
             throw new LogicalException(command, "Could not find target command.");
         }
 
-        instructions.addLast(
-            new MgGotoInstruction(end)
-        );
+        return new List<>(new MgGotoInstruction(end));
     }
 }

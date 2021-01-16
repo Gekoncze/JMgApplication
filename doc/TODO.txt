@@ -1,6 +1,5 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-added continue and break command instruction creation service
-finished logic to create instructions from expressions
+added expression command instruction creation service
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
