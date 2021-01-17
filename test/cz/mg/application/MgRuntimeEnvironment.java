@@ -13,13 +13,13 @@ import cz.mg.collections.array.ReadonlyArray;
 import cz.mg.collections.map.Map;
 
 
-public class RuntimeEnvironment {
+public class MgRuntimeEnvironment {
     private final MgCore core = new MgCore();
     private final MgThread thread = new MgThread();
     private final MgProcedure procedure = new MgProcedure();
     private final MgRunnableInstruction instruction = new MgRunnableInstruction();
 
-    public RuntimeEnvironment() {
+    public MgRuntimeEnvironment() {
         procedure.setType(new MgProcedureType(
             procedure,
             new ReadonlyArray<>(),

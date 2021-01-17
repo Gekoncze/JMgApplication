@@ -8,19 +8,20 @@ finish logic to create instructions from procedures and operators
     add check for interface compatibility in procedure
     validate operator input and output count on its procedure type creation
 
+extend tests for procedure type service
+
+
+##### SOON ##### -------------------------------------------------------------------------------------------------------
 add test for expression instruction creation service
 add test for command instruction creation service
 add test for procedure instruction creation service
 add test for instruction optimization service
 
 
-##### SOON ##### -------------------------------------------------------------------------------------------------------
-add test for exception handling logic (if needed)
-add tests for simple procedure examples execution
-extend tests for procedure type service
-
-
 ##### LATER ##### -------------------------------------------------------------------------------------------------------
+add runtime tests
+    add test for rollback
+
 wrap all expression services with try catch and rethrow if needed
 
 add storage for statical entities
