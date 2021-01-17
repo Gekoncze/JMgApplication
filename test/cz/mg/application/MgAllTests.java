@@ -1,6 +1,7 @@
 package cz.mg.application;
 
 import cz.mg.application.architecture.MgSimpleRuntimeTest;
+import cz.mg.application.entities.runtime.MgRollbackInstructionTest;
 import cz.mg.application.entities.runtime.types.MgClassTypeTest;
 import cz.mg.application.entities.runtime.types.MgTypeTest;
 import cz.mg.application.services.MgClassServiceTest;
@@ -20,7 +21,8 @@ public class MgAllTests {
             new MgClassTypeServiceTest(),
             new MgProcedureTypeServiceTest(),
             new MgSimpleRuntimeTest(),
-            new MgValidatorTest()
+            new MgValidatorTest(),
+            new MgRollbackInstructionTest()
         );
     }
 }

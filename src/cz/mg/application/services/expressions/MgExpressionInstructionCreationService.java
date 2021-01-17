@@ -120,7 +120,7 @@ public class MgExpressionInstructionCreationService extends MgService {
         }
 
         if(expression instanceof MgLocalVariableExpression){
-            return MgVariableExpressionInstructionCreationService.create(
+            return MgLocalVariableExpressionInstructionCreationService.create(
                 (MgLocalVariableExpression) expression, variables, instructions
             );
         }

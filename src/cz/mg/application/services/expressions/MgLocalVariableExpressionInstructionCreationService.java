@@ -7,7 +7,7 @@ import cz.mg.application.services.MgService;
 import cz.mg.collections.list.List;
 
 
-public class MgVariableExpressionInstructionCreationService extends MgService {
+public class MgLocalVariableExpressionInstructionCreationService extends MgService {
     public static List<MgInstanceVariable> create(
         MgLocalVariableExpression expression,
         List<MgInstanceVariable> variables,

@@ -4,7 +4,6 @@ import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Link;
 import cz.mg.annotations.storage.Part;
-import cz.mg.annotations.storage.Value;
 import cz.mg.application.architecture.utilities.JavaThread;
 import cz.mg.application.entities.runtime.MgRuntimeEntity;
 
@@ -16,21 +15,14 @@ public class MgCore extends MgRuntimeEntity implements Runnable {
         return INSTANCE.get();
     }
 
+    @Mandatory @Part
+    private final JavaThread javaThread;
+
     @Optional @Link
     private MgThread thread;
 
-    @Optional @Part
-    private final JavaThread javaThread;
-
-    @Mandatory @Value
-    private boolean running = false;
-
-    @Mandatory @Value
-    private boolean alive = true;
-
     public MgCore() {
         javaThread = new JavaThread(this);
-        javaThread.start();
     }
 
     public MgThread getThread() {
@@ -41,40 +33,26 @@ public class MgCore extends MgRuntimeEntity implements Runnable {
         this.thread = thread;
     }
 
-    public boolean isRunning() {
-        return running;
-    }
-
-    public boolean isAlive() {
-        return alive;
-    }
-
     public void start(){
-        running = true;
+        javaThread.start();
     }
 
     public void stop(){
-        running = false;
+        javaThread.stop();
     }
 
-    public void destroy(){
-        alive = false;
+    public boolean isRunning(){
+        return javaThread.isRunning();
     }
 
     @Override
     public void run() {
         INSTANCE.set(this);
 
-        while(alive){
-            if(running){
-                if(thread != null){
-                    thread.run();
-                } else {
-                    JavaThread.snooze();
-                }
-            } else {
-                JavaThread.snooze();
-            }
+        if(thread != null){
+            thread.run();
+        } else {
+            JavaThread.snooze();
         }
     }
 }

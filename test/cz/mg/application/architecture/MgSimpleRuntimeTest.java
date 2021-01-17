@@ -14,6 +14,12 @@ public class MgSimpleRuntimeTest implements Test {
 
     @TestCase
     public void testElementaryRuntimeArchitecture(){
-        RuntimeEnvironment.run(() -> {});
+        Boolean[] run = new Boolean[]{ false };
+
+        new RuntimeEnvironment().run(() -> {
+            run[0] = true;
+        });
+
+        assertEquals(run[0], true);
     }
 }

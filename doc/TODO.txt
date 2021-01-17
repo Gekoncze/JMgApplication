@@ -3,19 +3,18 @@
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
-add more tests for MgValidator
-add test for expression instruction creation service
-add test for command instruction creation service
-
 finish logic to create instructions from procedures and operators
     dont forget to optimize instructions
     add check for interface compatibility in procedure
     validate operator input and output count on its procedure type creation
 
-
-##### SOON ##### -------------------------------------------------------------------------------------------------------
+add test for expression instruction creation service
+add test for command instruction creation service
 add test for procedure instruction creation service
 add test for instruction optimization service
+
+
+##### SOON ##### -------------------------------------------------------------------------------------------------------
 add test for exception handling logic (if needed)
 add tests for simple procedure examples execution
 extend tests for procedure type service
