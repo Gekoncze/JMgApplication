@@ -1,13 +1,9 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-...
+finished logic to create instructions from procedures and operators
++ some fixes
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
-finish logic to create instructions from procedures and operators
-    dont forget to optimize instructions
-    add check for interface compatibility in procedure
-    validate operator input and output count on its procedure type creation
-
 extend tests for procedure type service
 
 

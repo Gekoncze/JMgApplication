@@ -12,6 +12,10 @@ public class MgLocalVariableExpression extends MgExpression {
     public MgLocalVariableExpression() {
     }
 
+    public MgLocalVariableExpression(MgInstanceVariable variable) {
+        this.variable = variable;
+    }
+
     public MgInstanceVariable getVariable() {
         return variable;
     }

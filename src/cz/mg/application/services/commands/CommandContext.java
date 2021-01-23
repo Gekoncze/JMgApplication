@@ -1,14 +1,13 @@
 package cz.mg.application.services.commands;
 
-import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Link;
 import cz.mg.application.entities.runtime.instructions.MgInstruction;
 import cz.mg.application.entities.statical.parts.commands.MgCommand;
 
 
-class CommandContext {
-    @Mandatory @Link
+public class CommandContext {
+    @Optional @Link
     private final MgCommand command;
 
     @Optional @Link

@@ -4,14 +4,11 @@ import cz.mg.application.entities.runtime.instructions.MgBranchingInstruction;
 import cz.mg.application.entities.runtime.instructions.MgInstruction;
 import cz.mg.application.entities.runtime.instructions.MgLinearInstruction;
 import cz.mg.application.entities.runtime.instructions.MgDummyInstruction;
-import cz.mg.application.entities.statical.components.definitions.MgProcedure;
-import cz.mg.collections.Clump;
 import cz.mg.collections.list.List;
 
 
 public class MgInstructionOptimizationService extends MgService {
-    public static void optimize(MgProcedure procedure){
-        Clump<MgInstruction> instructions = procedure.getType().getInstructions();
+    public static void optimize(List<MgInstruction> instructions){
         List<MgDummyInstruction> dummyInstructions = new List<>();
 
         for(MgInstruction instruction : instructions){
@@ -25,7 +22,7 @@ public class MgInstructionOptimizationService extends MgService {
         }
     }
 
-    private static void optimize(MgDummyInstruction dummyInstruction, Clump<MgInstruction> instructions){
+    private static void optimize(MgDummyInstruction dummyInstruction, List<MgInstruction> instructions){
         for(MgInstruction instruction : instructions){
             optimize(dummyInstruction, instruction);
         }

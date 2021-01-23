@@ -13,12 +13,6 @@ public class MgLocalVariableExpressionInstructionCreationService extends MgServi
         List<MgInstanceVariable> variables,
         List<MgInstruction> instructions
     ){
-        MgInstanceVariable selfOutput = expression.getVariable();
-
-        variables.addLast(
-            selfOutput
-        );
-
-        return new List<>(selfOutput);
+        return new List<>(expression.getVariable());
     }
 }

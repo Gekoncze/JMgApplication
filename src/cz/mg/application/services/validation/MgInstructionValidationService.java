@@ -5,15 +5,12 @@ import cz.mg.application.entities.statical.components.definitions.MgProcedure;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.InternalException;
 import cz.mg.application.services.validation.instructions.*;
+import cz.mg.collections.list.List;
 
 
 public class MgInstructionValidationService extends MgService {
-    public static void validate(MgProcedure procedure){
-        if(procedure.getType() == null){
-            throw new InternalException(procedure, "Procedure type was not created yet.");
-        }
-
-        if(procedure.getType().getInstructions().count() < 1){
+    public static void validate(MgProcedure procedure, List<MgInstruction> instructions){
+        if(instructions.count() < 1){
             throw new InternalException("Missing instructions.");
         }
 
@@ -22,7 +19,7 @@ public class MgInstructionValidationService extends MgService {
         }
     }
 
-    public static void validate(MgProcedure procedure, MgInstruction instruction){
+    private static void validate(MgProcedure procedure, MgInstruction instruction){
         if(instruction instanceof MgLinearInstruction){
             MgLinearInstructionValidationService.validate(
                 procedure, (MgLinearInstruction) instruction

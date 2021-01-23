@@ -26,4 +26,8 @@ public class MgCheckpoint extends MgPart {
     public void setVariable(MgVariable variable) {
         this.variable = variable;
     }
+
+    public List<MgStandaloneCommand> getCommands() {
+        return commands;
+    }
 }

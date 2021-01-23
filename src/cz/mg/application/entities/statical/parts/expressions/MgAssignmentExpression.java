@@ -14,6 +14,11 @@ public class MgAssignmentExpression extends MgExpression {
     public MgAssignmentExpression() {
     }
 
+    public MgAssignmentExpression(MgExpression left, MgExpression right) {
+        this.left = left;
+        this.right = right;
+    }
+
     public MgExpression getLeft() {
         return left;
     }
