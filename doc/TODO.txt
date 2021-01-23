@@ -1,6 +1,5 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-finished logic to create instructions from procedures and operators
-+ some fixes
+...
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
@@ -8,6 +7,13 @@ extend tests for procedure type service
 
 
 ##### SOON ##### -------------------------------------------------------------------------------------------------------
+think of a way how to do the whole compile process
+    there should be a module compile service maybe
+        that wil lgo through all its locations
+            and it will compile
+                classes
+                procedures
+
 add test for expression instruction creation service
 add test for command instruction creation service
 add test for procedure instruction creation service
@@ -17,8 +23,6 @@ add test for instruction optimization service
 ##### LATER ##### -------------------------------------------------------------------------------------------------------
 add runtime tests
     add test for rollback
-
-wrap all expression services with try catch and rethrow if needed
 
 add storage for statical entities
     I think I will use sqlite

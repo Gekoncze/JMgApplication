@@ -22,4 +22,8 @@ public class MgDependency extends MgStaticalEntity {
     public MgIdentity getIdentity() {
         return identity;
     }
+
+    public Map<Long, Long> getIdMap() {
+        return idMap;
+    }
 }
