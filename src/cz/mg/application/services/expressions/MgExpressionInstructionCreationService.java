@@ -1,11 +1,11 @@
 package cz.mg.application.services.expressions;
 
 import cz.mg.application.entities.buildin.atoms.bool8.MgBool8;
-import cz.mg.application.entities.runtime.instructions.MgInstruction;
-import cz.mg.application.entities.runtime.instructions.MgLinearInstruction;
-import cz.mg.application.entities.statical.parts.expressions.*;
-import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
-import cz.mg.application.entities.statical.parts.variables.MgVariable;
+import cz.mg.application.entities.parts.instructions.MgInstruction;
+import cz.mg.application.entities.parts.instructions.MgLinearInstruction;
+import cz.mg.application.entities.parts.expressions.*;
+import cz.mg.application.entities.parts.variables.MgInstanceVariable;
+import cz.mg.application.entities.parts.variables.MgVariable;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.InternalException;
 import cz.mg.application.services.exceptions.LogicalException;

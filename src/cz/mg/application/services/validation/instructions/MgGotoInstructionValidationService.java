@@ -1,7 +1,7 @@
 package cz.mg.application.services.validation.instructions;
 
-import cz.mg.application.entities.runtime.instructions.MgGotoInstruction;
-import cz.mg.application.entities.statical.components.definitions.MgProcedure;
+import cz.mg.application.entities.parts.instructions.MgGotoInstruction;
+import cz.mg.application.entities.components.definitions.MgProcedure;
 import cz.mg.application.services.MgService;
 
 

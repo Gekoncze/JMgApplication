@@ -1,9 +1,9 @@
 package cz.mg.application.services;
 
-import cz.mg.application.entities.statical.components.definitions.MgClass;
-import cz.mg.application.entities.statical.components.definitions.MgProcedure;
-import cz.mg.application.entities.statical.parts.MgInterface;
-import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
+import cz.mg.application.entities.components.definitions.MgClass;
+import cz.mg.application.entities.components.definitions.MgProcedure;
+import cz.mg.application.entities.parts.MgInterface;
+import cz.mg.application.entities.parts.variables.MgInstanceVariable;
 import cz.mg.test.Test;
 import cz.mg.test.annotations.TestCase;
 import cz.mg.test.runner.SingleTestRunner;

@@ -1,9 +1,9 @@
 package cz.mg.application.services.validation.instructions;
 
-import cz.mg.application.entities.runtime.instructions.MgMemberInterfaceCreateTaskInstruction;
-import cz.mg.application.entities.runtime.types.MgClassType;
-import cz.mg.application.entities.runtime.types.MgType;
-import cz.mg.application.entities.statical.components.definitions.MgProcedure;
+import cz.mg.application.entities.parts.instructions.MgMemberInterfaceCreateTaskInstruction;
+import cz.mg.application.entities.types.MgClassType;
+import cz.mg.application.entities.types.MgType;
+import cz.mg.application.entities.components.definitions.MgProcedure;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.ValidationException;
 import cz.mg.application.services.validation.MgValidator;

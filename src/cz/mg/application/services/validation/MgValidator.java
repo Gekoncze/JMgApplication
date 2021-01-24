@@ -1,12 +1,12 @@
 package cz.mg.application.services.validation;
 
-import cz.mg.application.entities.runtime.types.MgStructuredType;
-import cz.mg.application.entities.statical.components.MgDefinition;
-import cz.mg.application.entities.statical.components.definitions.MgProcedure;
-import cz.mg.application.entities.statical.parts.MgInterface;
-import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
-import cz.mg.application.entities.statical.parts.variables.MgInterfaceVariable;
-import cz.mg.application.entities.statical.parts.variables.MgVariable;
+import cz.mg.application.entities.types.MgStructuredType;
+import cz.mg.application.entities.components.MgDefinition;
+import cz.mg.application.entities.components.definitions.MgProcedure;
+import cz.mg.application.entities.parts.MgInterface;
+import cz.mg.application.entities.parts.variables.MgInstanceVariable;
+import cz.mg.application.entities.parts.variables.MgInterfaceVariable;
+import cz.mg.application.entities.parts.variables.MgVariable;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.ValidationException;
 import cz.mg.collections.Clump;

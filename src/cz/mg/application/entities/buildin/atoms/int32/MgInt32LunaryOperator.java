@@ -1,8 +1,8 @@
 package cz.mg.application.entities.buildin.atoms.int32;
 
 import cz.mg.application.entities.buildin.MgBuildinLunaryOperator;
-import cz.mg.application.entities.runtime.objects.MgTask;
-import cz.mg.application.entities.statical.components.MgDefinition;
+import cz.mg.application.entities.objects.MgTask;
+import cz.mg.application.entities.components.MgDefinition;
 
 
 public abstract class MgInt32LunaryOperator extends MgBuildinLunaryOperator {

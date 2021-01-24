@@ -1,16 +1,16 @@
 package cz.mg.application.services;
 
-import cz.mg.application.entities.runtime.instructions.MgDummyInstruction;
-import cz.mg.application.entities.runtime.instructions.MgInstruction;
-import cz.mg.application.entities.runtime.types.MgProcedureType;
-import cz.mg.application.entities.statical.components.definitions.MgBinaryOperator;
-import cz.mg.application.entities.statical.components.definitions.MgLunaryOperator;
-import cz.mg.application.entities.statical.components.definitions.MgProcedure;
-import cz.mg.application.entities.statical.components.definitions.MgRunaryOperator;
-import cz.mg.application.entities.statical.parts.MgCheckpoint;
-import cz.mg.application.entities.statical.parts.MgInterface;
-import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
-import cz.mg.application.entities.statical.parts.variables.MgInterfaceVariable;
+import cz.mg.application.entities.parts.instructions.MgDummyInstruction;
+import cz.mg.application.entities.parts.instructions.MgInstruction;
+import cz.mg.application.entities.types.MgProcedureType;
+import cz.mg.application.entities.components.definitions.MgBinaryOperator;
+import cz.mg.application.entities.components.definitions.MgLunaryOperator;
+import cz.mg.application.entities.components.definitions.MgProcedure;
+import cz.mg.application.entities.components.definitions.MgRunaryOperator;
+import cz.mg.application.entities.parts.MgCheckpoint;
+import cz.mg.application.entities.parts.MgInterface;
+import cz.mg.application.entities.parts.variables.MgInstanceVariable;
+import cz.mg.application.entities.parts.variables.MgInterfaceVariable;
 import cz.mg.application.services.commands.CommandContext;
 import cz.mg.application.services.commands.MgBlockCommandInstructionCreationService;
 import cz.mg.application.services.exceptions.InternalException;

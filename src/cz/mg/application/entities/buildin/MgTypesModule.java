@@ -3,9 +3,9 @@ package cz.mg.application.entities.buildin;
 import cz.mg.application.entities.buildin.atoms.bool8.MgBool8;
 import cz.mg.application.entities.buildin.atoms.float32.MgFloat32;
 import cz.mg.application.entities.buildin.atoms.int32.MgInt32;
-import cz.mg.application.architecture.MgModule;
-import cz.mg.application.entities.statical.parts.MgIdentity;
-import cz.mg.application.entities.statical.parts.MgVersion;
+import cz.mg.application.entities.architecture.MgModule;
+import cz.mg.application.entities.parts.MgIdentity;
+import cz.mg.application.entities.parts.MgVersion;
 import cz.mg.collections.text.Text;
 
 

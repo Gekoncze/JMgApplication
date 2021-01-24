@@ -2,13 +2,13 @@ package cz.mg.application;
 
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Part;
-import cz.mg.application.architecture.MgCore;
-import cz.mg.application.architecture.MgThread;
-import cz.mg.application.architecture.utilities.JavaThread;
-import cz.mg.application.entities.runtime.instructions.MgInstruction;
-import cz.mg.application.entities.runtime.objects.MgTask;
-import cz.mg.application.entities.runtime.types.MgProcedureType;
-import cz.mg.application.entities.statical.components.definitions.MgProcedure;
+import cz.mg.application.entities.architecture.MgCore;
+import cz.mg.application.entities.architecture.MgThread;
+import cz.mg.application.entities.architecture.utilities.JavaThread;
+import cz.mg.application.entities.parts.instructions.MgInstruction;
+import cz.mg.application.entities.objects.MgTask;
+import cz.mg.application.entities.types.MgProcedureType;
+import cz.mg.application.entities.components.definitions.MgProcedure;
 import cz.mg.collections.array.ReadonlyArray;
 import cz.mg.collections.map.Map;
 

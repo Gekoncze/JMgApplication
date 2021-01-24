@@ -1,10 +1,10 @@
 package cz.mg.application.factories;
 
-import cz.mg.application.entities.statical.components.definitions.MgClass;
-import cz.mg.application.entities.statical.components.definitions.MgProcedure;
-import cz.mg.application.entities.statical.parts.variables.MgGlobalVariable;
-import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
-import cz.mg.application.entities.statical.parts.variables.MgTypeVariable;
+import cz.mg.application.entities.components.definitions.MgClass;
+import cz.mg.application.entities.components.definitions.MgProcedure;
+import cz.mg.application.entities.parts.variables.MgGlobalVariable;
+import cz.mg.application.entities.parts.variables.MgInstanceVariable;
+import cz.mg.application.entities.parts.variables.MgTypeVariable;
 import cz.mg.collections.Clump;
 import cz.mg.collections.array.Array;
 import cz.mg.collections.text.Text;

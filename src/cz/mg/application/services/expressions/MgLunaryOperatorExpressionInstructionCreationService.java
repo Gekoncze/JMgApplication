@@ -1,13 +1,13 @@
 package cz.mg.application.services.expressions;
 
-import cz.mg.application.entities.runtime.instructions.MgCreateTaskInstruction;
-import cz.mg.application.entities.runtime.instructions.MgDestroyTaskInstruction;
-import cz.mg.application.entities.runtime.instructions.MgEnterTaskInstruction;
-import cz.mg.application.entities.runtime.instructions.MgInstruction;
-import cz.mg.application.entities.statical.components.definitions.MgLunaryOperator;
-import cz.mg.application.entities.statical.parts.expressions.MgLunaryOperatorExpression;
-import cz.mg.application.entities.statical.parts.variables.MgExpressionVariable;
-import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
+import cz.mg.application.entities.parts.instructions.MgCreateTaskInstruction;
+import cz.mg.application.entities.parts.instructions.MgDestroyTaskInstruction;
+import cz.mg.application.entities.parts.instructions.MgEnterTaskInstruction;
+import cz.mg.application.entities.parts.instructions.MgInstruction;
+import cz.mg.application.entities.components.definitions.MgLunaryOperator;
+import cz.mg.application.entities.parts.expressions.MgLunaryOperatorExpression;
+import cz.mg.application.entities.parts.variables.MgExpressionVariable;
+import cz.mg.application.entities.parts.variables.MgInstanceVariable;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.LogicalException;
 import cz.mg.collections.array.ReadonlyArray;

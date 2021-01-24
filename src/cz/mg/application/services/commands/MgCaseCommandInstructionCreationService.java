@@ -1,9 +1,9 @@
 package cz.mg.application.services.commands;
 
-import cz.mg.application.entities.runtime.instructions.MgDummyInstruction;
-import cz.mg.application.entities.runtime.instructions.MgInstruction;
-import cz.mg.application.entities.statical.parts.commands.MgCaseCommand;
-import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
+import cz.mg.application.entities.parts.instructions.MgDummyInstruction;
+import cz.mg.application.entities.parts.instructions.MgInstruction;
+import cz.mg.application.entities.parts.commands.MgCaseCommand;
+import cz.mg.application.entities.parts.variables.MgInstanceVariable;
 import cz.mg.application.services.MgService;
 import cz.mg.collections.list.List;
 

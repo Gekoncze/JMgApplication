@@ -1,10 +1,10 @@
 package cz.mg.application.services.expressions;
 
-import cz.mg.application.entities.runtime.instructions.MgInstruction;
-import cz.mg.application.entities.runtime.instructions.MgSetLocalToLocalInstruction;
-import cz.mg.application.entities.runtime.instructions.MgSetLocalToMemberInstruction;
-import cz.mg.application.entities.statical.parts.expressions.*;
-import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
+import cz.mg.application.entities.parts.instructions.MgInstruction;
+import cz.mg.application.entities.parts.instructions.MgSetLocalToLocalInstruction;
+import cz.mg.application.entities.parts.instructions.MgSetLocalToMemberInstruction;
+import cz.mg.application.entities.parts.expressions.*;
+import cz.mg.application.entities.parts.variables.MgInstanceVariable;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.LogicalException;
 import cz.mg.collections.list.List;

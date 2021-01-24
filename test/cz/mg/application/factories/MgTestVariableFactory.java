@@ -1,11 +1,11 @@
 package cz.mg.application.factories;
 
 import cz.mg.application.entities.buildin.atoms.int32.MgInt32;
-import cz.mg.application.entities.statical.components.MgDefinition;
-import cz.mg.application.entities.statical.parts.variables.MgGlobalVariable;
-import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
-import cz.mg.application.entities.statical.parts.variables.MgInterfaceVariable;
-import cz.mg.application.entities.statical.parts.variables.MgTypeVariable;
+import cz.mg.application.entities.components.MgDefinition;
+import cz.mg.application.entities.parts.variables.MgGlobalVariable;
+import cz.mg.application.entities.parts.variables.MgInstanceVariable;
+import cz.mg.application.entities.parts.variables.MgInterfaceVariable;
+import cz.mg.application.entities.parts.variables.MgTypeVariable;
 import cz.mg.collections.text.Text;
 
 

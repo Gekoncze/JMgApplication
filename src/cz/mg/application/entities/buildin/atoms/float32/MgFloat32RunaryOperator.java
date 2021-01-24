@@ -1,8 +1,8 @@
 package cz.mg.application.entities.buildin.atoms.float32;
 
 import cz.mg.application.entities.buildin.MgBuildinRunaryOperator;
-import cz.mg.application.entities.runtime.objects.MgTask;
-import cz.mg.application.entities.statical.components.MgDefinition;
+import cz.mg.application.entities.objects.MgTask;
+import cz.mg.application.entities.components.MgDefinition;
 
 
 public abstract class MgFloat32RunaryOperator extends MgBuildinRunaryOperator {

@@ -1,8 +1,7 @@
 package cz.mg.application.entities.buildin.atoms.int32;
 
-import cz.mg.application.entities.runtime.objects.MgAtomicObject;
-import cz.mg.application.entities.statical.components.definitions.MgAtom;
-import cz.mg.application.services.exceptions.LogicalException;
+import cz.mg.application.entities.objects.MgAtomicObject;
+import cz.mg.application.entities.components.definitions.MgAtom;
 import cz.mg.collections.text.Text;
 
 

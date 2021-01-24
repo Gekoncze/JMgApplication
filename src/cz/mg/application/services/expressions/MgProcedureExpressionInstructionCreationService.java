@@ -1,14 +1,14 @@
 package cz.mg.application.services.expressions;
 
-import cz.mg.application.entities.runtime.instructions.MgCreateTaskInstruction;
-import cz.mg.application.entities.runtime.instructions.MgDestroyTaskInstruction;
-import cz.mg.application.entities.runtime.instructions.MgEnterTaskInstruction;
-import cz.mg.application.entities.runtime.instructions.MgInstruction;
-import cz.mg.application.entities.statical.components.definitions.MgProcedure;
-import cz.mg.application.entities.statical.parts.expressions.MgExpression;
-import cz.mg.application.entities.statical.parts.expressions.MgProcedureExpression;
-import cz.mg.application.entities.statical.parts.variables.MgExpressionVariable;
-import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
+import cz.mg.application.entities.parts.instructions.MgCreateTaskInstruction;
+import cz.mg.application.entities.parts.instructions.MgDestroyTaskInstruction;
+import cz.mg.application.entities.parts.instructions.MgEnterTaskInstruction;
+import cz.mg.application.entities.parts.instructions.MgInstruction;
+import cz.mg.application.entities.components.definitions.MgProcedure;
+import cz.mg.application.entities.parts.expressions.MgExpression;
+import cz.mg.application.entities.parts.expressions.MgProcedureExpression;
+import cz.mg.application.entities.parts.variables.MgExpressionVariable;
+import cz.mg.application.entities.parts.variables.MgInstanceVariable;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.LogicalException;
 import cz.mg.application.services.validation.MgValidator;

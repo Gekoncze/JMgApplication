@@ -1,5 +1,6 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-...
+changed architecture entities a little bit
+removed the difference between runtime and statical entities
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
@@ -20,11 +21,6 @@ add test for instruction optimization service
 ##### LATER ##### -------------------------------------------------------------------------------------------------------
 add runtime tests
     add test for rollback
-
-do we want to add id for runtime entities too?
-    then there would be no such significant difference between statical and runtime entities
-    do we want to separate them like that? or shall we just add or not add runtime / static annotation ?
-    if we had id also for runtime entities, then we could easily store them for quick save or error dumb file
 
 add storage for statical entities
     I think I will use sqlite

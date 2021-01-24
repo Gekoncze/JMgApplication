@@ -1,9 +1,9 @@
 package cz.mg.application.services;
 
-import cz.mg.application.entities.runtime.instructions.MgBranchingInstruction;
-import cz.mg.application.entities.runtime.instructions.MgInstruction;
-import cz.mg.application.entities.runtime.instructions.MgLinearInstruction;
-import cz.mg.application.entities.runtime.instructions.MgDummyInstruction;
+import cz.mg.application.entities.parts.instructions.MgBranchingInstruction;
+import cz.mg.application.entities.parts.instructions.MgInstruction;
+import cz.mg.application.entities.parts.instructions.MgLinearInstruction;
+import cz.mg.application.entities.parts.instructions.MgDummyInstruction;
 import cz.mg.collections.list.List;
 
 

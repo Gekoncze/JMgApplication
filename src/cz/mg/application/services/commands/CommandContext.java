@@ -2,8 +2,8 @@ package cz.mg.application.services.commands;
 
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Link;
-import cz.mg.application.entities.runtime.instructions.MgInstruction;
-import cz.mg.application.entities.statical.parts.commands.MgCommand;
+import cz.mg.application.entities.parts.instructions.MgInstruction;
+import cz.mg.application.entities.parts.commands.MgCommand;
 
 
 public class CommandContext {

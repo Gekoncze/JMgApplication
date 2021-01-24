@@ -1,9 +1,9 @@
 package cz.mg.application.services;
 
-import cz.mg.application.entities.runtime.types.MgClassType;
-import cz.mg.application.entities.statical.components.definitions.MgClass;
-import cz.mg.application.entities.statical.components.definitions.MgProcedure;
-import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
+import cz.mg.application.entities.types.MgClassType;
+import cz.mg.application.entities.components.definitions.MgClass;
+import cz.mg.application.entities.components.definitions.MgProcedure;
+import cz.mg.application.entities.parts.variables.MgInstanceVariable;
 import cz.mg.application.services.validation.MgValidator;
 import cz.mg.collections.array.Array;
 import cz.mg.collections.array.ReadonlyArray;

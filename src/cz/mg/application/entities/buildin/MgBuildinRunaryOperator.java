@@ -1,12 +1,12 @@
 package cz.mg.application.entities.buildin;
 
-import cz.mg.application.entities.statical.components.MgDefinition;
-import cz.mg.application.entities.statical.components.definitions.MgBinaryOperator;
-import cz.mg.application.entities.statical.components.definitions.MgBuildinRunnable;
-import cz.mg.application.entities.statical.parts.commands.MgExpressionCommand;
-import cz.mg.application.entities.statical.parts.commands.MgReturnCommand;
-import cz.mg.application.entities.statical.parts.expressions.MgBuildinExpression;
-import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
+import cz.mg.application.entities.components.MgDefinition;
+import cz.mg.application.entities.components.definitions.MgBinaryOperator;
+import cz.mg.application.entities.components.definitions.MgBuildinRunnable;
+import cz.mg.application.entities.parts.commands.MgExpressionCommand;
+import cz.mg.application.entities.parts.commands.MgReturnCommand;
+import cz.mg.application.entities.parts.expressions.MgBuildinExpression;
+import cz.mg.application.entities.parts.variables.MgInstanceVariable;
 import cz.mg.collections.text.Text;
 
 

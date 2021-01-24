@@ -1,15 +1,15 @@
 package cz.mg.application.services.expressions;
 
-import cz.mg.application.entities.runtime.instructions.MgDestroyTaskInstruction;
-import cz.mg.application.entities.runtime.instructions.MgEnterTaskInstruction;
-import cz.mg.application.entities.runtime.instructions.MgInstruction;
-import cz.mg.application.entities.runtime.instructions.MgMemberInterfaceCreateTaskInstruction;
-import cz.mg.application.entities.statical.parts.MgInterface;
-import cz.mg.application.entities.statical.parts.expressions.MgExpression;
-import cz.mg.application.entities.statical.parts.expressions.MgMemberInterfaceExpression;
-import cz.mg.application.entities.statical.parts.variables.MgExpressionVariable;
-import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
-import cz.mg.application.entities.statical.parts.variables.MgInterfaceVariable;
+import cz.mg.application.entities.parts.instructions.MgDestroyTaskInstruction;
+import cz.mg.application.entities.parts.instructions.MgEnterTaskInstruction;
+import cz.mg.application.entities.parts.instructions.MgInstruction;
+import cz.mg.application.entities.parts.instructions.MgMemberInterfaceCreateTaskInstruction;
+import cz.mg.application.entities.parts.MgInterface;
+import cz.mg.application.entities.parts.expressions.MgExpression;
+import cz.mg.application.entities.parts.expressions.MgMemberInterfaceExpression;
+import cz.mg.application.entities.parts.variables.MgExpressionVariable;
+import cz.mg.application.entities.parts.variables.MgInstanceVariable;
+import cz.mg.application.entities.parts.variables.MgInterfaceVariable;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.LogicalException;
 import cz.mg.application.services.validation.MgValidator;

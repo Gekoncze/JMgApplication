@@ -1,9 +1,9 @@
 package cz.mg.application.factories;
 
-import cz.mg.application.entities.statical.components.definitions.MgProcedure;
-import cz.mg.application.entities.statical.parts.commands.MgReturnCommand;
-import cz.mg.application.entities.statical.parts.commands.interfaces.MgStandaloneCommand;
-import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
+import cz.mg.application.entities.components.definitions.MgProcedure;
+import cz.mg.application.entities.parts.commands.MgReturnCommand;
+import cz.mg.application.entities.parts.commands.interfaces.MgStandaloneCommand;
+import cz.mg.application.entities.parts.variables.MgInstanceVariable;
 import cz.mg.collections.Clump;
 import cz.mg.collections.array.Array;
 import cz.mg.collections.text.Text;

@@ -2,12 +2,12 @@ package cz.mg.application.services;
 
 import cz.mg.application.entities.buildin.atoms.float32.MgFloat32;
 import cz.mg.application.entities.buildin.atoms.int32.MgInt32;
-import cz.mg.application.entities.statical.components.definitions.MgBinaryOperator;
-import cz.mg.application.entities.statical.components.definitions.MgLunaryOperator;
-import cz.mg.application.entities.statical.components.definitions.MgProcedure;
-import cz.mg.application.entities.statical.components.definitions.MgRunaryOperator;
-import cz.mg.application.entities.statical.parts.MgInterface;
-import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
+import cz.mg.application.entities.components.definitions.MgBinaryOperator;
+import cz.mg.application.entities.components.definitions.MgLunaryOperator;
+import cz.mg.application.entities.components.definitions.MgProcedure;
+import cz.mg.application.entities.components.definitions.MgRunaryOperator;
+import cz.mg.application.entities.parts.MgInterface;
+import cz.mg.application.entities.parts.variables.MgInstanceVariable;
 import cz.mg.test.Test;
 import cz.mg.test.annotations.TestCase;
 import cz.mg.test.runner.SingleTestRunner;

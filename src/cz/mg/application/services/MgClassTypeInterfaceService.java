@@ -1,8 +1,8 @@
 package cz.mg.application.services;
 
-import cz.mg.application.entities.statical.components.definitions.MgClass;
-import cz.mg.application.entities.statical.parts.MgInterface;
-import cz.mg.application.entities.statical.components.definitions.MgProcedure;
+import cz.mg.application.entities.components.definitions.MgClass;
+import cz.mg.application.entities.parts.MgInterface;
+import cz.mg.application.entities.components.definitions.MgProcedure;
 import cz.mg.collections.list.List;
 
 

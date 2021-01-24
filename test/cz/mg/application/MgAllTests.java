@@ -1,8 +1,8 @@
 package cz.mg.application;
 
-import cz.mg.application.architecture.MgSimpleRuntimeTest;
-import cz.mg.application.entities.runtime.types.MgClassTypeTest;
-import cz.mg.application.entities.runtime.types.MgTypeTest;
+import cz.mg.application.entities.architecture.MgSimpleRuntimeTest;
+import cz.mg.application.entities.types.MgClassTypeTest;
+import cz.mg.application.entities.types.MgTypeTest;
 import cz.mg.application.services.MgClassServiceTest;
 import cz.mg.application.services.MgClassTypeServiceTest;
 import cz.mg.application.services.MgProcedureTypeServiceTest;

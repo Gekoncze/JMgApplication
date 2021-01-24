@@ -1,7 +1,7 @@
 package cz.mg.application.services.validation;
 
-import cz.mg.application.entities.runtime.instructions.*;
-import cz.mg.application.entities.statical.components.definitions.MgProcedure;
+import cz.mg.application.entities.parts.instructions.*;
+import cz.mg.application.entities.components.definitions.MgProcedure;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.InternalException;
 import cz.mg.application.services.validation.instructions.*;

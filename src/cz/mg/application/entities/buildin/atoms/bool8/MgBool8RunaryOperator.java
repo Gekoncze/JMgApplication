@@ -1,8 +1,8 @@
 package cz.mg.application.entities.buildin.atoms.bool8;
 
 import cz.mg.application.entities.buildin.MgBuildinRunaryOperator;
-import cz.mg.application.entities.runtime.objects.MgTask;
-import cz.mg.application.entities.statical.components.MgDefinition;
+import cz.mg.application.entities.objects.MgTask;
+import cz.mg.application.entities.components.MgDefinition;
 
 
 public abstract class MgBool8RunaryOperator extends MgBuildinRunaryOperator {

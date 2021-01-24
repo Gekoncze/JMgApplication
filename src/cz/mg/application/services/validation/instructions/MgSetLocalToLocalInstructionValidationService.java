@@ -1,7 +1,7 @@
 package cz.mg.application.services.validation.instructions;
 
-import cz.mg.application.entities.runtime.instructions.MgSetLocalToLocalInstruction;
-import cz.mg.application.entities.statical.components.definitions.MgProcedure;
+import cz.mg.application.entities.parts.instructions.MgSetLocalToLocalInstruction;
+import cz.mg.application.entities.components.definitions.MgProcedure;
 import cz.mg.application.services.MgService;
 import cz.mg.application.services.exceptions.ValidationException;
 import cz.mg.application.services.validation.MgValidator;
