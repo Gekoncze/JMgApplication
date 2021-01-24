@@ -1,12 +1,11 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-extended tests for procedure type service
-added test factories + simplified some tests with it
+...
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
 think of a way how to do the whole compile process
     there should be a module compile service maybe
-        that wil lgo through all its locations
+        that will go through all its locations
             and it will compile
                 classes
                 procedures
@@ -15,7 +14,6 @@ think of a way how to do the whole compile process
 ##### SOON ##### -------------------------------------------------------------------------------------------------------
 add test for expression instruction creation service
 add test for command instruction creation service
-add test for procedure instruction creation service
 add test for instruction optimization service
 
 
@@ -33,11 +31,14 @@ add storage for statical entities
                 do we want to limit what can be written to a text object?
 
 add ui (choose the most suitable toolkit)
+    decide if I want to have it auto-generated or manually-generated
 
 
 ##### MAYBE LATER ##### ------------------------------------------------------------------------------------------------
-add scheduler(s)
+add scheduler(s) for cores or threads ?
 add optimization for local (anonymous expression) variable count
+    each expression does not have to create new variable, they could reuse existing variables
+    in our case it does not matter, it would matter though if exported to another language
     tip: idea for expression variable count
         I think we need at most the number of variables as it is max number of expression parameters
             the only problem with this would be the current implementation of assignment
