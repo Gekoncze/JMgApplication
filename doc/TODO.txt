@@ -21,6 +21,11 @@ add test for instruction optimization service
 add runtime tests
     add test for rollback
 
+do we want to add id for runtime entities too?
+    then there would be no such significant difference between statical and runtime entities
+    do we want to separate them like that? or shall we just add or not add runtime / static annotation ?
+    if we had id also for runtime entities, then we could easily store them for quick save or error dumb file
+
 add storage for statical entities
     I think I will use sqlite
     the question is if we want some version control system or not ...
@@ -36,6 +41,7 @@ add ui (choose the most suitable toolkit)
 
 ##### MAYBE LATER ##### ------------------------------------------------------------------------------------------------
 add scheduler(s) for cores or threads ?
+
 add optimization for local (anonymous expression) variable count
     each expression does not have to create new variable, they could reuse existing variables
     in our case it does not matter, it would matter though if exported to another language
