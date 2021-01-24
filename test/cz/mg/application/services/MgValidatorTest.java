@@ -8,10 +8,13 @@ import cz.mg.application.services.validation.MgValidator;
 import cz.mg.collections.array.Array;
 import cz.mg.collections.array.ReadonlyArray;
 import cz.mg.collections.map.Map;
-import cz.mg.collections.text.Text;
 import cz.mg.test.Test;
 import cz.mg.test.annotations.TestCase;
 import cz.mg.test.runner.SingleTestRunner;
+
+import static cz.mg.application.factories.MgTestClassFactory.createClass;
+import static cz.mg.application.factories.MgTestProcedureFactory.createProcedure;
+import static cz.mg.application.factories.MgTestVariableFactory.createInstanceVariable;
 
 
 public class MgValidatorTest implements Test {
@@ -40,11 +43,9 @@ public class MgValidatorTest implements Test {
 
     @TestCase(order = 3)
     public void testCheckOwnership(){
-        MgInstanceVariable variable = new MgInstanceVariable();
-        variable.setName(new Text("TestVariable"));
+        MgInstanceVariable variable = createInstanceVariable("TestVariable");
+        MgClass clazz = createClass("TestClass");
 
-        MgClass clazz = new MgClass();
-        clazz.setName(new Text("TestClass"));
         clazz.setType(
             new MgClassType(
                 clazz,
@@ -78,15 +79,9 @@ public class MgValidatorTest implements Test {
 
     @TestCase(order = 4)
     public void testCheckCompatibility(){
-        MgClass animal = new MgClass();
-        animal.setName(new Text("Animal"));
-
-        MgClass cat = new MgClass();
-        cat.setName(new Text("Cat"));
-        cat.getBaseClasses().addLast(animal);
-
-        MgClass plant = new MgClass();
-        plant.setName(new Text("Plant"));
+        MgClass animal = createClass("Animal");
+        MgClass cat = createClass("Cat", animal);
+        MgClass plant = createClass("Plant");
 
         animal.setType(new MgClassType(
             animal,
@@ -119,43 +114,37 @@ public class MgValidatorTest implements Test {
         ));
 
         MgValidator.checkCompatibility(
-            createVariable(cat, "source"),
-            createVariable(animal, "destination")
+            createInstanceVariable("source", cat),
+            createInstanceVariable("destination", animal)
         );
 
         assertExceptionThrown(() -> {
             MgValidator.checkCompatibility(
-                createVariable(animal, "source"),
-                createVariable(cat, "destination")
+                createInstanceVariable("source", animal),
+                createInstanceVariable("destination", cat)
             );
         });
 
         assertExceptionThrown(() -> {
             MgValidator.checkCompatibility(
-                createVariable(plant, "source"),
-                createVariable(animal, "destination")
+                createInstanceVariable("source", plant),
+                createInstanceVariable("destination", animal)
             );
         });
 
         assertExceptionThrown(() -> {
             MgValidator.checkCompatibility(
-                createVariable(cat, "source"),
-                createVariable(plant, "destination")
+                createInstanceVariable("source", cat),
+                createInstanceVariable("destination", plant)
             );
         });
     }
 
     @TestCase(order = 5)
     public void testCheckInputOutputCompatibility(){
-        MgClass animal = new MgClass();
-        animal.setName(new Text("Animal"));
-
-        MgClass cat = new MgClass();
-        cat.setName(new Text("Cat"));
-        cat.getBaseClasses().addLast(animal);
-
-        MgClass plant = new MgClass();
-        plant.setName(new Text("Plant"));
+        MgClass animal = createClass("Animal");
+        MgClass cat = createClass("Cat", animal);
+        MgClass plant = createClass("Plant");
 
         animal.setType(new MgClassType(
             animal,
@@ -187,22 +176,21 @@ public class MgValidatorTest implements Test {
             new Map<>()
         ));
 
-        MgProcedure procedure = new MgProcedure();
-        procedure.setName(new Text("babysit"));
-        procedure.getInput().addLast(createVariable(animal, "animal1"));
-        procedure.getInput().addLast(createVariable(animal, "animal2"));
-        procedure.getOutput().addLast(createVariable(plant, "plant"));
+        MgProcedure procedure = createProcedure("babysit");
+        procedure.getInput().addLast(createInstanceVariable("animal1", animal));
+        procedure.getInput().addLast(createInstanceVariable("animal2", animal));
+        procedure.getOutput().addLast(createInstanceVariable("plant", plant));
 
         MgValidator.checkInputCompatibility(procedure,
             new Array<>(
-                createVariable(cat, "srcCat1"),
-                createVariable(cat, "srcCat2")
+                createInstanceVariable("srcCat1", cat),
+                createInstanceVariable("srcCat2", cat)
             )
         );
 
         MgValidator.checkOutputCompatibility(procedure,
             new Array<>(
-                createVariable(plant, "dstPlant")
+                createInstanceVariable("dstPlant", plant)
             )
         );
 
@@ -221,9 +209,9 @@ public class MgValidatorTest implements Test {
         assertExceptionThrown(() -> {
             MgValidator.checkInputCompatibility(procedure,
                 new Array<>(
-                    createVariable(cat, "srcCat1"),
-                    createVariable(cat, "srcCat2"),
-                    createVariable(cat, "srcCat3")
+                    createInstanceVariable("srcCat1", cat),
+                    createInstanceVariable("srcCat2", cat),
+                    createInstanceVariable("srcCat3", cat)
                 )
             );
         });
@@ -231,8 +219,8 @@ public class MgValidatorTest implements Test {
         assertExceptionThrown(() -> {
             MgValidator.checkOutputCompatibility(procedure,
                 new Array<>(
-                    createVariable(plant, "dstPlant1"),
-                    createVariable(plant, "dstPlant2")
+                    createInstanceVariable("dstPlant1", plant),
+                    createInstanceVariable("dstPlant2", plant)
                 )
             );
         });
@@ -240,8 +228,8 @@ public class MgValidatorTest implements Test {
         assertExceptionThrown(() -> {
             MgValidator.checkInputCompatibility(procedure,
                 new Array<>(
-                    createVariable(cat, "srcCat"),
-                    createVariable(plant, "srcPlant")
+                    createInstanceVariable("srcCat", cat),
+                    createInstanceVariable("srcPlant", plant)
                 )
             );
         });
@@ -249,16 +237,9 @@ public class MgValidatorTest implements Test {
         assertExceptionThrown(() -> {
             MgValidator.checkOutputCompatibility(procedure,
                 new Array<>(
-                    createVariable(cat, "dstCat")
+                    createInstanceVariable("dstCat", cat)
                 )
             );
         });
-    }
-
-    private MgInstanceVariable createVariable(MgClass clazz, String name){
-        MgInstanceVariable variable = new MgInstanceVariable();
-        variable.setName(new Text(name));
-        variable.setDefinition(clazz);
-        return variable;
     }
 }

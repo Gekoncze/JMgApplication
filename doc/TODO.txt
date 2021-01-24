@@ -1,12 +1,9 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-...
+extended tests for procedure type service
+added test factories + simplified some tests with it
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
-extend tests for procedure type service
-
-
-##### SOON ##### -------------------------------------------------------------------------------------------------------
 think of a way how to do the whole compile process
     there should be a module compile service maybe
         that wil lgo through all its locations
@@ -14,6 +11,8 @@ think of a way how to do the whole compile process
                 classes
                 procedures
 
+
+##### SOON ##### -------------------------------------------------------------------------------------------------------
 add test for expression instruction creation service
 add test for command instruction creation service
 add test for procedure instruction creation service

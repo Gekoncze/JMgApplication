@@ -4,10 +4,14 @@ import cz.mg.application.entities.statical.components.definitions.MgClass;
 import cz.mg.application.entities.statical.components.definitions.MgProcedure;
 import cz.mg.application.entities.statical.parts.MgInterface;
 import cz.mg.application.entities.statical.parts.variables.MgInstanceVariable;
-import cz.mg.collections.text.Text;
 import cz.mg.test.Test;
 import cz.mg.test.annotations.TestCase;
 import cz.mg.test.runner.SingleTestRunner;
+
+import static cz.mg.application.factories.MgTestClassFactory.createClass;
+import static cz.mg.application.factories.MgTestInterfaceFactory.createInterface;
+import static cz.mg.application.factories.MgTestProcedureFactory.createProcedure;
+import static cz.mg.application.factories.MgTestVariableFactory.createInstanceVariable;
 
 
 @SuppressWarnings("unused")
@@ -17,40 +21,16 @@ public class MgClassTypeServiceTest implements Test {
         testRunner.run(new MgClassTypeServiceTest());
     }
 
-    private static MgClass createClass(String name){
-        MgClass clazz = new MgClass();
-        clazz.setName(new Text(name));
-        return clazz;
-    }
-
-    private static MgInstanceVariable createVariable(String name){
-        MgInstanceVariable variable = new MgInstanceVariable();
-        variable.setName(new Text(name));
-        return variable;
-    }
-
-    private static MgProcedure createProcedure(String name){
-        MgProcedure procedure = new MgProcedure();
-        procedure.setName(new Text(name));
-        return procedure;
-    }
-
-    private static MgInterface createInterface(String name){
-        MgInterface iinterface = new MgInterface();
-        iinterface.setName(new Text(name));
-        return iinterface;
-    }
-
     @TestCase(order = 1)
     public void testInheritanceMultiple(){
         MgClass pet = createClass("Pet");
-        MgInstanceVariable collar = createVariable("collar");
+        MgInstanceVariable collar = createInstanceVariable("collar");
         MgProcedure cuddle = createProcedure("cuddle");
         pet.getInstanceVariables().addLast(collar);
         pet.getProcedures().addLast(cuddle);
 
         MgClass being = createClass("Being");
-        MgInstanceVariable health = createVariable("health");
+        MgInstanceVariable health = createInstanceVariable("health");
         MgProcedure getHealth = createProcedure("getHealth");
         MgProcedure setHealth = createProcedure("setHealth");
         being.getInstanceVariables().addLast(health);
@@ -58,14 +38,14 @@ public class MgClassTypeServiceTest implements Test {
         being.getProcedures().addLast(setHealth);
 
         MgClass animal = createClass("Animal");
-        MgInstanceVariable ability = createVariable("ability");
+        MgInstanceVariable ability = createInstanceVariable("ability");
         MgProcedure getAbility = createProcedure("getAbility");
         animal.getInstanceVariables().addLast(ability);
         animal.getProcedures().addLast(getAbility);
         animal.getBaseClasses().addLast(being);
 
         MgClass cat = createClass("Cat");
-        MgInstanceVariable lives = createVariable("lives");
+        MgInstanceVariable lives = createInstanceVariable("lives");
         MgProcedure meow = createProcedure("meow");
         cat.getInstanceVariables().addLast(lives);
         cat.getProcedures().addLast(meow);
@@ -94,27 +74,27 @@ public class MgClassTypeServiceTest implements Test {
     @TestCase(order = 2)
     public void testInheritanceDiamond(){
         MgClass animal = createClass("Animal");
-        MgInstanceVariable ability = createVariable("ability");
+        MgInstanceVariable ability = createInstanceVariable("ability");
         MgProcedure getAbility = createProcedure("getAbility");
         animal.getInstanceVariables().addLast(ability);
         animal.getProcedures().addLast(getAbility);
 
         MgClass cat = createClass("Cat");
-        MgInstanceVariable lives = createVariable("lives");
+        MgInstanceVariable lives = createInstanceVariable("lives");
         MgProcedure meow = createProcedure("meow");
         cat.getInstanceVariables().addLast(lives);
         cat.getProcedures().addLast(meow);
         cat.getBaseClasses().addLast(animal);
 
         MgClass dog = createClass("Dog");
-        MgInstanceVariable ball = createVariable("ball");
+        MgInstanceVariable ball = createInstanceVariable("ball");
         MgProcedure bark = createProcedure("bark");
         dog.getInstanceVariables().addLast(ball);
         dog.getProcedures().addLast(bark);
         dog.getBaseClasses().addLast(animal);
 
         MgClass catDog = createClass("CatDog");
-        MgInstanceVariable cake = createVariable("cake");
+        MgInstanceVariable cake = createInstanceVariable("cake");
         MgProcedure bake = createProcedure("bake");
         catDog.getInstanceVariables().addLast(cake);
         catDog.getProcedures().addLast(bake);
