@@ -4,7 +4,7 @@ import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Link;
 import cz.mg.annotations.storage.Value;
-import cz.mg.application.Named;
+import cz.mg.application.entities.Named;
 import cz.mg.application.entities.components.MgDefinition;
 import cz.mg.application.entities.parts.MgPart;
 import cz.mg.collections.text.Text;

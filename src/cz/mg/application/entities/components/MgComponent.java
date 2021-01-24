@@ -2,7 +2,7 @@ package cz.mg.application.entities.components;
 
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Value;
-import cz.mg.application.Named;
+import cz.mg.application.entities.Named;
 import cz.mg.application.entities.MgEntity;
 import cz.mg.collections.text.Text;
 

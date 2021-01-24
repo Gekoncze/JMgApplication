@@ -1,4 +1,4 @@
-package cz.mg.application;
+package cz.mg.application.entities;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

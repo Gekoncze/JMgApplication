@@ -1,4 +1,4 @@
-package cz.mg.application;
+package cz.mg.application.entities;
 
 import cz.mg.collections.text.Text;
 

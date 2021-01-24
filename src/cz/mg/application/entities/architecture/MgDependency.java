@@ -3,7 +3,7 @@ package cz.mg.application.entities.architecture;
 import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Part;
 import cz.mg.annotations.storage.Value;
-import cz.mg.application.Store;
+import cz.mg.application.entities.Store;
 import cz.mg.application.entities.MgEntity;
 import cz.mg.application.entities.parts.MgIdentity;
 import cz.mg.collections.map.Map;
