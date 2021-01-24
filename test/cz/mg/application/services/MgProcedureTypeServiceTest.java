@@ -25,14 +25,14 @@ public class MgProcedureTypeServiceTest implements Test {
         testRunner.run(new MgProcedureTypeServiceTest());
     }
 
-    @TestCase
+    @TestCase(order = 0)
     public void testCreate(){
         MgProcedure procedure = createProcedure("testProcedure");
         MgProcedureTypeService.create(procedure);
         assertNotNull(procedure.getType());
     }
 
-    @TestCase
+    @TestCase(order = 1)
     public void testCreateBinaryOperator(){
         MgBinaryOperator operator = createBinaryOperator(
             "testBinaryOperator",
@@ -44,7 +44,7 @@ public class MgProcedureTypeServiceTest implements Test {
         assertNotNull(operator.getType());
     }
 
-    @TestCase
+    @TestCase(order = 2)
     public void testCreateIncompleteBinaryOperator(){
         MgBinaryOperator operator = createBinaryOperator("testBinaryOperator");
         assertExceptionThrown(() -> {
@@ -52,7 +52,7 @@ public class MgProcedureTypeServiceTest implements Test {
         });
     }
 
-    @TestCase
+    @TestCase(order = 3)
     public void testCreateLunaryOperator(){
         MgLunaryOperator operator = createLunaryOperator(
             "testLunaryOperator",
@@ -63,7 +63,7 @@ public class MgProcedureTypeServiceTest implements Test {
         assertNotNull(operator.getType());
     }
 
-    @TestCase
+    @TestCase(order = 4)
     public void testCreateIncompleteLunaryOperator(){
         MgLunaryOperator operator = createLunaryOperator("testLunaryOperator");
         assertExceptionThrown(() -> {
@@ -71,7 +71,7 @@ public class MgProcedureTypeServiceTest implements Test {
         });
     }
 
-    @TestCase
+    @TestCase(order = 5)
     public void testCreateRunaryOperator(){
         MgRunaryOperator operator = createRunaryOperator(
             "testRunaryOperator",
@@ -82,7 +82,7 @@ public class MgProcedureTypeServiceTest implements Test {
         assertNotNull(operator.getType());
     }
 
-    @TestCase
+    @TestCase(order = 6)
     public void testCreateIncompleteRunaryOperator(){
         MgRunaryOperator operator = createRunaryOperator("testRunaryOperator");
         assertExceptionThrown(() -> {
@@ -90,7 +90,7 @@ public class MgProcedureTypeServiceTest implements Test {
         });
     }
 
-    @TestCase
+    @TestCase(order = 7)
     public void testInterfaceCompatibilityEmpty(){
         MgInterface interfase = createInterface("emptyInterface");
         MgProcedure procedure = createProcedure("emptyProcedure");
@@ -99,7 +99,7 @@ public class MgProcedureTypeServiceTest implements Test {
         assertNotNull(procedure.getType());
     }
 
-    @TestCase
+    @TestCase(order = 8)
     public void testInterfaceCompatibilitySimple(){
         MgInterface interfase = createInterface(
             "simpleInterface",
@@ -117,7 +117,7 @@ public class MgProcedureTypeServiceTest implements Test {
         assertNotNull(procedure.getType());
     }
 
-    @TestCase
+    @TestCase(order = 9)
     public void testIncompatibleInterface(){
         MgInterface interfase = createInterface(
             "simpleInterface",
@@ -131,7 +131,7 @@ public class MgProcedureTypeServiceTest implements Test {
         });
     }
 
-    @TestCase
+    @TestCase(order = 10)
     public void testIncompatibleInterfaceAnother(){
         MgInterface interfase = createInterface(
             "simpleInterface",
@@ -150,7 +150,7 @@ public class MgProcedureTypeServiceTest implements Test {
         });
     }
 
-    @TestCase
+    @TestCase(order = 11)
     public void testCreateProcedureTypeHasVariablesInOrder(){
         MgInstanceVariable input = createInstanceVariable("input", MgInt32.getInstance());
         MgInstanceVariable output = createInstanceVariable("output", MgInt32.getInstance());

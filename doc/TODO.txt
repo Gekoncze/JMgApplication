@@ -1,15 +1,8 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-changed architecture entities a little bit
-removed the difference between runtime and statical entities
+added compile module service + test
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
-think of a way how to do the whole compile process
-    there should be a module compile service maybe
-        that will go through all its locations
-            and it will compile
-                classes
-                procedures
 
 
 ##### SOON ##### -------------------------------------------------------------------------------------------------------
