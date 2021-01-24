@@ -1,29 +1,30 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-added compile module service + test
+...
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
+add storage for entities
+    I think I will use sqlite
+    think of the best strategy
+    I could use @part @link @shared annotations
+    and maybe add some interface or annotation to check if it is saveable
+
+add export to DML for version control
+    export location as folder
+    export components into a file
+    resources will be just copied to a folder
+    also, free form strings might be tricky in this case
+        do we want to limit what can be written to a text object?
 
 
 ##### SOON ##### -------------------------------------------------------------------------------------------------------
 add test for expression instruction creation service
 add test for command instruction creation service
 add test for instruction optimization service
+add test for rollback
 
 
 ##### LATER ##### -------------------------------------------------------------------------------------------------------
-add runtime tests
-    add test for rollback
-
-add storage for statical entities
-    I think I will use sqlite
-    the question is if we want some version control system or not ...
-        we might do something like export to DML
-            where we would export each component in a specific file and folder
-            blobs would be excluded though
-            also, free form strings might be tricky in this case
-                do we want to limit what can be written to a text object?
-
 add ui (choose the most suitable toolkit)
     decide if I want to have it auto-generated or manually-generated
 
