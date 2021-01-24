@@ -4,6 +4,7 @@ import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.storage.Part;
 import cz.mg.annotations.storage.Value;
 import cz.mg.application.Named;
+import cz.mg.application.Store;
 import cz.mg.application.entities.MgEntity;
 import cz.mg.application.entities.components.MgLocation;
 import cz.mg.application.entities.parts.MgIdentity;
@@ -11,6 +12,7 @@ import cz.mg.collections.list.List;
 import cz.mg.collections.text.Text;
 
 
+@Store
 public class MgModule extends MgEntity implements Named {
     @Mandatory @Value
     private Text name;

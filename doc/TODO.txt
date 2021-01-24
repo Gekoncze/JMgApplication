@@ -1,13 +1,22 @@
 ##### DONE ##### -------------------------------------------------------------------------------------------------------
-...
+added @Store annotation to check if an entity is saveable
 
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
 add storage for entities
-    I think I will use sqlite
-    think of the best strategy
-    I could use @part @link @shared annotations
-    and maybe add some interface or annotation to check if it is saveable
+    add helper reflection util class
+    add sqlite services and utilities
+
+    I could use @Part @Link @Shared @Cache @Value annotations
+        @Cache fields should be skipped
+
+    add logic for id translation among modules
+
+    add saving and loading services for
+        MgApplication
+        MgModule
+        MgDependency
+        MgSequence
 
 add export to DML for version control
     export location as folder
