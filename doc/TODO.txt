@@ -4,11 +4,18 @@
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
 add storage for entities
-    add helper reflection util class
-    add sqlite services and utilities
+    decide on storage strategy
+        currently I added an example storage logic for a module
+        the thing is, creating such logic for every entity would be very time consuming
+        find a way how to automate this process
 
-    I could use @Part @Link @Shared @Cache @Value annotations
-        @Cache fields should be skipped
+        I could use @Part @Link @Shared @Cache @Value annotations
+            @Cache fields should be skipped
+            add helper reflection util class
+
+        now decide if I want to store all entities into separate tables
+        or if to store all entities in a single table
+        (I like second idea more as we will not need any map tables, but the amount of data can be bigger)
 
     add logic for id translation among modules
 

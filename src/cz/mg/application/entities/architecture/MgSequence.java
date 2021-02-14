@@ -8,10 +8,13 @@ import cz.mg.application.entities.MgEntity;
 
 @Store
 public class MgSequence extends MgEntity {
+    private static final long INITIAL_VALUE = 0;
+
     @Mandatory @Value
     private long value;
 
     public MgSequence() {
+        setValue(INITIAL_VALUE);
     }
 
     public long getValue() {
@@ -19,6 +22,7 @@ public class MgSequence extends MgEntity {
     }
 
     public void setValue(long value) {
+        if(value <= NULL_ID) throw new IllegalArgumentException("Sequence value must be > " + NULL_ID + ".");
         this.value = value;
     }
 
