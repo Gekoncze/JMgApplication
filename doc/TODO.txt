@@ -17,6 +17,32 @@ add storage for entities
         store somewhere version of the data structure
         order columns by their name
 
+    problem ...
+        on load, we have only id, for that we need to find an entity
+        we dont know the following upon load:
+            1) table name for the id
+                can be searched in sqlite tables and for each look up id
+            2) class for the table name (for instance creation)
+                muse be stored somewhere, cannot easily lookup in java
+                needs a central storage
+            3) module from which to load external entities
+                if id not found in current module
+                then it will look in current module dependencies map
+                    4) but for that we need to have dependencies already loaded
+                        a) we would either need to build a dependency tree (circular dependency limitation)
+                        b) or we would first load empty entities for all modules and after that resolve references
+
+    another problem ...
+        how to save entities?
+        when we modify entity in UI, we might have a save button, right?
+        is that save button going to commit? I think it should!
+        but what should happen if user dont save? entity in memory should not be modified!
+        so data in ui should be saved only in a form object, not directly in entity!
+
+    there goes a ui question - should the UI be build on top of
+        a) entities
+        b) directly on database tables
+
 add logic for id translation among modules
 
 add export to DML for version control
