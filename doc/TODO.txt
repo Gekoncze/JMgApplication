@@ -4,33 +4,26 @@
 
 ##### NOW ##### --------------------------------------------------------------------------------------------------------
 add storage for entities
-    decide on storage strategy
-        currently I added an example storage logic for a module
-        the thing is, creating such logic for every entity would be very time consuming
-        find a way how to automate this process
+    store all entities in separate tables
+        name will be based on class name
+        existing annotations will be used to identify relationship type
+            I could use @Part @Link @Shared @Cache @Value annotations
+                @Cache fields should be skipped
+                @Value fields will be stored directly in a column
+                @Part can only be an entity I think ... investigate
+                fields without annotations will be skipped
+                add helper reflection util class
+        tables will be create on demand
+        store somewhere version of the data structure
+        order columns by their name
 
-        I could use @Part @Link @Shared @Cache @Value annotations
-            @Cache fields should be skipped
-            add helper reflection util class
-
-        now decide if I want to store all entities into separate tables
-        or if to store all entities in a single table
-        (I like second idea more as we will not need any map tables, but the amount of data can be bigger)
-
-    add logic for id translation among modules
-
-    add saving and loading services for
-        MgApplication
-        MgModule
-        MgDependency
-        MgSequence
+add logic for id translation among modules
 
 add export to DML for version control
     export location as folder
     export components into a file
     resources will be just copied to a folder
-    also, free form strings might be tricky in this case
-        do we want to limit what can be written to a text object?
+    free form strings need to be searched for ' and these need to be double quoted ''
 
 
 ##### SOON ##### -------------------------------------------------------------------------------------------------------
